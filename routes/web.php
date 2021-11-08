@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminHomeController;
+use App\Http\Controllers\Admin\Auth\AdminAuthenticatedSessionController;
+use App\Http\Controllers\Penjual\Auth\PenjualAuthenticatedSessionController;
+use App\Http\Controllers\Penjual\PenjualHomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +19,35 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
+
+// Penjual
+Route::namespace('Penjual')->name('penjual.')->prefix('penjual')->group(function(){
+    Route::namespace('Auth')->middleware('guest:penjual')->group(function(){
+        // login route
+        Route::get('login',[PenjualAuthenticatedSessionController::class,'create'])->name('login'); 
+        Route::post('login',[PenjualAuthenticatedSessionController::class,'store'])->name('penjuallogin');
+    });
+    Route::namespace('penjual')->post('logout',[PenjualAuthenticatedSessionController::class,'destroy'])->name('logout');
+    Route::middleware('penjual')->group(function(){
+        Route::get('dashboard',[PenjualHomeController::class,'index'])->name('dashboard');
+    });
+});
+
+// Admin
+Route::namespace('Admin')->name('admin.')->prefix('admin')->group(function(){
+    Route::namespace('Auth')->middleware('guest:admin')->group(function(){
+        Route::get('login',[AdminAuthenticatedSessionController::class,'create'])->name('login'); 
+        Route::post('login',[AdminAuthenticatedSessionController::class,'store'])->name('adminlogin');
+    });
+    Route::namespace('admin')->post('logout',[AdminAuthenticatedSessionController::class,'destroy'])->name('logout');
+    Route::middleware('admin')->group(function(){
+        Route::get('dashboard',[AdminHomeController::class,'index'])->name('dashboard');
+    });
 });
