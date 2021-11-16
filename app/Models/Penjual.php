@@ -21,6 +21,7 @@ class Penjual extends Authenticatable
         'name',
         'email',
         'password',
+        'no_telp'
     ];
 
     /**

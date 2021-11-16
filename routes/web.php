@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminAppController;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\Auth\AdminAuthenticatedSessionController;
 use App\Http\Controllers\Penjual\Auth\PenjualAuthenticatedSessionController;
@@ -47,5 +48,11 @@ Route::namespace('Admin')->name('admin.')->prefix('admin')->group(function(){
     Route::namespace('admin')->post('logout',[AdminAuthenticatedSessionController::class,'destroy'])->name('logout');
     Route::middleware('admin')->group(function(){
         Route::get('dashboard',[AdminHomeController::class,'index'])->name('dashboard');
+        Route::get('penjual',[AdminAppController::class,'listpenjual'])->name('listpenjual');
+        Route::get('penjual/tambah',[AdminAppController::class,'tambahpenjual'])->name('tambahpenjual');
+        Route::post('penjual/insert',[AdminAppController::class,'insertpenjual'])->name('insertpenjual');
+        Route::get('penjual/edit/{penjual:id}',[AdminAppController::class,'editpenjual'])->name('editpenjual');
+        Route::patch('penjual/update/{penjual:id}',[AdminAppController::class,'updatepenjual'])->name('updatepenjual');
+        Route::delete('penjual/delete/{penjual:id}',[AdminAppController::class,'deletepenjual'])->name('hapuspenjual');
     });
 });
