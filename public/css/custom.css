@@ -1,0 +1,225 @@
+/* Swipper JS */
+.swiper {
+    width: 100%;
+    height: max-content;
+}
+/* My CSS */
+.line-clamp-1
+{
+    overflow: hidden ;
+    display: -webkit-box; 
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical; 
+}
+.line-clamp-2
+{
+    overflow: hidden ;
+    display: -webkit-box; 
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical; 
+}
+.line-clamp-3
+{
+    overflow: hidden ;
+    display: -webkit-box; 
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical; 
+}
+.line-clamp-4
+{
+    overflow: hidden ;
+    display: -webkit-box; 
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical; 
+}
+.line-clamp-5
+{
+    overflow: hidden ;
+    display: -webkit-box; 
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical; 
+}
+/* Bootstrap Custom */
+*
+{
+    font-family: Inter;
+}
+.mx-50 
+{
+    margin: 15px 40px 15px 40px;
+}
+
+.font-custom
+{
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    color: #38426C!important;
+    margin-right: 5px;
+}
+
+.font-custom-guest
+{
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    color: #38426C!important;
+}
+
+.font-logo 
+{
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    /* color: #4370CD!important; */
+
+}
+
+.banner 
+{
+    /* position: absolute; */
+    /* width: 100%; */
+    max-height: 500px;
+    /* left: 52px;
+    top: 116px; */
+
+    background: linear-gradient(94.04deg, #F8F9FE 1.85%, rgba(248, 249, 254, 0.38) 64.13%);
+    border-radius: 15px;
+}
+.juduls
+{
+    width: 729px;
+    height: 68px;
+    left: 58px;
+    top: 90px;
+}
+
+.sub-judul
+{
+    margin: 5rem 2rem 5rem 3rem;
+}
+
+.judul
+{
+    /* position: absolute; */
+    font-style: normal;
+    font-weight: 800;
+    font-size: 36px;
+    line-height: 4rem;
+    /* identical to box height */
+
+    letter-spacing: 0.03em;
+
+    color: #38426C;
+}
+
+.img {
+    transition: transform .5s;
+    margin: 0 auto;
+    border-radius: 6px;
+    /* max-height: 230px; */
+    cursor: pointer;
+}
+  
+.img:hover {
+    -ms-transform: scale(0.9); /* IE 9 */
+    -webkit-transform: scale(0.9); /* Safari 3-8 */
+    transform: scale(0.9); 
+}
+
+.image-banner
+{
+    display: block;
+}
+
+.sub-brand
+{
+    margin: 5rem 2rem 5rem 3rem; height:70px;
+}
+.brand
+{
+    font-size: 15px; 
+    color:#38426C99; 
+    opacity: 60%; 
+    font-weight: 600;
+}
+/* Mobile */
+@media only screen and ( max-width: 600px )
+{
+}
+
+/* Tablet */
+@media only screen and ( max-width: 768px )
+{
+    .banner
+    {
+        max-height: 100%;
+    }
+    .login-side
+    {
+        display: none;
+    }
+}
+
+/* Laptop */
+@media only screen and ( max-width: 992px )
+{
+    .banner
+    {
+        background-color: rgba(248, 249, 254, 0.38);
+        max-height: 100%;
+    }
+    .image-banner 
+    {
+        display: none;
+    }
+
+    .judul
+    {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+    .mx-50
+    {
+        margin: 15px;
+    }
+    .sub-judul
+    {
+        margin: 2rem;
+    }
+    .judul-des
+    {
+        margin-top: 5px;
+        font-size: 0.8rem;
+    }
+    .sub-brand
+    {
+        margin: 2rem; height:60px;
+    }
+    .input
+    {
+        margin-top: 4px!important;
+    }
+    .brand
+    {
+        display: none;
+    }
+    .s-link
+    {
+        font-size: small;
+        font-weight: 400!important;
+    }
+    .s-link > svg
+    {
+        display: none;
+    }
+}
+
+/* Large Screen */
+@media only screen and ( max-width: 1200px )
+{
+    .banner
+    {
+        max-height: 100%;
+    } 
+}
