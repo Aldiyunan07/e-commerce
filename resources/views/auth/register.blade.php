@@ -1,54 +1,44 @@
 <x-guest-layout>
-    <x-auth-card>
-        @slot('header', 'Register')
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
+    <x-content-guest header="Daftar">
         <form method="POST" action="{{ route('register') }}">
             @csrf
-
-            <!-- Name -->
+            <div class="mb-3">
+                {{-- <label for="password" class="form-label text-dark fw-bold opacity-75">Password</label> --}}
+                <input type="text" name="name" id="name" value="{{ old('name') }}" class="form-control border-0 p-3 px-4" style="background-color: #F3F3F3" placeholder="Nama" required autofocus>
+                @error('name')
+                <span class="small text-danger my-1">
+                    {{ $message}}
+                </span>
+                @enderror
+            </div>
+            <div class="mb-3">
+                {{-- <label for="email" class="form-label text-dark fw-bold opacity-75">Email</label> --}}
+                <input type="email" name="email" value="{{old('email')}}" id="email" class="form-control border-0 p-3 px-4" style="background-color: #F3F3F3" placeholder="Email" required >
+                @error('email')
+                <span class="small text-danger my-1">
+                    {{ $message}}
+                </span>
+                @enderror
+            </div>
+            <div class="mb-3">
+                {{-- <label for="password" class="form-label text-dark fw-bold opacity-75">Password</label> --}}
+                <input type="password" name="password" id="password" class="form-control border-0 p-3 px-4" style="background-color: #F3F3F3" placeholder="Password" required>
+                @error('password')
+                <span class="small text-danger my-1">
+                    {{ $message}}
+                </span>
+                @enderror
+            </div>
+            <div class="mb-3">
+                {{-- <label for="password" class="form-label text-dark fw-bold opacity-75">Password</label> --}}
+                <input type="password" name="password_confirmation" id="password_confirmation" class="form-control border-0 p-3 px-4" style="background-color: #F3F3F3" placeholder="Konfirmasi Password" required>
+            </div>                    
+            <div class="d-grid mb-3">
+                <button class="btn btn-primary fw-bold border-0 p-3 px-4">Daftar</button>
+            </div>
             <div>
-                <x-label for="name" :value="__('Name')" />
-
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
-            </div>
-
-            <!-- Email Address -->
-            <div class="mt-3">
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
-            </div>
-
-            <!-- Password -->
-            <div class="mt-3">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
-            </div>
-
-            <!-- Confirm Password -->
-            <div class="mt-3">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
-            </div>
-
-            <div class="d-flex align-items-center justify-content-between mt-3">
-                <a class="link-dark" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-button class="ml-4">
-                    {{ __('Register') }}
-                </x-button>
+                <span class="form-check-label text-dark fw-light opacity-75 small">Sudah mempunyai akun? <a href="{{ route('login') }}" class="text-decoration-none fw-normal">Masuk</a></span>
             </div>
         </form>
-    </x-auth-card>
+    </x-content-guest>
 </x-guest-layout>
