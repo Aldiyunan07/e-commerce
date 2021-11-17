@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminAppController;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\Auth\AdminAuthenticatedSessionController;
 use App\Http\Controllers\Penjual\Auth\PenjualAuthenticatedSessionController;
+use App\Http\Controllers\Penjual\PenjualAppController;
 use App\Http\Controllers\Penjual\PenjualHomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,6 +37,9 @@ Route::namespace('Penjual')->name('penjual.')->prefix('penjual')->group(function
     Route::namespace('penjual')->post('logout',[PenjualAuthenticatedSessionController::class,'destroy'])->name('logout');
     Route::middleware('penjual')->group(function(){
         Route::get('dashboard',[PenjualHomeController::class,'index'])->name('dashboard');
+        Route::get('buku',[PenjualAppController::class,'listbuku'])->name('listbuku');
+        Route::get('buku/tambah',[PenjualAppController::class,'tambahbuku'])->name('tambahbuku');
+        Route::post('buku/insert',[PenjualAppController::class,'insertbuku'])->name('insertbuku');
     });
 });
 
