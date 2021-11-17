@@ -54,5 +54,8 @@ Route::namespace('Admin')->name('admin.')->prefix('admin')->group(function(){
         Route::get('penjual/edit/{penjual:id}',[AdminAppController::class,'editpenjual'])->name('editpenjual');
         Route::patch('penjual/update/{penjual:id}',[AdminAppController::class,'updatepenjual'])->name('updatepenjual');
         Route::delete('penjual/delete/{penjual:id}',[AdminAppController::class,'deletepenjual'])->name('hapuspenjual');
+        Route::get('user',[AdminAppController::class,'listuser'])->name('listuser');
+        Route::Delete('user/delete/{user:id}',[AdminAppController::class,'deleteuser'])->name('deleteuser');
+        Route::get('user/detail/{user:id}',[AdminAppController::class,'detailuser'])->name('detailuser');
     });
 });

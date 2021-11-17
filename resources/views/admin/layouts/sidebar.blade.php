@@ -99,7 +99,7 @@
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="../../pages/tables/bootstrap-tables.html">
+                            <a class="nav-link" href="{{ route('admin.listuser') }}">
                                 <span class="sidebar-text">Akun User</span>
                             </a>
                         </li>

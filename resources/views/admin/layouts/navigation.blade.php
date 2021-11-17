@@ -41,7 +41,7 @@
                                 <div class="row align-items-center">
                                     <div class="col-auto">
                                         <!-- Avatar -->
-                                        <img alt="Image placeholder" src="../../assets/img/team/profile-picture-1.jpg"
+                                        <img alt="Image placeholder" src="{{ asset('admin/assets/img/team/profile-picture-1.jpg') }}"
                                             class="avatar-md rounded">
                                     </div>
                                     <div class="col ps-0 ms-2">
@@ -62,49 +62,7 @@
                                 <div class="row align-items-center">
                                     <div class="col-auto">
                                         <!-- Avatar -->
-                                        <img alt="Image placeholder" src="../../assets/img/team/profile-picture-2.jpg"
-                                            class="avatar-md rounded">
-                                    </div>
-                                    <div class="col ps-0 ms-2">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div>
-                                                <h4 class="h6 mb-0 text-small">Neil Sims</h4>
-                                            </div>
-                                            <div class="text-end">
-                                                <small class="text-danger">2 hrs ago</small>
-                                            </div>
-                                        </div>
-                                        <p class="font-small mt-1 mb-0">You've been assigned a task for "Awesome
-                                            new project".</p>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action border-bottom">
-                                <div class="row align-items-center">
-                                    <div class="col-auto">
-                                        <!-- Avatar -->
-                                        <img alt="Image placeholder" src="../../assets/img/team/profile-picture-3.jpg"
-                                            class="avatar-md rounded">
-                                    </div>
-                                    <div class="col ps-0 m-2">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div>
-                                                <h4 class="h6 mb-0 text-small">Roberta Casas</h4>
-                                            </div>
-                                            <div class="text-end">
-                                                <small>5 hrs ago</small>
-                                            </div>
-                                        </div>
-                                        <p class="font-small mt-1 mb-0">Tagged you in a document called
-                                            "Financial plans",</p>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action border-bottom">
-                                <div class="row align-items-center">
-                                    <div class="col-auto">
-                                        <!-- Avatar -->
-                                        <img alt="Image placeholder" src="../../assets/img/team/profile-picture-4.jpg"
+                                        <img alt="Image placeholder" src="{{ asset('admin/assets/img/team/profile-picture-4.jpg') }}"
                                             class="avatar-md rounded">
                                     </div>
                                     <div class="col ps-0 ms-2">
@@ -118,27 +76,6 @@
                                         </div>
                                         <p class="font-small mt-1 mb-0">New message: "Hey, what's up? All set
                                             for the presentation?"</p>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action border-bottom">
-                                <div class="row align-items-center">
-                                    <div class="col-auto">
-                                        <!-- Avatar -->
-                                        <img alt="Image placeholder" src="../../assets/img/team/profile-picture-5.jpg"
-                                            class="avatar-md rounded">
-                                    </div>
-                                    <div class="col ps-0 ms-2">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div>
-                                                <h4 class="h6 mb-0 text-small">Bonnie Green</h4>
-                                            </div>
-                                            <div class="text-end">
-                                                <small>2 hrs ago</small>
-                                            </div>
-                                        </div>
-                                        <p class="font-small mt-1 mb-0">New message: "We need to improve the
-                                            UI/UX for the landing page."</p>
                                     </div>
                                 </div>
                             </a>
@@ -186,15 +123,18 @@
                             Settings
                         </a>
                         <div role="separator" class="dropdown-divider my-1"></div>
-                        <a class="dropdown-item d-flex align-items-center" href="#">
-                            <svg class="dropdown-icon text-danger me-2" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
-                                </path>
-                            </svg>
-                            Logout
-                        </a>
+                        <form action="{{ route('admin.logout') }}" method="post">
+                            @csrf
+                            <a class="dropdown-item d-flex align-items-center" href="#" onclick="event.preventDefault(); this.closest('form').submit();">
+                                <svg class="dropdown-icon text-danger me-2" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
+                                    </path>
+                                </svg>
+                                Logout
+                            </a>
+                        </form>
                     </div>
                 </li>
             </ul>

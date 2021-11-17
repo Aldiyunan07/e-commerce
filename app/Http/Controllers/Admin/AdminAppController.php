@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Penjual;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -55,5 +56,22 @@ class AdminAppController extends Controller
     {
         $penjual->delete();
         return redirect(route('admin.listpenjual'));
+    }
+
+    public function listuser()
+    {
+        $user = User::get();
+        return view('admin.user.table',compact('user'));
+    }
+
+    public function deleteuser(User $user)
+    {
+        $user->delete();
+        return redirect(route('admin.listuser'));
+    }
+
+    public function detailuser(User $user)
+    {
+        return view('admin.user.detail',compact('user'));
     }
 }
