@@ -7,6 +7,7 @@ use App\Models\Buku;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PenjualAppController extends Controller
 {
@@ -25,7 +26,7 @@ class PenjualAppController extends Controller
 
     public function insertbuku(Request $request)
     {
-        $buku = new Buku();
+        // return dd($request->all());
         $data = $request->all();
         $request->validate([
             'name' => 'required',
@@ -36,21 +37,62 @@ class PenjualAppController extends Controller
             'kategori' => 'required',
             'halaman' => 'required',
             'bahasa' => 'required',
-            'gambar' => 'required|mimes:jpg,png,jpeg'
+            'gambar' => 'required'
         ]);
         $data['user_id'] = Auth::guard('penjual')->user()->id;
         $data['kategori_id'] = $request->kategori;
         
-        $name = time().rand().'.'.$request->gambar->extension();
-        $request->gambar->storeAs('images/buku',$name,'public');
+        $files = $request->file('gambar');
+        $name = $data['user_id'].time().rand().'.'.$files->getClientOriginalName();
+        $request->file('gambar')->storeAs('images/buku/',$name,'public');
         $data['thumbnail'] = 'images/buku/'.$name;
+        
 
-        $data['diskon'] = $request->diskon;
         $data['harga_awal'] = $request->harga;
-        $harga = $data['diskon'] * $request->harga / 100 ;
-        $data['harga_asli'] = $data['harga'] -  $harga;
-        return dd($data);
-        // $buku->create($data);
-        // return redirect(route('penjual.listbuku'));
+        $harga = $request->diskon * $request->harga / 100 ;
+        $data['harga_asli'] = $data['harga_awal'] -  $harga;
+        $buku = new Buku;
+        $buku->create($data);
+        return redirect(route('penjual.listbuku'));
+    }
+
+    public function editbuku(Buku $buku)
+    {
+        $kategori = Kategori::get();
+        return view('penjual.buku.edit',compact('buku','kategori'));
+    }
+
+    public function updatebuku(Buku $buku,Request $request)
+    {
+        $data = $request->all();
+        $request->validate([
+            'name' => 'required',
+            'penulis' => 'required',
+            'deskripsi' => 'required',
+            'harga' => 'required',
+            'diskon' => 'required',
+            'kategori' => 'required',
+            'halaman' => 'required',
+            'bahasa' => 'required',
+        ]); 
+        if($request->file('gambar')){
+            Storage::delete($buku->thumbnail);
+            $thumbnailUrl = $request->file('gambar')->store('images/buku'); 
+        }else{
+            $thumbnailUrl = $buku->thumbnail;
+        }
+        $data['thumbnail'] = $thumbnailUrl;
+        $data['harga_awal'] = $request->harga;
+        $harga = $request->diskon * $request->harga / 100 ;
+        $data['harga_asli'] = $data['harga_awal'] -  $harga;
+        $buku->update($data);
+        return redirect(route('penjual.listbuku'));
+    }
+
+    public function deletebuku(Buku $buku)
+    {
+        Storage::delete($buku->thumbnail);
+        $buku->delete();
+        return redirect(route('penjual.listbuku'));
     }
 }

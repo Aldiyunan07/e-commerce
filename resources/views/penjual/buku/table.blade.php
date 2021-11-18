@@ -42,12 +42,36 @@
                         @foreach($buku as $n => $b)
                         <tr>
                             <td> {{ $n + 1 }} </td>
-                            <td> {{ $b->Thumbnail }} </td>
+                            <td> <img src="{{ $b->Picture }}" width="100" class="img-alt">  </td>
                             <td> {{ $b->name }} </td>
-                            <td> {{ $b->harga_asli }} </td>
+                            <td> {{ $b->rupiah($b->harga_asli) }} </td>
                             <td> 2 Buku </td>
                             <td> {{ $b->created_at->format('d F, Y') }} </td>
-                            <td></td>
+                            <td>
+                                <a href="{{ route('penjual.editbuku',$b) }}" class="btn btn-info btn-sm"> Edit </a>
+                                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal{{$b->id}}">Hapus</button>
+                                    <div class="modal fade" id="modal{{ $b->id }}" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h2 class="h6 modal-title">Hapus Buku ?</h2>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p> Apakah anda yakin ingin menghapus buku {{ $b->name }} ? </p>
+                                                </div>
+                                                <form action="{{ route('penjual.deletebuku',$b->id) }}" method="post">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-sm btn-info" data-bs-dismiss="modal">Batal</button>
+                                                        <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>

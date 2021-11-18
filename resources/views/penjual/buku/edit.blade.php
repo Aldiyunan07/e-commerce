@@ -14,24 +14,25 @@
                     </a>
                 </li>
                 <li class="breadcrumb-item"><a href="#">Toko Saya</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Tambah Buku</li>
+                <li class="breadcrumb-item active" aria-current="page">Edit Buku</li>
             </ol>
         </nav>
     </div>
     <div class="card border-0 shadow mb-4">
         <div class="card-header">
             <div class="d-flex justify-content-between">
-                <h1 class="h4">Tambah Buku</h1>
+                <h1 class="h4">Edit Buku</h1>
             </div>
         </div>
         <div class="card-body">
-            <form action="{{ route('penjual.insertbuku') }}" enctype="multipart/form-data" method="post">
+            <form action="{{ route('penjual.updatebuku',$buku->id) }}" enctype="multipart/form-data" method="post">
                 @csrf
+                @method('patch')
                 <div class="row">
                     <div class="col-md-5">
                         <div class="mb-4">
                             <label for="name">Nama Buku</label>
-                            <input type="text" name="name" class="form-control" id="name">
+                            <input type="text" value="{{ old('name') ?? $buku->name }}" name="name" class="form-control" id="name">
                             @error('name')
                             <div class="text-danger"> {{ $message }} </div>
                             @enderror
@@ -41,7 +42,7 @@
                             <select name="kategori" class="form-control" id="">
                                 <option disabled selected> Pilih kategori </option>
                                 @foreach($kategori as $k)
-                                <option value="{{ $k->id }}"> {{ $k->kategori }} </option>
+                                    <option {{ $k->id == $buku->kategori_id ? 'selected' : '' }}  value="{{ $k->id }}"> {{ $k->kategori }} </option>
                                 @endforeach
                             </select>
                             @error('kategori')
@@ -50,21 +51,21 @@
                         </div>
                         <div class="mb-4">
                             <label for="harga">Diskon</label>
-                            <input type="number" name="diskon" class="form-control" id="diskon">
+                            <input type="number" name="diskon" class="form-control" value="{{ old('buku') ?? $buku->diskon }}" id="diskon">
                             @error('diskon')
                             <div class="text-danger"> {{ $message }} </div>
                             @enderror
                         </div>
                         <div class="mb-4">
                             <label for="penulis">Penulis</label>
-                            <input type="text" name="penulis" class="form-control" id="penuli">
+                            <input type="text" name="penulis" class="form-control" value="{{ old('penulis') ?? $buku->penulis }}" id="penulis">
                             @error('penulis')
                             <div class="text-danger"> {{ $message }} </div>
                             @enderror
                         </div>
                         <div class="mb-4">
                             <label for="deskripsi">Deskripsi</label>
-                            <textarea name="deskripsi" class="form-control">  </textarea>
+                            <textarea name="deskripsi" class="form-control"> {{ $buku->deskripsi }} </textarea>
                             @error('deskripsi')
                             <div class="text-danger"> {{ $message }} </div>
                             @enderror
@@ -80,21 +81,21 @@
                         </div>
                         <div class="mb-4">
                             <label for="jumlah">Jumlah Halaman</label>
-                            <input type="number" name="halaman" class="form-control" id="halaman">
+                            <input type="number" name="halaman" class="form-control" id="halaman" value="{{ old('halaman') ?? $buku->halaman }}">
                             @error('halaman')
                             <div class="text-danger"> {{ $message }} </div>
                             @enderror
                         </div>
                         <div class="mb-4">
                             <label for="harga">Harga</label>
-                            <input type="number" name="harga" class="form-control" id="harga">
+                            <input type="number" name="harga" class="form-control" id="harga" value="{{ old('harga_awal') ?? $buku->harga_awal }}">
                             @error('harga')
                             <div class="text-danger"> {{ $message }} </div>
                             @enderror
                         </div>
                         <div class="mb-4">
                             <label for="bahasa">Bahasa</label>
-                            <input type="text" name="bahasa" class="form-control" id="bahasa">
+                            <input type="text" name="bahasa" class="form-control" id="bahasa" value="{{ old('bahasa') ?? $buku->bahasa }}" >
                             @error('bahasa')
                             <div class="text-danger"> {{ $message }} </div>
                             @enderror

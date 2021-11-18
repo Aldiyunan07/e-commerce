@@ -40,6 +40,9 @@ Route::namespace('Penjual')->name('penjual.')->prefix('penjual')->group(function
         Route::get('buku',[PenjualAppController::class,'listbuku'])->name('listbuku');
         Route::get('buku/tambah',[PenjualAppController::class,'tambahbuku'])->name('tambahbuku');
         Route::post('buku/insert',[PenjualAppController::class,'insertbuku'])->name('insertbuku');
+        Route::get('buku/edit/{buku}',[PenjualAppController::class,'editbuku'])->name('editbuku');
+        Route::patch('buku/update/{buku:id}',[PenjualAppController::class,'updatebuku'])->name('updatebuku');
+        Route::delete('buku/delete/{buku:id}',[PenjualAppController::class,'deletebuku'])->name('deletebuku');
     });
 });
 

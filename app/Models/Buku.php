@@ -22,11 +22,16 @@ class Buku extends Model
         'bahasa'
     ];
 
-    public function getThumbnailAttribute()
+    public function getPictureAttribute()
     {
         return asset('/storage/' . $this->thumbnail);
     }
 
+    public function rupiah($angka){
+        $format = "Rp. ".number_format($angka,0,".",".");
+        return $format;
+    }
+    
     public function kategori(){
         return $this->belongsTo(Kategori::class);
     }
