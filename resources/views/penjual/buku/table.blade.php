@@ -32,8 +32,8 @@
                             <th class="border-0 rounded-start">#</th>
                             <th class="border-0">Thumbnail</th>
                             <th class="border-0">Nama</th>
+                            <th class="border-0">Kategori</th>
                             <th class="border-0">Harga</th>
-                            <th class="border-0">Terjual</th>
                             <th class="border-0">Di Buat Pada</th>
                             <th class="border-0 rounded-end">Opsi</th>
                         </tr>
@@ -44,8 +44,8 @@
                             <td> {{ $n + 1 }} </td>
                             <td> <img src="{{ $b->Picture }}" width="100" class="img-alt">  </td>
                             <td> {{ $b->name }} </td>
+                            <td> {{ $b->kategori->kategori }} </td>
                             <td> {{ $b->rupiah($b->harga_asli) }} </td>
-                            <td> 2 Buku </td>
                             <td> {{ $b->created_at->format('d F, Y') }} </td>
                             <td>
                                 <a href="{{ route('penjual.editbuku',$b) }}" class="btn btn-info btn-sm"> Edit </a>

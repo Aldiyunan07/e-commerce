@@ -49,4 +49,18 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Buku::class);
     }
+
+    public function buy()
+    {
+        return $this->hasMany(Buy::class);
+    }
+
+    public function bukuakses()
+    {
+        return $this->belongsToMany(Buku::class)->withTimestamps();
+    }
+
+    public function bukuaccess($buku){
+        return (bool) $this->bukuakses()->find($buku->id); 
+    }
 }

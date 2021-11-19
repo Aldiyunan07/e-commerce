@@ -10,7 +10,7 @@ class Buku extends Model
     use HasFactory;
     protected $fillable = [
         'name',
-        'user_id',
+        'penjual_id',
         'thumbnail',
         'deskripsi',
         'harga_awal',
@@ -36,7 +36,20 @@ class Buku extends Model
         return $this->belongsTo(Kategori::class);
     }
 
+    public function penjual()
+    {
+        return $this->belongsTo(Penjual::class);
+    }
     public function user(){
         return $this->belongsTo(User::class);
+    }
+
+    public function buy()
+    {
+        return $this->hasMany(Buy::class);
+    }
+
+    public function userakses(){
+        return $this->belongsToMany(User::class)->withTimestamps();
     }
 }

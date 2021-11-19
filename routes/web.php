@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\Auth\AdminAuthenticatedSessionController;
 use App\Http\Controllers\Penjual\Auth\PenjualAuthenticatedSessionController;
 use App\Http\Controllers\Penjual\PenjualAppController;
 use App\Http\Controllers\Penjual\PenjualHomeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,9 +23,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
-Route::get('/dashboard', function(){
-    return view('dashboard');
-})->name('dashboard')->middleware(['auth','verified']);
+Route::middleware(['auth','verified'])->group(function(){
+    Route::get('/dashboard',[UserController::class,'dashboard'])->name('dashboard');
+    Route::get('/beli/{buku:id}',[UserController::class,'belisekarang'])->name('belisekarang');
+    Route::post('/buy/{buku:id}',[UserController::class,'buynow'])->name('buynow');
+});
 require __DIR__.'/auth.php';
 
 // Penjual
@@ -43,6 +46,8 @@ Route::namespace('Penjual')->name('penjual.')->prefix('penjual')->group(function
         Route::get('buku/edit/{buku}',[PenjualAppController::class,'editbuku'])->name('editbuku');
         Route::patch('buku/update/{buku:id}',[PenjualAppController::class,'updatebuku'])->name('updatebuku');
         Route::delete('buku/delete/{buku:id}',[PenjualAppController::class,'deletebuku'])->name('deletebuku');
+        Route::get('listbuy',[PenjualAppController::class,'listbuy'])->name('listbuy');
+        Route::get('listbuy/konfirmasi/{buy:id}',[PenjualAppController::class,'konfirmasi'])->name('konfirmasi.listbuy');
     });
 });
 

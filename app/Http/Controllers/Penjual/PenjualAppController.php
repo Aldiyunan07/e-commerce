@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Penjual;
 
 use App\Http\Controllers\Controller;
 use App\Models\Buku;
+use App\Models\Buy;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,7 +14,7 @@ class PenjualAppController extends Controller
 {
     public function listbuku()
     {
-        $buku = Buku::where('user_id',Auth::guard('penjual')->user()->id)->get();
+        $buku = Buku::where('penjual_id',Auth::guard('penjual')->user()->id)->get();
         return view('penjual.buku.table',compact('buku'));
     }
 
@@ -39,11 +40,11 @@ class PenjualAppController extends Controller
             'bahasa' => 'required',
             'gambar' => 'required'
         ]);
-        $data['user_id'] = Auth::guard('penjual')->user()->id;
+        $data['penjual_id'] = Auth::guard('penjual')->user()->id;
         $data['kategori_id'] = $request->kategori;
         
         $files = $request->file('gambar');
-        $name = $data['user_id'].time().rand().'.'.$files->getClientOriginalName();
+        $name = $data['penjual_id'].time().rand().'.'.$files->getClientOriginalName();
         $request->file('gambar')->storeAs('images/buku/',$name,'public');
         $data['thumbnail'] = 'images/buku/'.$name;
         
@@ -89,10 +90,23 @@ class PenjualAppController extends Controller
         return redirect(route('penjual.listbuku'));
     }
 
-    public function deletebuku(Buku $buku)
-    {
+    public function deletebuku(Buku $buku){
         Storage::delete($buku->thumbnail);
         $buku->delete();
         return redirect(route('penjual.listbuku'));
+    }
+
+    public function listbuy()
+    {
+        $buy = Buy::where('penjual_id',Auth::guard('penjual')->user()->id)->get();
+        return view('penjual.buku.listbuy',compact('buy'));
+    }
+
+    public function konfirmasi(Buy $buy){
+        $buy->buku->userakses()->attach($buy->user->id);
+        $buy->update([
+            'status' => 'konfirmasi'
+        ]);
+        return redirect(route('penjual.listbuy'));
     }
 }
