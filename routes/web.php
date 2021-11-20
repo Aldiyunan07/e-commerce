@@ -28,6 +28,9 @@ Route::middleware(['auth','verified'])->group(function(){
     Route::get('/beli/{buku:id}',[UserController::class,'belisekarang'])->name('belisekarang');
     Route::post('/buy/{buku:id}',[UserController::class,'buynow'])->name('buynow');
 });
+Route::get('/view', fn() => view('detail'))->name('detail.buku');
+Route::get('/search', fn() => view('search'))->name('search');
+
 require __DIR__.'/auth.php';
 
 // Penjual

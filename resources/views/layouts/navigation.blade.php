@@ -1,97 +1,5 @@
-{{-- <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
-    <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-            <div class="flex">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
-                    </a>
-                </div>
-
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                </div>
-            </div>
-
-            <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ml-6">
-                <x-dropdown align="right" width="48">
-                    <x-slot name="trigger">
-                        <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-                            <div>{{ Auth::user()->name }}</div>
-
-                            <div class="ml-1">
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                        </button>
-                    </x-slot>
-
-                    <x-slot name="content">
-                        <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-
-                            <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Log Out') }}
-                            </x-dropdown-link>
-                        </form>
-                    </x-slot>
-                </x-dropdown>
-            </div>
-
-            <!-- Hamburger -->
-            <div class="-mr-2 flex items-center sm:hidden">
-                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
-                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                        <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Responsive Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
-            </x-responsive-nav-link>
-        </div>
-
-        <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-gray-200">
-            <div class="px-4">
-                <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
-            </div>
-
-            <div class="mt-3 space-y-1">
-                <!-- Authentication -->
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-
-                    <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Log Out') }}
-                    </x-responsive-nav-link>
-                </form>
-            </div>
-        </div>
-    </div>
-</nav> --}}
-<nav class="navbar navbar-expand-lg navbar-light bg-white mx-50">
-    <div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container-fluid mx-50">
       <a class="navbar-brand font-logo d-flex align-items-center justify-content-start" style="margin-right: 8rem; width:8rem;" href="#"> 
       <img src="{{asset('/image/logo.png')}}" alt="" width="36" height="36" class="me-1"> 
       <span style="background: -webkit-linear-gradient(90.87deg, #365AA3 6.64%, #4370CD 100%);-webkit-background-clip: text; -webkit-text-fill-color: transparent;">
@@ -101,40 +9,101 @@
       {{-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     </button> --}}
     <div class="d-lg-none">
-        <div class="dropdown">
+        <a class="navbar-toggler-icon" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"></a>          
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <a class="navbar-brand font-logo d-flex align-items-center justify-content-start" style="margin-right: 8rem; width:8rem;" href="#"> 
+                <img src="{{asset('image/logo.png')}}" alt="" width="36" height="36" class="me-1"> 
+                <span style="background: -webkit-linear-gradient(90.87deg, #365AA3 6.64%, #4370CD 100%);-webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                    {{ config('app.name') }}
+                </span>  
+            </a>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body px-0">
+            <ul class="list-group" style="border-radius:0">
+                <li class="list-group-item">
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingOne">
+                            <a class="accordion-button collapsed" style="margin: 0px; padding:0px;" role="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                Kategori
+                            </a>
+                            </h2>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li>
+                <li class="list-group-item">A fourth item</li>
+                <li class="list-group-item">And a fifth one</li>
+            </ul>
+        </div>
+        </div>
+    </div>
+        {{-- <div class="dropdown">
             <span class="navbar-toggler-icon" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"></span>
-            {{-- <a class="btn btn-secondary" href="#" >
-              Dropdown link
-            </a> --}}
           
             <ul class="dropdown-menu dropdown-menu-end border-0 shadow-lg" style="width: 15rem; font-size: 15px;" aria-labelledby="dropdownMenuLink">
-              <li><a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item active" href="#">Beranda</a></li>
-              <li><a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item" href="#">Katalog</a></li>
-              <li><a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item" href="#">Penulis</a></li>
-              <li><a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item" href="#">Best Seller</a></li>
-              <li><a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item border-bottom" href="#">Buku Saya</a></li>
+              <li><a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item active" href="{{ route('home') }}">Beranda</a></li>
+              <li><a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item" href="#">Buku Saya</a></li>
+               <li><hr class="dropdown-divider" /></li>
+              @auth              
+              <li><a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item d-flex align-items-center line-clamp-1 text-capitalize" href="#"><span><img class="me-1 rounded-circle" width="25" height="25" src="https://www.gravatar.com/avatar/e2bf8f75fd55aaff7c9a55b3fb78627c?d=mm&s=150" alt=""></span>{{ Auth::user()->name }}</a></li>
+              <li><a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item" href="#">Change Password</a></li>
+              <li><a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item" href="#">Wishlist</a></li>
+              <li><a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item" href="#">Pesanan Saya</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+
+                    <a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                        {{ __('Log Out') }}
+                    </a>
+                </form>
+               </li>
+              @else
               <li><a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item" href="#">Login</a></li>
               <li><a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item" href="#">Register</a></li>
+              @endauth
             </ul>
           </div>
-        </div>
+        </div> --}}
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="width: 100%;">
-            <li class="nav-item">
-                <a class="nav-link font-custom" href="{{ route('home') }}">Beranda</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link font-custom d-flex align-items-center" href="#" style="white-space: nowrap; column-gap: 10px" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Kategori
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                    </svg>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end border-0 shadow-lg" style="width: auto; font-size: 15px;" aria-labelledby="navbarDropdown">
+                    <li><a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item" href="#">Novel</a></li>
+                    <li><a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item" href="#">Horor</a></li>
+                    <li><a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item" href="#">Komedi</a></li>
+                </ul>
             </li>
-            <li class="nav-item">
-                <a class="nav-link font-custom" href="{{ route('dashboard') }}">Katalog</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link font-custom" href="{{ route('dashboard') }}">Penulis</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link font-custom" href="{{ route('dashboard') }}">Best Seller</a>
-            </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link font-custom" href="{{ route('dashboard') }}">Buku Saya</a>
+            </li> --}}
+            <li class="input-group" style="width: 60%">
+                <input type="search" name="" id="" class="form-control bg-blue-200 px-4" style="border: none; border-radius: 50px 0 0 50px" placeholder="Cari buku" aria-label="Cari buku" aria-describedby="button-addon2">
+                <button class="btn bg-blue-200 m-0 pe-3 text-secondary" style="border-radius: 0 50px 50px 0;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                </button>
             </li>
+            {{-- <li class="nav-item">
+                <a class="nav-link font-custom" href="{{ route('dashboard') }}">Penulis</a>
+            </li> --}}
             {{-- <li class="nav-item">
                 <a class="nav-link font-custom" href="{{ route('dashboard') }}">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -145,20 +114,32 @@
             </li> --}}
         </ul>
         @auth
-        <ul class="navbar-nav">
+        <ul class="navbar-nav d-flex align-items-center">
+            <li class="nav-item border-end">
+                <a href="#" class="nav-link font-custom position-relative">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-top: -10px;" width="20" height="20" fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">
+                        <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z"/>
+                    </svg>
+                    <sup class="position-absolute" style="margin-left: -10px;">
+                        <div class="badge bg-danger rounded-circle small">1</div>
+                    </sup>
+                </a>
+            </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link font-custom text-capitalize" style="white-space: nowrap" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     {{ Auth::user()->name }}
                 </a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                <ul class="dropdown-menu dropdown-menu-end border-0 shadow-lg" style="width: 15rem; font-size: 15px;" aria-labelledby="navbarDropdown">
+                    <li><a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item" href="#">Update Profile</a></li>
+                    <li><a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item" href="#">Change Password</a></li>
+                    <li><a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item" href="#">Wishlist</a></li>
+                    <li><a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item" href="#">Pesanan Saya</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
         
-                            <a class="dropdown-item" href="{{ route('logout') }}"
+                            <a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Log Out') }}
