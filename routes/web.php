@@ -22,7 +22,10 @@ Route::get('/', function () {
 })->name('home');
 
 
-Route::get('/dashboard', fn() => view('dashboard'))->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/my-book', fn() => view('dashboard'))->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/view', fn() => view('detail'))->name('detail.buku');
+Route::get('/search', fn() => view('search'))->name('search');
 
 require __DIR__.'/auth.php';
 

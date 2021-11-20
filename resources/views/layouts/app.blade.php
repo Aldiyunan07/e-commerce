@@ -22,7 +22,7 @@
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-vh-100 bg-gray-100">
             @include('layouts.navigation')
 
             @isset($header)
