@@ -12,22 +12,37 @@ class UserController extends Controller
     public function dashboard()
     {
         $buku = Buku::get();
-        return view('dashboard',compact('buku'));
+        $buy = Buy::get();
+        return view('dashboard',compact('buku','buy'));
     }
 
     public function belisekarang(Buku $buku)
-    {
+    {   
+        
         return view('belisekarang',compact('buku'));
     }
 
     public function buynow(Buku $buku){
-        $buy = new Buy;
-        $buy->create([
-            'user_id' => Auth::user()->id,
-            'buku_id' => $buku->id,
-            'status' => 'proses',
-            'penjual_id' => $buku->penjual_id,
-        ]);
+        $buycheck = Buy::where('buku_id',$buku->id)->where('user_id',Auth::user()->id)->get();
+        if($buycheck->count() == 0){
+            $buy = new Buy;
+            $buy->create([
+                'user_id' => Auth::user()->id,
+                'buku_id' => $buku->id,
+                'status' => 'proses',
+                'penjual_id' => $buku->penjual_id,
+            ]);
+        }
         return view('konfirmasi',compact('buku'));
+    }
+
+    public function detail()
+    {
+        return view('detail');
+    }
+
+    public function search()
+    {
+        return view('search');
     }
 }

@@ -26,7 +26,7 @@
                                 <td> {{ $buku->kategori->kategori }} </td>
                             </tr>
                         </table>
-                        *Pembelian anda sedang kami proses. Moho ditunggu konfirmasi dari pihak toko nya. Jika anda tidak sabar, Silahkan hubungi penjual buku nya <a target="_blank" href="https://wa.me/081221997131?text=Hallo+saya+sudah+membeli+buku+{{ $buku->name }}+mohon+di+konfirmasi+secepatnya" > klik disini </a>
+                        *Pembelian anda sedang kami proses. Moho ditunggu konfirmasi dari pihak toko nya. Jika anda tidak sabar, Silahkan hubungi penjual buku nya <a target="_blank" href="https://wa.me/{{ $buku->penjual->whatsapp }}?text=Hallo+saya+sudah+membeli+buku+{{ $buku->name }}+mohon+di+konfirmasi+secepatnya" > klik disini </a>
                     </div>
                 </div>
             </div>

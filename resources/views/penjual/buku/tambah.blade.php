@@ -37,6 +37,13 @@
                             @enderror
                         </div>
                         <div class="mb-4">
+                            <label for="penulis">Penulis</label>
+                            <input type="text" name="penulis" class="form-control" id="penuli">
+                            @error('penulis')
+                            <div class="text-danger"> {{ $message }} </div>
+                            @enderror
+                        </div>
+                        <div class="mb-4">
                             <label for="name">Kategori</label>
                             <select name="kategori" class="form-control" id="">
                                 <option disabled selected> Pilih kategori </option>
@@ -49,19 +56,27 @@
                             @enderror
                         </div>
                         <div class="mb-4">
+                            <label for="berat"> Berat </label>
+                            <input type="number" name="berat" class="form-control" id="berat">
+                            @error('berat')
+                            <div class="text-danger"> {{ $message }} </div>
+                            @enderror
+                        </div>
+                        <div class="mb-4">
+                            <label for="harga">Lebar</label>
+                            <input type="lebar" name="lebar" class="form-control" id="lebar">
+                            @error('lebar')
+                            <div class="text-danger"> {{ $message }} </div>
+                            @enderror
+                        </div>
+                        <div class="mb-4">
                             <label for="harga">Diskon</label>
                             <input type="number" name="diskon" class="form-control" id="diskon">
                             @error('diskon')
                             <div class="text-danger"> {{ $message }} </div>
                             @enderror
                         </div>
-                        <div class="mb-4">
-                            <label for="penulis">Penulis</label>
-                            <input type="text" name="penulis" class="form-control" id="penuli">
-                            @error('penulis')
-                            <div class="text-danger"> {{ $message }} </div>
-                            @enderror
-                        </div>
+                        
                         <div class="mb-4">
                             <label for="deskripsi">Deskripsi</label>
                             <textarea name="deskripsi" class="form-control">  </textarea>
@@ -78,10 +93,25 @@
                             <div class="text-danger"> {{ $message }} </div>
                             @enderror
                         </div>
+                        
                         <div class="mb-4">
-                            <label for="jumlah">Jumlah Halaman</label>
-                            <input type="number" name="halaman" class="form-control" id="halaman">
-                            @error('halaman')
+                            <label for="penerbit">Penerbit</label>
+                            <input type="text" name="penerbit" class="form-control" id="penerbit">
+                            @error('penerbit')
+                            <div class="text-danger"> {{ $message }} </div>
+                            @enderror
+                        </div>
+                        <div class="mb-4">
+                            <label for="isbn">No ISBN</label>
+                            <input type="number" name="isbn" class="form-control" id="isbn">
+                            @error('isbn')
+                            <div class="text-danger"> {{ $message }} </div>
+                            @enderror
+                        </div>
+                        <div class="mb-4">
+                            <label for="panjang">Panjang</label>
+                            <input type="number" name="panjang" class="form-control" id="panjang">
+                            @error('panjang')
                             <div class="text-danger"> {{ $message }} </div>
                             @enderror
                         </div>
@@ -92,6 +122,14 @@
                             <div class="text-danger"> {{ $message }} </div>
                             @enderror
                         </div>
+                        <div class="mb-4">
+                            <label for="jumlah">Jumlah Halaman</label>
+                            <input type="number" name="halaman" class="form-control" id="halaman">
+                            @error('halaman')
+                            <div class="text-danger"> {{ $message }} </div>
+                            @enderror
+                        </div>
+
                         <div class="mb-4">
                             <label for="bahasa">Bahasa</label>
                             <input type="text" name="bahasa" class="form-control" id="bahasa">

@@ -27,10 +27,9 @@ Route::middleware(['auth','verified'])->group(function(){
     Route::get('/dashboard',[UserController::class,'dashboard'])->name('dashboard');
     Route::get('/beli/{buku:id}',[UserController::class,'belisekarang'])->name('belisekarang');
     Route::post('/buy/{buku:id}',[UserController::class,'buynow'])->name('buynow');
+    Route::get('/view',[UserController::class,'detail'])->name('detail.buku');
+    Route::get('/search',[UserController::class,'search'])->name('search');
 });
-Route::get('/view', fn() => view('detail'))->name('detail.buku');
-Route::get('/search', fn() => view('search'))->name('search');
-
 require __DIR__.'/auth.php';
 
 // Penjual
@@ -51,6 +50,7 @@ Route::namespace('Penjual')->name('penjual.')->prefix('penjual')->group(function
         Route::delete('buku/delete/{buku:id}',[PenjualAppController::class,'deletebuku'])->name('deletebuku');
         Route::get('listbuy',[PenjualAppController::class,'listbuy'])->name('listbuy');
         Route::get('listbuy/konfirmasi/{buy:id}',[PenjualAppController::class,'konfirmasi'])->name('konfirmasi.listbuy');
+        Route::get('listbuy/unkonfirmasi/{buy:id}',[PenjualAppController::class,'unkonfirmasi'])->name('unkonfirmasi.listbuy');
     });
 });
 

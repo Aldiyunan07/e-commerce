@@ -38,7 +38,12 @@ class PenjualAppController extends Controller
             'kategori' => 'required',
             'halaman' => 'required',
             'bahasa' => 'required',
-            'gambar' => 'required'
+            'gambar' => 'required',
+            'berat' => 'required',
+            'panjang' => 'required',
+            'lebar' => 'required',
+            'isbn' => 'required',
+            'penerbit' => 'required'
         ]);
         $data['penjual_id'] = Auth::guard('penjual')->user()->id;
         $data['kategori_id'] = $request->kategori;
@@ -75,6 +80,11 @@ class PenjualAppController extends Controller
             'kategori' => 'required',
             'halaman' => 'required',
             'bahasa' => 'required',
+            'berat' => 'required',
+            'panjang' => 'required',
+            'lebar' => 'required',
+            'isbn' => 'required',
+            'penerbit' => 'required'
         ]); 
         if($request->file('gambar')){
             Storage::delete($buku->thumbnail);
@@ -106,6 +116,15 @@ class PenjualAppController extends Controller
         $buy->buku->userakses()->attach($buy->user->id);
         $buy->update([
             'status' => 'konfirmasi'
+        ]);
+        return redirect(route('penjual.listbuy'));
+    }
+
+    public function unkonfirmasi(Buy $buy)
+    {
+        $buy->buku->userakses()->detach($buy->user->id);
+        $buy->update([
+            'status' => 'proses'
         ]);
         return redirect(route('penjual.listbuy'));
     }
