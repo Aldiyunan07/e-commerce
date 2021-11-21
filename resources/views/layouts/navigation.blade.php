@@ -23,23 +23,44 @@
         <div class="offcanvas-body px-0">
             <ul class="list-group" style="border-radius:0">
                 <li class="list-group-item">
+                    <div class=" input-group" style="width: 100%">
+                        <input type="search" name="" id="" class="form-control bg-blue-200" style="border: none; border-radius: 50px 0 0 50px" placeholder="Cari buku" aria-label="Cari buku" aria-describedby="button-addon2">
+                            <button class="btn bg-blue-200 m-0 pe-3 text-secondary" style="border-radius: 0 50px 50px 0;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                </svg>
+                            </button>
+                    </div>
+                </li>
+                <li class="list-group-item">
                     <div class="accordion accordion-flush" id="accordionFlushExample">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="flush-headingOne">
-                            <a class="accordion-button collapsed text-decoration-none" style="margin: 0px; padding:0px;" role="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            <a class="accordion-button collapsed text-decoration-none fw-normal" style="margin: 0px; padding:0px;" role="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                                 Kategori
                             </a>
                             </h2>
                             <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                            <div class="accordion-body">
+                                <a href="#novel" class="text-decoration-none text-dark d-block">Novel</a>
+                                <a href="#cerpen" class="text-decoration-none text-dark d-block">Cerpen</a>
+                            </div>
                             </div>
                         </div>
                     </div>
                 </li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
-                <li class="list-group-item">A fourth item</li>
-                <li class="list-group-item">And a fifth one</li>
+                <li class="list-group-item">
+                    <a href="" class="text-decoration-none text-dark">Wishlist</a> 
+                </li>
+                <li class="list-group-item">
+                    <a href="" class="text-decoration-none text-dark">Pesanan Saya</a> 
+                </li>
+                <li class="list-group-item">
+                    <a href="" class="text-decoration-none text-dark">Masuk</a> 
+                </li>
+                <li class="list-group-item">
+                    <a href="" class="text-decoration-none text-dark">Daftar</a> 
+                </li>
             </ul>
         </div>
         </div>
