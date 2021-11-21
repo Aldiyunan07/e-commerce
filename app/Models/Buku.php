@@ -18,6 +18,7 @@ class Buku extends Model
         'penulis',
         'harga_asli',
         'kategori_id',
+        'slug',
         'halaman',
         'bahasa',
         'berat',

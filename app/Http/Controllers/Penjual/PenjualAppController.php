@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\Penjual;
-
 use App\Http\Controllers\Controller;
 use App\Models\Buku;
 use App\Models\Buy;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -45,6 +45,7 @@ class PenjualAppController extends Controller
             'isbn' => 'required',
             'penerbit' => 'required'
         ]);
+        $data['slug'] = Str::slug($request->name);
         $data['penjual_id'] = Auth::guard('penjual')->user()->id;
         $data['kategori_id'] = $request->kategori;
         
@@ -92,6 +93,7 @@ class PenjualAppController extends Controller
         }else{
             $thumbnailUrl = $buku->thumbnail;
         }
+        $data['slug'] = Str::slug($request->name);
         $data['thumbnail'] = $thumbnailUrl;
         $data['harga_awal'] = $request->harga;
         $harga = $request->diskon * $request->harga / 100 ;
