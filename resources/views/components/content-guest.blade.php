@@ -6,7 +6,7 @@
         </div>
     </div>
     <div class="min-vh-100 d-flex justify-content-end align-items-end">
-        <img src="{{ asset('image/Group 1.png') }}" style="margin-right: -13rem; z-index: 999;" alt="">
+        <img src="{{ asset('image/Group 1.png') }}" style="margin-right: -13rem; z-index: -1;" alt="">
     </div>
 </div>
 <div class="col-md-7">

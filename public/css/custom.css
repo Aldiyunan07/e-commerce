@@ -147,6 +147,11 @@
     opacity: 60%; 
     font-weight: 600;
 }
+.accordion-button:not(.collapsed) {
+    color: #0c63e4;
+    background-color: transparent!important;
+    box-shadow: none!important;
+}
 /* Mobile */
 @media only screen and ( max-width: 600px )
 {

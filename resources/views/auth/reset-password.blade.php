@@ -1,13 +1,6 @@
 <x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
-
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+    <x-content-guest header="Reset Password">
+        <x-auth-session-status class="mb-4" :status="session('status')" />
 
         <form method="POST" action="{{ route('password.update') }}">
             @csrf
@@ -16,33 +9,35 @@
             <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
             <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus />
+            <div class="mb-3">
+                <label for="email" class="form-label text-dark fw-bold opacity-75">Email</label>
+                <input id="email" class="form-control border-0 p-3 px-4" style="background-color: #F3F3F3" type="email" name="email" value="{{old('email', $request->email)}}" required autofocus />
+                @error('email')
+                <span class="small text-danger my-1">
+                    {{ $message }}
+                </span>
+                @enderror
             </div>
 
             <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required />
+            <div class="mb-3">
+                <label for="password" class="form-label text-dark fw-bold opacity-75">Password</label>
+                <input id="password" class="form-control border-0 p-3 px-4" style="background-color: #F3F3F3" type="password" name="password" required />
+                @error('password')
+                <span class="small text-danger my-1">
+                    {{ $message }}
+                </span>
+                @enderror
             </div>
 
             <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                    type="password"
-                                    name="password_confirmation" required />
+            <div class="mb-3">
+                <label for="password_confirmation" class="form-label text-dark fw-bold opacity-75">Confirm Password</label>
+                <input id="password_confirmation" class="form-control border-0 p-3 px-4" style="background-color: #F3F3F3" type="password" name="password_confirmation" required />
             </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <x-button>
-                    {{ __('Reset Password') }}
-                </x-button>
+            <div class="d-grid mb-3">
+                <button class="btn btn-primary fw-bold border-0 p-3 px-4">Reset Password</button>
             </div>
         </form>
-    </x-auth-card>
+    </x-content-guest>
 </x-guest-layout>

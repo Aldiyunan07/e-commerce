@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <div class="container-fluid mx-50">
-      <a class="navbar-brand font-logo d-flex align-items-center justify-content-start" style="margin-right: 8rem; width:8rem;" href="#"> 
+      <a class="navbar-brand font-logo d-flex align-items-center justify-content-start" style="margin-right: 8rem; width:8rem;" href="/"> 
       <img src="{{asset('/image/logo.png')}}" alt="" width="36" height="36" class="me-1"> 
       <span style="background: -webkit-linear-gradient(90.87deg, #365AA3 6.64%, #4370CD 100%);-webkit-background-clip: text; -webkit-text-fill-color: transparent;">
           {{ config('app.name') }}
@@ -26,7 +26,7 @@
                     <div class="accordion accordion-flush" id="accordionFlushExample">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="flush-headingOne">
-                            <a class="accordion-button collapsed" style="margin: 0px; padding:0px;" role="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            <a class="accordion-button collapsed text-decoration-none" style="margin: 0px; padding:0px;" role="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                                 Kategori
                             </a>
                             </h2>
@@ -115,16 +115,6 @@
         </ul>
         @auth
         <ul class="navbar-nav d-flex align-items-center">
-            <li class="nav-item border-end">
-                <a href="#" class="nav-link font-custom position-relative">
-                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-top: -10px;" width="20" height="20" fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">
-                        <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z"/>
-                    </svg>
-                    <sup class="position-absolute" style="margin-left: -10px;">
-                        <div class="badge bg-danger rounded-circle small">1</div>
-                    </sup>
-                </a>
-            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link font-custom text-capitalize" style="white-space: nowrap" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     {{ Auth::user()->name }}

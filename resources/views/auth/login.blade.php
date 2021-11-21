@@ -1,5 +1,6 @@
 <x-guest-layout>
-    <x-content-guest header="Masuk">
+    <x-content-guest header="Masuk" >
+        <x-auth-session-status class="mb-4" :status="session('status')" />
         <form method="POST" action="{{ route('login') }}">
             @csrf
             <div class="mb-3">

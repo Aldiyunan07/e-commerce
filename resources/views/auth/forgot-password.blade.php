@@ -1,5 +1,6 @@
 <x-guest-layout>
     <x-content-guest header="Lupa Password">
+        <x-auth-session-status class="mb-4" status="{{session('status')}}" />
         <form method="POST" action="{{ route('password.email') }}">
             @csrf
             <!-- Email Address -->
@@ -11,6 +12,9 @@
                     {{ $message}}
                 </span>
                 @enderror
+                <div class="flex justify-content-start mt-1">
+                    <span class="text-dark fw-light opacity-75 small"><a href="{{ route('login') }}" class="text-decoration-none">Login </a> disini !</span>
+                </div>
             </div>
             <div class="d-grid mb-3">
                 <button class="btn btn-primary fw-bold border-0 p-3 px-4">Kirim Link</button>
