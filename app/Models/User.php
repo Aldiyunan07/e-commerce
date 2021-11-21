@@ -63,4 +63,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function bukuaccess($buku){
         return (bool) $this->bukuakses()->find($buku->id); 
     }
+
+    public function pesanansaya($user)
+    {
+        $buy = Buy::where('user_id',$user)->where('status','proses')->get();
+        return $buy->count();
+    }
 }

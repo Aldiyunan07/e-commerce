@@ -50,7 +50,7 @@
                                 @if($b->status == "proses")
                                     <a href="{{ route('penjual.konfirmasi.listbuy',$b->id) }}" class="btn btn-info btn-sm"> Konfirmasi </a>
                                 @else
-                                    <a href="" class="btn text-white btn-success btn-sm" disabled> Sudah Terkonfirmasi </a>
+                                    <a href="{{ route('penjual.unkonfirmasi.listbuy',$b->id) }}" class="btn text-white btn-success btn-sm" disabled> Sudah Terkonfirmasi </a>
                                 @endif
                             </td>
                         </tr>

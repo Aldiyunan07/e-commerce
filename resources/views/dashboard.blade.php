@@ -25,6 +25,7 @@
                                 <a href="" class="btn btn-success btn-sm"> Lihat Buku </a>
                             @else
                                 <a href="{{ route('belisekarang',$b->id) }}" class="btn btn-primary btn-sm"> Beli Sekarang </a>
+                            
                             @endif
                         </div>
                     </div>

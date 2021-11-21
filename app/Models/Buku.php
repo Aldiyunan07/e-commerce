@@ -19,7 +19,12 @@ class Buku extends Model
         'harga_asli',
         'kategori_id',
         'halaman',
-        'bahasa'
+        'bahasa',
+        'berat',
+        'panjang',
+        'lebar',
+        'isbn',
+        'penerbit'
     ];
 
     public function getPictureAttribute()
