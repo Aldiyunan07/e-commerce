@@ -98,6 +98,17 @@ class PenjualAppController extends Controller
             'isbn' => 'required',
             'penerbit' => 'required',
         ]);
+        
+        if($request->hasFile('ebook')){
+            $file = $request->file('ebook');
+            $filename = $file->getClientOriginalName();
+            $name = Auth::guard('penjual')->user()->id.time().rand().'.'.$filename;
+            $file->storeAs('file/buku/', $name, 'public');
+            Storage::delete($buku->ebook);
+            $data['file'] = 'file/buku/'.$name;
+        }else{
+            $data['file'] = $buku->file;
+        }
         if($request->file('gambar')){
             Storage::delete($buku->thumbnail);
             $thumbnailUrl = $request->file('gambar')->store('images/buku'); 
