@@ -35,6 +35,8 @@ Route::middleware(['auth','verified'])->group(function(){
     Route::get('/unwhistlist/{buku:id}',[UserController::class,'unwhistlist'])->name('unwhistlist');
     Route::get('/whistlist',[UserController::class,'listwhistlist'])->name('listwhistlist');
 });
+Route::get('/view',[UserController::class,'detail'])->name('detail.buku');
+Route::get('/search',[UserController::class,'search'])->name('search');
 require __DIR__.'/auth.php';
 
 // Penjual
