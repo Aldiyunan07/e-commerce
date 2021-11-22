@@ -27,6 +27,10 @@ Route::middleware(['auth','verified'])->group(function(){
     Route::get('/dashboard',[UserController::class,'dashboard'])->name('dashboard');
     Route::get('/beli/{buku:id}',[UserController::class,'belisekarang'])->name('belisekarang');
     Route::post('/buy/{buku:id}',[UserController::class,'buynow'])->name('buynow');
+    Route::get('/view',[UserController::class,'detail'])->name('detail.buku');
+    Route::get('/buku/kategori/{kategori:id}',[UserController::class,'listkategori'])->name('listkategori');
+    Route::post('/buku/search',[UserController::class,'searchbuku'])->name('searchbuku');
+    Route::get('/buku',[UserController::class,'allbuku'])->name('listbuku');
 });
 Route::get('/view',[UserController::class,'detail'])->name('detail.buku');
 Route::get('/search',[UserController::class,'search'])->name('search');

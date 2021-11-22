@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Buku;
 use App\Models\Buy;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,13 +37,27 @@ class UserController extends Controller
         return view('konfirmasi',compact('buku'));
     }
 
-    public function detail()
+    public function detail(Buku $buku)
     {
-        return view('detail');
+        return view('detail',compact('buku'));
     }
 
-    public function search()
+    public function listkategori(Kategori $kategori)
     {
-        return view('search');
+        $buku = Buku::where('kategori_id',$kategori->id)->get();
+        return view('search',compact('buku','keywoard'));
+    }
+
+    public function searchbuku(Request $request)
+    {
+        $keywoard = $request->search;
+        $buku = Kategori::where('name','like','%$request->search%')->get();
+        return view('search',compact('buku','keywoard'));
+    }
+
+    public function listbuku()
+    {
+        $buku = Buku::get();
+        return view('listbuku',compact('buku'));
     }
 }
