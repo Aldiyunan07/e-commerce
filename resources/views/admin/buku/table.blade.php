@@ -1,4 +1,4 @@
-<x-penjual-layout>
+<x-admin-layout>
     @section('content')
     <div class="py-4">
         <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
@@ -13,14 +13,14 @@
                         </svg>
                     </a>
                 </li>
-                <li class="breadcrumb-item"><a href="#">Toko saya</a></li>
+                <li class="breadcrumb-item"><a href="#">List Buku</a></li>
             </ol>
         </nav>
     </div>
     <div class="card border-0 shadow mb-4">
         <div class="card-header">
             <div class="d-flex justify-content-between">
-                <h1 class="h4">Toko Saya</h1>
+                <h1 class="h4">List Buku</h1>
                 <a href="{{ route('penjual.tambahbuku') }}" class="btn text-white btn-sm btn-success"> Tambah Buku Baru </a>
             </div>
         </div>
@@ -32,7 +32,7 @@
                             <th class="border-0 rounded-start">#</th>
                             <th class="border-0">Thumbnail</th>
                             <th class="border-0">Nama</th>
-                            <th class="border-0">Status</th>
+                            <th class="border-0">Penjual</th>
                             <th class="border-0">Harga</th>
                             <th class="border-0">Di Buat Pada</th>
                             <th class="border-0 rounded-end">Opsi</th>
@@ -44,16 +44,7 @@
                             <td> {{ $n + 1 }} </td>
                             <td> <img src="{{ $b->Picture }}" width="100" class="img-alt">  </td>
                             <td> {{ $b->name }} </td>
-                            <td>
-                            @if($b->status == "proses")
-                            <div class="badge bg-info badge-sm"> Proses </div>
-                            @elseif($b->status == "tolak")
-                            <div class="badge bg-danger badge-sm"> Tolak </div>
-                            
-                            @else
-                            <div class="badge bg-success badge-sm"> Terima </div>
-                            @endif    
-                            </td>
+                            <td> {{ $b->penjual->name }} </td>
                             <td> {{ $b->rupiah($b->harga_asli) }} </td>
                             <td> {{ $b->created_at->format('d F, Y') }} </td>
                             <td>
@@ -89,4 +80,4 @@
         </div>
     </div>
     @endsection
-</x-penjual-layout>
+</x-admin-layout>

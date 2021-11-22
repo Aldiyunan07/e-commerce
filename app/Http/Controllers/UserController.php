@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     public function dashboard()
     {
-        $buku = Buku::get();
+        $buku = Buku::where('status','terima')->get();
         $buy = Buy::get();
         return view('dashboard',compact('buku','buy'));
     }
@@ -44,8 +44,8 @@ class UserController extends Controller
 
     public function listkategori(Kategori $kategori)
     {
-        $buku = Buku::where('kategori_id',$kategori->id)->get();
-        return view('search',compact('buku','keywoard'));
+        $buku = Buku::where('status','terima')->where('kategori_id',$kategori->id)->get();
+        return view('search',compact('buku'));
     }
 
     public function searchbuku(Request $request)
@@ -57,7 +57,25 @@ class UserController extends Controller
 
     public function listbuku()
     {
-        $buku = Buku::get();
+        $buku = Buku::where('status','terima')->get();
         return view('listbuku',compact('buku'));
+    }
+
+    public function whistlist(Buku $buku)
+    {
+        $buku->whistlistuser()->attach(Auth::user()->id);
+        return back();
+    }
+
+    public function unwhistlist(Buku $buku)
+    {
+        $buku->whistlistuser()->detach(Auth::user()->id);
+        return back();
+    }
+
+    public function listwhistlist()
+    {
+        $buku = Buku::where('status','terima')->get();
+        return view('whistlist',compact('buku'));
     }
 }

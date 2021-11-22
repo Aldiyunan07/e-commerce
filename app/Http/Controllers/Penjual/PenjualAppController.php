@@ -43,8 +43,19 @@ class PenjualAppController extends Controller
             'panjang' => 'required',
             'lebar' => 'required',
             'isbn' => 'required',
-            'penerbit' => 'required'
+            'penerbit' => 'required',
+            'ebook' => 'required'
         ]);
+
+        if($request->hasFile('ebook')){
+            $file = $request->file('ebook');
+            $filename = $file->getClientOriginalName();
+            $name = Auth::guard('penjual')->user()->id.time().rand().'.'.$filename;
+            $file->storeAs('file/buku/', $name, 'public');
+            $data['file'] = 'file/buku/'.$name;
+        }
+        
+        $data['status'] = "proses";
         $data['slug'] = Str::slug($request->name);
         $data['penjual_id'] = Auth::guard('penjual')->user()->id;
         $data['kategori_id'] = $request->kategori;
@@ -85,14 +96,15 @@ class PenjualAppController extends Controller
             'panjang' => 'required',
             'lebar' => 'required',
             'isbn' => 'required',
-            'penerbit' => 'required'
-        ]); 
+            'penerbit' => 'required',
+        ]);
         if($request->file('gambar')){
             Storage::delete($buku->thumbnail);
             $thumbnailUrl = $request->file('gambar')->store('images/buku'); 
         }else{
             $thumbnailUrl = $buku->thumbnail;
         }
+        $data['status'] = $buku->status;
         $data['slug'] = Str::slug($request->name);
         $data['thumbnail'] = $thumbnailUrl;
         $data['harga_awal'] = $request->harga;

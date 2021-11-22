@@ -107,7 +107,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a href="../../pages/dashboard/dashboard.html" class="nav-link">
+                <a href="{{ route('admin.listbuku') }}" class="nav-link">
                     <span class="sidebar-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2 icon-xs" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">

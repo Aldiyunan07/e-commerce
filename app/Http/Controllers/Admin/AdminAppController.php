@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Buku;
 use App\Models\Penjual;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -73,5 +74,11 @@ class AdminAppController extends Controller
     public function detailuser(User $user)
     {
         return view('admin.user.detail',compact('user'));
+    }
+
+    public function listbuku()
+    {
+        $buku = Buku::get();
+        return view('admin.buku.table',compact('buku'));
     }
 }

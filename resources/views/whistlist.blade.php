@@ -1,13 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
         <h2>
-            Toko Buku
+            Whistlist Buku Saya
         </h2>
     </x-slot>
 
     <div class="container">
         <div class="row">
             @foreach($buku as $b)
+            @if(Auth::user()->checkwhistlist($b) == 1)
             <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                 <div class="mb-3" style="max-width: 100%;">
                     <div class="card shadow shadow-lg border-0 shadow-sm row g-0">
@@ -21,12 +22,7 @@
                             <a href="#"
                                 class="card-title font-custom h5 text-decoration-none line-clamp-2">{{ $b->name }}</a>
                             <p class="card-text text-primary">{{ $b->rupiah($b->harga_asli) }}</p>
-                            @if(Auth::user()->checkwhistlist($b) == 1)
-                                <a href="{{ route('unwhistlist',$b->id) }}" class="btn btn-dark mb-2 btn-sm text-white btn"> Batal Tandai </a>
-                            @else                            
-                                <a href="{{ route('whistlist',$b->id) }}" class="btn btn-dark mb-2 btn-sm text-white btn"> Tandai  </a>
-                            @endif
-                            
+                                <a href="{{ route('unwhistlist',$b->id) }}" class="btn btn-dark mb-2 btn-sm text-white btn"> Batal Tandai  </a>
                             @if(Auth::user()->bukuaccess($b) == 1 )
                                 <a href="" class="btn btn-success btn-sm"> Lihat Buku </a>
                             @else
@@ -37,6 +33,7 @@
                     </div>
                 </div>
             </div>
+            @endif
             @endforeach
         </div>
     </div>

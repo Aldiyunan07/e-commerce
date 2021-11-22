@@ -31,6 +31,9 @@ Route::middleware(['auth','verified'])->group(function(){
     Route::get('/buku/kategori/{kategori:id}',[UserController::class,'listkategori'])->name('listkategori');
     Route::post('/buku/search',[UserController::class,'searchbuku'])->name('searchbuku');
     Route::get('/buku',[UserController::class,'allbuku'])->name('listbuku');
+    Route::get('/addwhistlist/{buku:id}',[UserController::class,'whistlist'])->name('whistlist');
+    Route::get('/unwhistlist/{buku:id}',[UserController::class,'unwhistlist'])->name('unwhistlist');
+    Route::get('/whistlist',[UserController::class,'listwhistlist'])->name('listwhistlist');
 });
 require __DIR__.'/auth.php';
 
@@ -74,5 +77,6 @@ Route::namespace('Admin')->name('admin.')->prefix('admin')->group(function(){
         Route::get('user',[AdminAppController::class,'listuser'])->name('listuser');
         Route::Delete('user/delete/{user:id}',[AdminAppController::class,'deleteuser'])->name('deleteuser');
         Route::get('user/detail/{user:id}',[AdminAppController::class,'detailuser'])->name('detailuser');
+        Route::get('listbuku/',[AdminAppController::class,'listbuku'])->name('listbuku');
     });
 });

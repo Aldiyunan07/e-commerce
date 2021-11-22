@@ -25,12 +25,19 @@ class Buku extends Model
         'panjang',
         'lebar',
         'isbn',
-        'penerbit'
+        'penerbit',
+        'status',
+        'file'
     ];
 
     public function getPictureAttribute()
     {
         return asset('/storage/' . $this->thumbnail);
+    }
+
+    public function getFileAttribute()
+    {
+        return asset('/storage/' . $this->file);
     }
 
     public function rupiah($angka){
@@ -57,5 +64,10 @@ class Buku extends Model
 
     public function userakses(){
         return $this->belongsToMany(User::class)->withTimestamps();
+    }
+
+    public function whistlistuser()
+    {
+        return $this->belongsToMany(User::class,'whistlist')->withTimestamps();
     }
 }

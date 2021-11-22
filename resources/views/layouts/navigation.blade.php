@@ -143,7 +143,7 @@
                 <ul class="dropdown-menu dropdown-menu-end border-0 shadow-lg" style="width: 15rem; font-size: 15px;" aria-labelledby="navbarDropdown">
                     <li><a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item" href="#">Update Profile</a></li>
                     <li><a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item" href="#">Change Password</a></li>
-                    <li><a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item" href="#">Wishlist</a></li>
+                    <li><a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item" href="{{ route('listwhistlist') }}">Wishlist</a></li>
                     
                     @if( Auth::user()->pesanansaya(Auth::user()->id) > 0 )
                     <li><a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item" href="#">Pesanan Saya</a></li>

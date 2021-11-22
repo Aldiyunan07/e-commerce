@@ -69,4 +69,14 @@ class User extends Authenticatable implements MustVerifyEmail
         $buy = Buy::where('user_id',$user)->where('status','proses')->get();
         return $buy->count();
     }
+
+    public function checkwhistlist($buku)
+    {
+        return (bool) $this->whistlistbuku()->find($buku->id);
+    }
+
+    public function whistlistbuku()
+    {
+        return $this->belongsToMany(Buku::class,'whistlist')->withTimestamps();
+    }
 }
