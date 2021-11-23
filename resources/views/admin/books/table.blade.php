@@ -47,8 +47,8 @@
                                         <li><a class="dropdown-item" href="{{ route('admin.book.update') }}">Edit</a>
                                         </li>
                                         <li><a class="dropdown-item text-danger" role="button" data-bs-toggle="modal"
-                                                data-bs-target="#modal">Delete</a>
-                                            <div class="modal fade" id="modal" tabindex="-1" role="dialog"
+                                                data-bs-target="#modal{{ $b->id }}">Delete</a>
+                                            <div class="modal fade" id="modal{{ $b->id }}" tabindex="-1" role="dialog"
                                                 aria-labelledby="modal-default" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                                     <div class="modal-content">
