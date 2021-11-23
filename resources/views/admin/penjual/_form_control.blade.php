@@ -19,7 +19,7 @@
 </div>
 <div class="mb-4">
     <label for="telepon"> No Telepon </label>
-    <input name="no_telp" type="telp" class="form-control @error('email') is-invalid @enderror" value="{{ old('no_telp') ?? $penjual->no_telp }}" id="telepon" required>
+    <input name="no_telp" type="telp" class="form-control @error('email') is-invalid @enderror" value="{{ old('whatsapp') ?? $penjual->no_telp }}" id="telepon" required>
     @error('no_telp')
     <div class="invalid-feedback">
         {{ $message }}

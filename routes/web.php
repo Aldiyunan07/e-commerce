@@ -81,7 +81,7 @@ Route::namespace('Admin')->name('admin.')->prefix('admin')->group(function(){
 
         // Books
         Route::get('books', [AdminAppController::class, 'books'])->name('books');
-        Route::get('book/show', [AdminAppController::class, 'bookShow'])->name('book.show');
+        Route::get('book/show/{buku:id}', [AdminAppController::class, 'bookShow'])->name('book.show');
         Route::get('book/create', [AdminAppController::class, 'bookCreate'])->name('book.create');
         Route::get('book/update', [AdminAppController::class, 'bookUpdate'])->name('book.update');
         // Order

@@ -37,7 +37,7 @@
                 <span class="fw-normal">{{ $p->name }}</span>
               </td>
               <td><span class="fw-normal">{{ $p->email }}</span></td>
-              <td><span class="fw-normal">{{ $p->no_telp }}</span></td>
+              <td><span class="fw-normal">{{ $p->whatsapp }}</span></td>
               <td><span class="fw-normal">{{ $p->created_at->format('d F, Y')}}</span></td>
               <td class="text-end">
                 <div class="dropdown">

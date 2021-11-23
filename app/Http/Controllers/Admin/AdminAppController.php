@@ -80,11 +80,12 @@ class AdminAppController extends Controller
 
     public function books()
     {
-        return view('admin.books.table');
+        $buku = Buku::get();
+        return view('admin.books.table',compact('buku'));
     }
-    public function bookShow()
+    public function bookShow(Buku $buku)
     {
-        return view('admin.books.show');
+        return view('admin.books.show',compact('buku'));
     }
     public function bookCreate()
     {
