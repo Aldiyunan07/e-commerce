@@ -27,14 +27,14 @@
 
     <div class="row">
         <div class="col-12 col-xl-8">
-            <div class="card mb-3">
+            <div class="card border-0 shadow mb-3">
                 <div class="card-header">
                     <div class="d-flex justify-content-between">
                         <h5> Detail User </h5>
                         <a href="{{ route('admin.listuser') }}" class="btn text-white btn-success btn-sm"> Kembali </a>
                     </div>
                 </div>
-                <div class="card-body border-0 shadow mb-4">
+                <div class="card-body">
                     <form>
                         <div class="row">
                             <div class="col-md-6 mb-3">

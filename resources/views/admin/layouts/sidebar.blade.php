@@ -49,7 +49,7 @@
         </div>
         <ul class="nav flex-column pt-3 pt-md-0">
             <li class="nav-item">
-                <a href="../../index.html" class="nav-link d-flex align-items-center">
+                <a href="#" class="nav-link d-flex align-items-center">
                     <span class="sidebar-icon">
                         <img src="{{ asset('admin/assets/img/brand/light.svg') }}" height="20" width="20"
                             alt="Volt Logo">
@@ -57,14 +57,10 @@
                     <span class="mt-1 ms-1 sidebar-text">E-Commerce</span>
                 </a>
             </li>
-            <li class="nav-item  active ">
-                <a href="../../pages/dashboard/dashboard.html" class="nav-link">
+            <li class="nav-item active">
+                <a href="#" class="nav-link">
                     <span class="sidebar-icon">
-                        <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
-                            <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
-                        </svg>
+                        <i class="bi bi-pie-chart me-2"></i>
                     </span>
                     <span class="sidebar-text">Dashboard</span>
                 </a>
@@ -74,21 +70,12 @@
                     data-bs-toggle="collapse" data-bs-target="#submenu-app">
                     <span>
                         <span class="sidebar-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-xs me-2" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                            </svg>
+                            <i class="bi bi-people me-2"></i>
                         </span>
                         <span class="sidebar-text">Data Akun</span>
                     </span>
                     <span class="link-arrow">
-                        <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                clip-rule="evenodd"></path>
-                        </svg>
+                        <i class="bi bi-chevron-right"></i>
                     </span>
                 </span>
                 <div class="multi-level collapse " role="list" id="submenu-app" aria-expanded="false">
@@ -107,15 +94,27 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a href="{{ route('admin.listbuku') }}" class="nav-link">
+                <a href="{{ route('admin.books') }}" class="nav-link">
                     <span class="sidebar-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2 icon-xs" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                        </svg>
+                        <i class="bi bi-book me-2"></i>
                     </span>
                     <span class="sidebar-text"> List Buku</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.orders') }}" class="nav-link">
+                    <span class="sidebar-icon">
+                        <i class="bi bi-cart-plus me-2"></i>
+                    </span>
+                    <span class="sidebar-text"> List Pesanan</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.categories') }}" class="nav-link">
+                    <span class="sidebar-icon">
+                        <i class="bi bi-journals me-2"></i>
+                    </span>
+                    <span class="sidebar-text"> List Kategori</span>
                 </a>
             </li>
         </ul>

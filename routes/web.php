@@ -78,6 +78,18 @@ Route::namespace('Admin')->name('admin.')->prefix('admin')->group(function(){
         Route::get('user',[AdminAppController::class,'listuser'])->name('listuser');
         Route::Delete('user/delete/{user:id}',[AdminAppController::class,'deleteuser'])->name('deleteuser');
         Route::get('user/detail/{user:id}',[AdminAppController::class,'detailuser'])->name('detailuser');
-        Route::get('listbuku/',[AdminAppController::class,'listbuku'])->name('listbuku');
+
+        // Books
+        Route::get('books', [AdminAppController::class, 'books'])->name('books');
+        Route::get('book/show', [AdminAppController::class, 'bookShow'])->name('book.show');
+        Route::get('book/create', [AdminAppController::class, 'bookCreate'])->name('book.create');
+        Route::get('book/update', [AdminAppController::class, 'bookUpdate'])->name('book.update');
+        // Order
+        Route::get('orders', [AdminAppController::class, 'orders'])->name('orders');
+        Route::get('order/show', [AdminAppController::class, 'orderShow'])->name('order.show');
+        // Categories
+        Route::get('categories', [AdminAppController::class, 'categories'])->name('categories');
+        // Information
+        Route::get('profile', [AdminAppController::class, 'profile'])->name('profile');  
     });
 });
