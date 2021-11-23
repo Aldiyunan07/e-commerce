@@ -35,7 +35,7 @@ class Buku extends Model
         return asset('/storage/' . $this->thumbnail);
     }
 
-    public function getFileAttribute()
+    public function getEbookAttribute()
     {
         return asset('/storage/' . $this->file);
     }

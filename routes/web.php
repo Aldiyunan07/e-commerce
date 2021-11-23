@@ -82,13 +82,23 @@ Route::namespace('Admin')->name('admin.')->prefix('admin')->group(function(){
         // Books
         Route::get('books', [AdminAppController::class, 'books'])->name('books');
         Route::get('book/show/{buku:id}', [AdminAppController::class, 'bookShow'])->name('book.show');
-        Route::get('book/create', [AdminAppController::class, 'bookCreate'])->name('book.create');
-        Route::get('book/update', [AdminAppController::class, 'bookUpdate'])->name('book.update');
+        Route::post('book/insert', [AdminAppController::class, 'bookInsert'])->name('book.insert');
+        Route::get('book/edit/{buku:id}', [AdminAppController::class, 'bookedit'])->name('book.edit');
+        Route::patch('book/update/{buku:id}', [AdminAppController::class, 'bookUpdate'])->name('book.update');
+        Route::get('book/terima/{buku:id}',[AdminAppController::class,'bookTerima'])->name('book.terima');
+        Route::get('book/tolak/{buku:id}',[AdminAppController::class,'bookTolak'])->name('book.tolak');
+        Route::delete('book/delete/{buku:id}',[AdminAppController::class,'bookDelete'])->name('book.delete');
         // Order
         Route::get('orders', [AdminAppController::class, 'orders'])->name('orders');
+        Route::get('order/konfirmai/{buy:id}',[AdminAppController::class,'orderskonfirmasi'])->name('orders.konfirmasi');
+        Route::get('order/unkonfirmai/{buy:id}',[AdminAppController::class,'orderscancel'])->name('orders.cancel');
         Route::get('order/show', [AdminAppController::class, 'orderShow'])->name('order.show');
+        Route::delete('order/delete/{buy:id}',[AdminAppController::class,'orderDelete'])->name('order.delete');
         // Categories
         Route::get('categories', [AdminAppController::class, 'categories'])->name('categories');
+        Route::patch('categories/update/{kategori:id}',[AdminAppController::class,'editcategories'])->name('categories.update');
+        Route::post('categories/create',[AdminAppController::class,'insertcategories'])->name('categories.insert');
+        Route::delete('categories/delete/{kategori:id}',[AdminAppController::class,'deletecategories'])->name('categories.delete');
         // Information
         Route::get('profile', [AdminAppController::class, 'profile'])->name('profile');  
     });

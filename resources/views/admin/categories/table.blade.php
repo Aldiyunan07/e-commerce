@@ -15,7 +15,8 @@
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
-                    <form action="post">
+                    <form method="post" action="{{ route('admin.categories.insert') }}">
+                        @csrf
                         <div class="modal-header">
                             <h2 class="h6 modal-title">Tambah Kategori</h2>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -23,7 +24,7 @@
                         <div class="modal-body">
                             <div class="mb-3">
                                 <label for="kategori" class="form-label">Kategori</label>
-                                <input type="text" class="form-control" id="kategori"
+                                <input type="text" class="form-control" id="kategori" name="kategori"
                                     placeholder="Masukan Nama Kategori" required>
                             </div>
                         </div>
@@ -43,16 +44,19 @@
                 <thead class="thead-light">
                     <tr>
                         <th class="border-0 rounded-start">#</th>
-                        <th class="border-0">Nama</th>
+                        <th class="border-0">Nama Kategori</th>
                         <th class="border-0">Dipakai</th>
+                        <th class="border-0">Dibuat sejak</th>
                         <th class="border-0 rounded-end text-end">Action</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($kategori as $n => $k)
                     <tr>
-                        <td>1</td>
-                        <td>Novel</td>
-                        <td>3</td>
+                        <td>{{ $n + 1 }}</td>
+                        <td>{{ $k->kategori }}</td>
+                        <td>{{ $k->buku->count() }}</td>
+                        <td>{{ $k->created_at->format('d F, Y') }}</td>
                         <td class="text-end">
                             <div class="dropdown">
                                 <button class="btn p-0" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
@@ -61,21 +65,23 @@
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
                                     <li>
-                                        <a class="dropdown-item" role="button"  data-bs-toggle="modal" data-bs-target="#update">Edit</a>
+                                        <a class="dropdown-item" role="button"  data-bs-toggle="modal" data-bs-target="#update{{ $k->id }}">Edit</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item text-danger" role="button" data-bs-toggle="modal" data-bs-target="#modal">Delete</a>
+                                        <a class="dropdown-item text-danger" role="button" data-bs-toggle="modal" data-bs-target="#delete{{ $k->id }}">Delete</a>
                                     </li>
                                 </ul>
                             </div>
                         </td>
                     </tr>
-                    <!-- Modal Content -->
-                    <div class="modal fade" id="update" tabindex="-1" role="dialog" aria-labelledby="modal-default"
+                    <!-- Edit Content -->
+                    <div class="modal fade" id="update{{ $k->id }}" tabindex="-1" role="dialog" aria-labelledby="modal-default"
                         aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
-                                <form action="post">
+                                <form method="post" action="{{ route('admin.categories.update',$k->id) }}">
+                                    @csrf 
+                                    @method('patch')
                                     <div class="modal-header">
                                         <h2 class="h6 modal-title">Edit Kategori</h2>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -84,7 +90,7 @@
                                         <div class="mb-3">
                                             <label for="kategori" class="form-label">Kategori</label>
                                             <input type="text" class="form-control" id="kategori"
-                                                placeholder="Masukan Nama Kategori" required>
+                                                placeholder="Masukan Nama Kategori" name="kategori" value="{{ $k->kategori }}" required>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -96,8 +102,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Modal Content -->
-                    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modal-default"
+                    <div class="modal fade" id="delete{{ $k->id }}" tabindex="-1" role="dialog" aria-labelledby="modal-default"
                         aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
@@ -106,11 +111,11 @@
                                         <i class="bi bi-question-circle" style="font-size: 100px"></i>
                                     </div>
                                     <div class="d-block text-center">
-                                        Apakah anda yakin ingin menghapusnya ?
+                                        Apakah anda yakin ingin menghapus kategori {{ $k->kategori }} ?
                                     </div>
                                     <div class="d-flex justify-content-center align-items-center my-4"
                                         style="column-gap: 5px">
-                                        <form action="{{ route('admin.books') }}" method="post">
+                                        <form action="{{ route('admin.categories.delete',$k->id) }}" method="post">
                                             @csrf
                                             @method('delete')
                                             <div>
@@ -126,6 +131,8 @@
                             </div>
                         </div>
                     </div>
+                    @endforeach
+                    <!-- Modal Content -->
                 </tbody>
             </table>
         </div>

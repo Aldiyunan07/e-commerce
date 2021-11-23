@@ -4,17 +4,18 @@
     <div class="row">
         <div class="col-12 mb-4">
             <div class="card border-0 shadow components-section">
+                <form action="{{ route('admin.book.update',$buku->id) }}" enctype="multipart/form-data" method="post">
                 <div class="card-body">
-                    <form action="#">
-                        @include('admin.books._form_control')
-                    </form>
-                </div>
-                <div class="card-footer">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <a href="{{ route('admin.books') }}" class="btn btn-danger">Kembali</a>
-                        <button type="submit" class="btn btn-info">Tambah</button>
+                    @method('patch')    
+                    @include('admin.books._form_control')
                     </div>
-                </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="{{ route('admin.books') }}" class="btn btn-danger">Kembali</a>
+                            <button type="submit" class="btn btn-info">Simpan</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

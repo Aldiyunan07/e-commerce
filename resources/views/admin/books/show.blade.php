@@ -6,7 +6,10 @@
                 <div class="card mb-3">
                     <div class="card-body">
                         <h3>{{ $buku->name }} </h3>
-                        <div class="text-muted">{{ $buku->penulis }}</div>
+                        <div class="d-flex justify-content-between">
+                            <div class="text-muted">{{ $buku->penulis }}</div>
+                            <div class="text-muted">{{ ucfirst($buku->status) }}</div>
+                        </div>
                         <div class="fw-bold my-3">Deskripsi</div>
                         <div class="fw-light"> {{ $buku->deskripsi }} </div>
                         <div class="my-3">
@@ -59,7 +62,13 @@
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-body">
-                        <img src="{{ $buku->Picture }}" alt="">
+                        <img src="{{ $buku->Picture }}" class="mb-3" alt="">
+                        @if($buku->status == "proses")
+                        <div class="d-flex justify-content-between">
+                            <a href="{{ route('admin.book.terima',$buku->id) }}" class="btn btn-info"> Terima </a>
+                            <a href="{{ route('admin.book.tolak',$buku->id) }}" class="btn btn-danger"> Tolak </a>
+                        </div>
+                        @endif
                     </div>
                 </div>
             </div>

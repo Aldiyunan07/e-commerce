@@ -16,20 +16,21 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($buy as $n => $b)
                             <!-- Item -->
                             <tr>
-                                <td><a href="#" class="text-primary fw-bold">1</a> </td>
+                                <td><a href="#" class="text-primary fw-bold">{{ $n + 1 }} </a> </td>
                                 <td>
-                                    <a href="#detailUser" target="_blank">John Doe</a>
+                                    <a href="#detailUser" target="_blank"> {{ $b->user->name }} </a>
                                 </td>
                                 <td>
-                                    <a href="{{ route('admin.book.show') }}" target="_blank" class="text-info">Lorem Ipsum</a>
+                                    <a href="" target="_blank" class="text-info">{{ $b->buku->name }} </a>
                                 </td>
                                 <td>
-                                   <span class="text-success">Proses</span>
+                                   <span class="text-{{ $b->status == 'proses' ? 'info' : 'success' }}" >{{ ucfirst($b->status) }}</span>
                                 </td>
                                 <td>
-                                    <span class="text-muted">17 November, 2021</span>
+                                    <span class="text-muted">{{ $b->created_at->format('d F, Y') }}</span>
                                 </td>
                                 <td class="text-end">
                                     <div class="dropdown">
@@ -38,18 +39,21 @@
                                             <i class="bi bi-three-dots-vertical"></i>
                                         </button>
                                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-                                            <li><a class="dropdown-item" href="#Konfirmasi">Konfirmasi</a>
+                                            <li>
+                                                @if($b->status == "konfirmasi")
+                                                    <a class="dropdown-item" href="{{ route('admin.orders.cancel',$b->id) }}">Batalkan Konfirmasi</a>
+                                                @else
+                                                    <a class="dropdown-item" href="{{ route('admin.orders.konfirmasi',$b->id) }}">Konfirmasi</a>
+                                                @endif
                                             </li>
                                             <li><a class="dropdown-item text-danger" role="button" data-bs-toggle="modal"
-                                                    data-bs-target="#modal">Delete</a>
+                                                    data-bs-target="#modal{{ $b->id }}">Delete</a>
                                             </li>
                                         </ul>
                                     </div>
                                 </td>
                             </tr>
-                            <!-- End of Item -->
-                            <!-- Modal Content -->
-                            <div class="modal fade" id="modal" tabindex="-1" role="dialog"
+                            <div class="modal fade" id="modal{{ $b->id }}" tabindex="-1" role="dialog"
                                 aria-labelledby="modal-default" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
@@ -58,11 +62,11 @@
                                                 <i class="bi bi-question-circle" style="font-size: 100px"></i>
                                             </div>
                                             <div class="d-block text-center">
-                                                Apakah anda yakin ingin menghapusnya ?
+                                                Apakah anda yakin ingin menghapus pesanan {{ $b->user->name }} ?
                                             </div>
                                             <div class="d-flex justify-content-center align-items-center my-4"
                                                 style="column-gap: 5px">
-                                                <form action="{{ route('admin.books') }}" method="post">
+                                                <form action="{{ route('admin.order.delete',$b->id) }}" method="post">
                                                     @csrf
                                                     @method('delete')
                                                     <div>
@@ -78,6 +82,7 @@
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

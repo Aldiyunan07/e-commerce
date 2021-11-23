@@ -48,7 +48,7 @@
                             <td> {{ $b->rupiah($b->harga_asli) }} </td>
                             <td> {{ $b->created_at->format('d F, Y') }} </td>
                             <td>
-                                <a href="{{ route('penjual.editbuku',$b) }}" class="btn btn-info btn-sm"> Edit </a>
+                                <a href="{{ route('admin.book.edit',$b->id) }}" class="btn btn-info btn-sm"> Edit </a>
                                 <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal{{$b->id}}">Hapus</button>
                                     <div class="modal fade" id="modal{{ $b->id }}" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">

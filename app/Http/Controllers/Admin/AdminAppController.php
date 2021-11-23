@@ -4,10 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Buku;
+use App\Models\Buy;
+use App\Models\Kategori;
 use App\Models\Penjual;
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class AdminAppController extends Controller
 {
@@ -89,26 +93,151 @@ class AdminAppController extends Controller
     }
     public function bookCreate()
     {
-        return view('admin.books.create');
+        $buku = new Buku;
+        $kategori = Kategori::get();
+        return view('admin.books.create',compact('buku','kategori'));
     }
-    public function bookUpdate()
+
+    public function bookInsert()
     {
-        return view('admin.books.update');
+        # code...
     }
-    public function bookDelete()
+    public function bookedit(Buku $buku)
     {
-        return dd('delete');
+        $kategori = Kategori::get();
+        return view('admin.books.update',compact('buku','kategori'));
+    }
+
+    public function bookUpdate(Buku $buku,Request $request)
+    {
+        $data = $request->all();
+        $request->validate([
+            'name' => 'required',
+            'penulis' => 'required',
+            'deskripsi' => 'required',
+            'harga' => 'required',
+            'diskon' => 'required',
+            'kategori' => 'required',
+            'halaman' => 'required',
+            'bahasa' => 'required',
+            'berat' => 'required',
+            'panjang' => 'required',
+            'lebar' => 'required',
+            'isbn' => 'required',
+            'penerbit' => 'required',
+        ]);
+        
+        if($request->hasFile('ebook')){
+            $file = $request->file('ebook');
+            $filename = $file->getClientOriginalName();
+            $name = time().rand().'.'.$filename;
+            $file->storeAs('file/buku/', $name, 'public');
+            Storage::delete($buku->ebook);
+            $data['file'] = 'file/buku/'.$name;
+        }else{
+            $data['file'] = $buku->file;
+        }
+        if($request->file('gambar')){
+            Storage::delete($buku->thumbnail);
+            $thumbnailUrl = $request->file('gambar')->store('images/buku'); 
+        }else{
+            $thumbnailUrl = $buku->thumbnail;
+        }
+        $data['status'] = $buku->status;
+        $data['slug'] = Str::slug($request->name);
+        $data['thumbnail'] = $thumbnailUrl;
+        $data['harga_awal'] = $request->harga;
+        $harga = $request->diskon * $request->harga / 100 ;
+        $data['harga_asli'] = $data['harga_awal'] -  $harga;
+        $buku->update($data);
+        return redirect(route('admin.books'));
+    }
+    public function bookDelete(Buku $buku)
+    {
+        Storage::delete($buku->thumbnail);
+        Storage::delete($buku->file);
+        $buku->delete();
+        return back();
+    }
+
+    public function bookTolak(Buku $buku)
+    {
+        $buku->update([
+            'status' => 'tolak'
+        ]);
+
+        return back();
+    }
+
+    public function bookTerima(Buku $buku)
+    {
+        $buku->update([
+            'status' => 'terima'
+        ]);
+
+        return back();
     }
 
     // List Orders
     public function orders()
     {
-        return view('admin.orders.table');
+        $buy = Buy::get();
+        return view('admin.orders.table',compact('buy'));
     }
+
+    public function orderskonfirmasi(Buy $buy)
+    {
+        $buy->buku->userakses()->attach($buy->user->id);
+        $buy->update([
+            'status' => 'konfirmasi'
+        ]);
+
+        return back();
+    }
+
+    public function orderscancel(Buy $buy)
+    {
+        $buy->buku->userakses()->detach($buy->user->id);
+        $buy->update([
+            'status' => 'proses'
+        ]);
+
+        return back();
+    }
+
+    public function orderDelete(Buy $buy)
+    {
+        if($buy->status == "konfirmasi"){
+            $buy->buku->userakses()->detach($buy->user->id);
+        }
+        $buy->delete();
+        return back();
+    }
+
     // List Categories
     public function categories()
     {
-        return view('admin.categories.table');
+        $kategori = Kategori::get();
+        return view('admin.categories.table',compact('kategori'));
+    }
+
+    public function editcategories(Request $request,Kategori $kategori)
+    {
+        $kategori->update($request->all());
+        return back();
+    }
+
+    public function deletecategories(Kategori $kategori)
+    {
+        $kategori->delete();
+        return back();
+    }
+
+    public function insertcategories(Request $request, Kategori $kategori)
+    {
+        $kategori = new Kategori;
+        $kategori->create($request->all());
+        return back();
     }
     // Profile
     public function profile()
