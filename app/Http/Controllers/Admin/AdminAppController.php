@@ -12,7 +12,7 @@ class AdminAppController extends Controller
 {
     public function listpenjual()
     {
-        $penjual = Penjual::get();
+        $penjual = Penjual::paginate(25);
         return view('admin.penjual.table',compact('penjual'));
     }
 
@@ -60,7 +60,7 @@ class AdminAppController extends Controller
 
     public function listuser()
     {
-        $user = User::get();
+        $user = User::paginate(25);
         return view('admin.user.table',compact('user'));
     }
 
@@ -73,5 +73,44 @@ class AdminAppController extends Controller
     public function detailuser(User $user)
     {
         return view('admin.user.detail',compact('user'));
+    }
+
+    // List Books
+
+    public function books()
+    {
+        return view('admin.books.table');
+    }
+    public function bookShow()
+    {
+        return view('admin.books.show');
+    }
+    public function bookCreate()
+    {
+        return view('admin.books.create');
+    }
+    public function bookUpdate()
+    {
+        return view('admin.books.update');
+    }
+    public function bookDelete()
+    {
+        return dd('delete');
+    }
+
+    // List Orders
+    public function orders()
+    {
+        return view('admin.orders.table');
+    }
+    // List Categories
+    public function categories()
+    {
+        return view('admin.categories.table');
+    }
+    // Profile
+    public function profile()
+    {
+        return view('admin.profile');
     }
 }
