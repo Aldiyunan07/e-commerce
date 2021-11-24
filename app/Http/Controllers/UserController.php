@@ -17,6 +17,12 @@ class UserController extends Controller
         return view('dashboard',compact('buku','buy'));
     }
 
+    public function allBooks()
+    {
+        $buku = Buku::where('status','terima')->get();
+        $buy = Buy::get();
+        return view('allbooks',compact('buku','buy'));
+    }
     public function belisekarang(Buku $buku)
     {   
         

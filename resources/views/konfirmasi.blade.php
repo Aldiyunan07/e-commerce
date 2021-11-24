@@ -1,33 +1,18 @@
 <x-app-layout>
-    <x-slot name="header" >
-        <h2> Tunggu Konfirmasi </h2>
-    </x-slot>
-    <div class="container mt-3">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <table class="table">
-                            <tr>
-                                <td rowspan="4"> <img src="{{ $buku->Picture }}" width="100" alt=""> </td>
-                                <td> Nama Buku </td>
-                                <td> {{ $buku->name }} </td>
-                            </tr>
-                            <tr>
-                                <td> Penulis </td>
-                                <td> {{ $buku->penulis }} </td>
-                            </tr>
-                            <tr>
-                                <td> Harga </td>
-                                <td> {{ $buku->rupiah($buku->harga_asli) }} </td>
-                            </tr>
-                            <tr>
-                                <td> Kategori </td>
-                                <td> {{ $buku->kategori->kategori }} </td>
-                            </tr>
-                        </table>
-                        *Pembelian anda sedang kami proses. Moho ditunggu konfirmasi dari pihak toko nya. Jika anda tidak sabar, Silahkan hubungi penjual buku nya <a target="_blank" href="https://wa.me/{{ $buku->penjual->whatsapp }}?text=Hallo+saya+sudah+membeli+buku+{{ $buku->name }}+mohon+di+konfirmasi+secepatnya" > klik disini </a>
-                    </div>
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <img class="mt-5" src="https://buildwithangga.com/themes/front/images/ill_success_checkout.svg" style="max-height: 320px" alt="">
+            <div class="col-5 my-4 text-center">
+                <h1 class="header-primary mb-3" style="font-weight: 800; color: #34364a; font-size: 32px;">
+                    Berhasil Checkout
+                </h1>
+                <p class="fw-light text-dark">
+                    WhatsApp akan terbuka secara otomatis untuk <br>
+                    melanjutkan proses konfirmasi pembayaran 
+                </p>            
+                <div class="d-grid">
+                    <button class="btn btn-primary rounded-pill btn-lg mb-3">Selesai</button>
+                    <button class="btn btn-white bg-white rounded-pill btn-lg">Butuh Bantuan</button>
                 </div>
             </div>
         </div>

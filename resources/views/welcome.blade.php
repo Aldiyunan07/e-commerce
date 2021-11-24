@@ -90,7 +90,7 @@
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                     <div class="mb-3" style="max-width: 100%; ">
                         <div class="card border-0 shadow-sm row g-0">
-                            <a href="{{ route('detail.buku') }}" class="card-header border-0 d-flex align-items-center card-header-custom" style="height: 250px;">
+                            <a href="{{ route('detail.buku') }}" class="card-header d-flex align-items-center card-header-custom" style="height: 250px;">
                                 <img src="{{asset('image/image 7.png')}}" class="card-img-top img" style="border-radius: 6px; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.04); max-height: 230px;" alt="...">
                             </a>
                             <div class="card-body" style="height: 150px">
@@ -104,7 +104,7 @@
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                     <div class="mb-3" style="max-width: 100%; ">
                         <div class="card border-0 shadow-sm row g-0">
-                            <a href="#" class="card-header border-0 d-flex align-items-center card-header-custom" style="height: 250px;">
+                            <a href="#" class="card-header d-flex align-items-center card-header-custom" style="height: 250px;">
                                 <img src="{{asset('image/image 1.png')}}" class="card-img-top img" alt="...">
                             </a>
                             <div class="card-body" style="height: 150px">
@@ -118,7 +118,7 @@
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                     <div class="mb-3" style="max-width: 100%; ">
                         <div class="card border-0 shadow-sm row g-0">
-                            <a href="#" class="card-header border-0 d-flex align-items-center card-header-custom" style="height: 250px;">
+                            <a href="#" class="card-header d-flex align-items-center card-header-custom" style="height: 250px;">
                                 <img src="{{asset('image/image 1.png')}}" class="card-img-top img" alt="...">
                             </a>
                             <div class="card-body" style="height: 150px">
@@ -132,7 +132,7 @@
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                     <div class="mb-3" style="max-width: 100%; ">
                         <div class="card border-0 shadow-sm row g-0">
-                            <a href="#" class="card-header border-0 d-flex align-items-center card-header-custom" style="height: 250px;">
+                            <a href="#" class="card-header d-flex align-items-center card-header-custom" style="height: 250px;">
                                 <img src="{{asset('image/image 1.png')}}" class="card-img-top img" alt="...">
                             </a>
                             <div class="card-body" style="height: 150px">
@@ -146,7 +146,7 @@
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                     <div class="mb-3" style="max-width: 100%; ">
                         <div class="card border-0 shadow-sm row g-0">
-                            <a href="#" class="card-header border-0 d-flex align-items-center card-header-custom" style="height: 250px;">
+                            <a href="#" class="card-header d-flex align-items-center card-header-custom" style="height: 250px;">
                                 <img src="{{asset('image/image 1.png')}}" class="card-img-top img" alt="...">
                             </a>
                             <div class="card-body" style="height: 150px">
@@ -160,7 +160,7 @@
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                     <div class="mb-3" style="max-width: 100%; ">
                         <div class="card border-0 shadow-sm row g-0">
-                            <a href="#" class="card-header border-0 d-flex align-items-center card-header-custom" style="height: 250px;">
+                            <a href="#" class="card-header d-flex align-items-center card-header-custom" style="height: 250px;">
                                 <img src="{{asset('image/image 1.png')}}" class="card-img-top img" alt="...">
                             </a>
                             <div class="card-body" style="height: 150px">
@@ -189,7 +189,7 @@
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                     <div class="mb-3" style="max-width: 100%; ">
                         <div class="card border-0 shadow-sm row g-0">
-                            <a href="#" class="card-header border-0 d-flex align-items-center card-header-custom" style="height: 250px;">
+                            <a href="#" class="card-header d-flex align-items-center card-header-custom" style="height: 250px;">
                                 <img src="{{asset('image/image 7.png')}}" class="card-img-top img" style="border-radius: 6px; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.04); max-height: 230px;" alt="...">
                             </a>
                             <div class="card-body" style="height: 150px">
@@ -203,7 +203,7 @@
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                     <div class="mb-3" style="max-width: 100%; ">
                         <div class="card border-0 shadow-sm row g-0">
-                            <a href="#" class="card-header border-0 d-flex align-items-center card-header-custom" style="height: 250px;">
+                            <a href="#" class="card-header d-flex align-items-center card-header-custom" style="height: 250px;">
                                 <img src="{{asset('image/image 1.png')}}" class="card-img-top img" alt="...">
                             </a>
                             <div class="card-body" style="height: 150px">
@@ -217,7 +217,7 @@
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                     <div class="mb-3" style="max-width: 100%; ">
                         <div class="card border-0 shadow-sm row g-0">
-                            <a href="#" class="card-header border-0 d-flex align-items-center card-header-custom" style="height: 250px;">
+                            <a href="#" class="card-header d-flex align-items-center card-header-custom" style="height: 250px;">
                                 <img src="{{asset('image/image 1.png')}}" class="card-img-top img" alt="...">
                             </a>
                             <div class="card-body" style="height: 150px">
@@ -231,7 +231,7 @@
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                     <div class="mb-3" style="max-width: 100%; ">
                         <div class="card border-0 shadow-sm row g-0">
-                            <a href="#" class="card-header border-0 d-flex align-items-center card-header-custom" style="height: 250px;">
+                            <a href="#" class="card-header d-flex align-items-center card-header-custom" style="height: 250px;">
                                 <img src="{{asset('image/image 1.png')}}" class="card-img-top img" alt="...">
                             </a>
                             <div class="card-body" style="height: 150px">
@@ -245,7 +245,7 @@
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                     <div class="mb-3" style="max-width: 100%; ">
                         <div class="card border-0 shadow-sm row g-0">
-                            <a href="#" class="card-header border-0 d-flex align-items-center card-header-custom" style="height: 250px;">
+                            <a href="#" class="card-header d-flex align-items-center card-header-custom" style="height: 250px;">
                                 <img src="{{asset('image/image 1.png')}}" class="card-img-top img" alt="...">
                             </a>
                             <div class="card-body" style="height: 150px">
@@ -259,7 +259,7 @@
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                     <div class="mb-3" style="max-width: 100%; ">
                         <div class="card border-0 shadow-sm row g-0">
-                            <a href="#" class="card-header border-0 d-flex align-items-center card-header-custom" style="height: 250px;">
+                            <a href="#" class="card-header d-flex align-items-center card-header-custom" style="height: 250px;">
                                 <img src="{{asset('image/image 1.png')}}" class="card-img-top img" alt="...">
                             </a>
                             <div class="card-body" style="height: 150px">
@@ -288,7 +288,7 @@
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                     <div class="mb-3" style="max-width: 100%; ">
                         <div class="card border-0 shadow-sm row g-0">
-                            <a href="#" class="card-header border-0 d-flex align-items-center card-header-custom" style="height: 250px;">
+                            <a href="#" class="card-header d-flex align-items-center card-header-custom" style="height: 250px;">
                                 <img src="{{asset('image/image 7.png')}}" class="card-img-top img" style="border-radius: 6px; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.04); max-height: 230px;" alt="...">
                             </a>
                             <div class="card-body" style="height: 150px">
@@ -302,7 +302,7 @@
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                     <div class="mb-3" style="max-width: 100%; ">
                         <div class="card border-0 shadow-sm row g-0">
-                            <a href="#" class="card-header border-0 d-flex align-items-center card-header-custom" style="height: 250px;">
+                            <a href="#" class="card-header d-flex align-items-center card-header-custom" style="height: 250px;">
                                 <img src="{{asset('image/image 1.png')}}" class="card-img-top img" alt="...">
                             </a>
                             <div class="card-body" style="height: 150px">
@@ -316,7 +316,7 @@
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                     <div class="mb-3" style="max-width: 100%; ">
                         <div class="card border-0 shadow-sm row g-0">
-                            <a href="#" class="card-header border-0 d-flex align-items-center card-header-custom" style="height: 250px;">
+                            <a href="#" class="card-header d-flex align-items-center card-header-custom" style="height: 250px;">
                                 <img src="{{asset('image/image 1.png')}}" class="card-img-top img" alt="...">
                             </a>
                             <div class="card-body" style="height: 150px">
@@ -330,7 +330,7 @@
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                     <div class="mb-3" style="max-width: 100%; ">
                         <div class="card border-0 shadow-sm row g-0">
-                            <a href="#" class="card-header border-0 d-flex align-items-center card-header-custom" style="height: 250px;">
+                            <a href="#" class="card-header d-flex align-items-center card-header-custom" style="height: 250px;">
                                 <img src="{{asset('image/image 1.png')}}" class="card-img-top img" alt="...">
                             </a>
                             <div class="card-body" style="height: 150px">
@@ -344,7 +344,7 @@
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                     <div class="mb-3" style="max-width: 100%; ">
                         <div class="card border-0 shadow-sm row g-0">
-                            <a href="#" class="card-header border-0 d-flex align-items-center card-header-custom" style="height: 250px;">
+                            <a href="#" class="card-header d-flex align-items-center card-header-custom" style="height: 250px;">
                                 <img src="{{asset('image/image 1.png')}}" class="card-img-top img" alt="...">
                             </a>
                             <div class="card-body" style="height: 150px">
@@ -358,7 +358,7 @@
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                     <div class="mb-3" style="max-width: 100%; ">
                         <div class="card border-0 shadow-sm row g-0">
-                            <a href="#" class="card-header border-0 d-flex align-items-center card-header-custom" style="height: 250px;">
+                            <a href="#" class="card-header d-flex align-items-center card-header-custom" style="height: 250px;">
                                 <img src="{{asset('image/image 1.png')}}" class="card-img-top img" alt="...">
                             </a>
                             <div class="card-body" style="height: 150px">
@@ -387,7 +387,7 @@
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                     <div class="mb-3" style="max-width: 100%; ">
                         <div class="card border-0 shadow-sm row g-0">
-                            <a href="#" class="card-header border-0 d-flex align-items-center card-header-custom" style="height: 250px;">
+                            <a href="#" class="card-header d-flex align-items-center card-header-custom" style="height: 250px;">
                                 <img src="{{asset('image/image 7.png')}}" class="card-img-top img" style="border-radius: 6px; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.04); max-height: 230px;" alt="...">
                             </a>
                             <div class="card-body" style="height: 150px">
@@ -401,7 +401,7 @@
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                     <div class="mb-3" style="max-width: 100%; ">
                         <div class="card border-0 shadow-sm row g-0">
-                            <a href="#" class="card-header border-0 d-flex align-items-center card-header-custom" style="height: 250px;">
+                            <a href="#" class="card-header d-flex align-items-center card-header-custom" style="height: 250px;">
                                 <img src="{{asset('image/image 1.png')}}" class="card-img-top img" alt="...">
                             </a>
                             <div class="card-body" style="height: 150px">
@@ -415,7 +415,7 @@
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                     <div class="mb-3" style="max-width: 100%; ">
                         <div class="card border-0 shadow-sm row g-0">
-                            <a href="#" class="card-header border-0 d-flex align-items-center card-header-custom" style="height: 250px;">
+                            <a href="#" class="card-header d-flex align-items-center card-header-custom" style="height: 250px;">
                                 <img src="{{asset('image/image 1.png')}}" class="card-img-top img" alt="...">
                             </a>
                             <div class="card-body" style="height: 150px">
@@ -429,7 +429,7 @@
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                     <div class="mb-3" style="max-width: 100%; ">
                         <div class="card border-0 shadow-sm row g-0">
-                            <a href="#" class="card-header border-0 d-flex align-items-center card-header-custom" style="height: 250px;">
+                            <a href="#" class="card-header d-flex align-items-center card-header-custom" style="height: 250px;">
                                 <img src="{{asset('image/image 1.png')}}" class="card-img-top img" alt="...">
                             </a>
                             <div class="card-body" style="height: 150px">
@@ -443,7 +443,7 @@
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                     <div class="mb-3" style="max-width: 100%; ">
                         <div class="card border-0 shadow-sm row g-0">
-                            <a href="#" class="card-header border-0 d-flex align-items-center card-header-custom" style="height: 250px;">
+                            <a href="#" class="card-header d-flex align-items-center card-header-custom" style="height: 250px;">
                                 <img src="{{asset('image/image 1.png')}}" class="card-img-top img" alt="...">
                             </a>
                             <div class="card-body" style="height: 150px">
@@ -457,7 +457,7 @@
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                     <div class="mb-3" style="max-width: 100%; ">
                         <div class="card border-0 shadow-sm row g-0">
-                            <a href="#" class="card-header border-0 d-flex align-items-center card-header-custom" style="height: 250px;">
+                            <a href="#" class="card-header d-flex align-items-center card-header-custom" style="height: 250px;">
                                 <img src="{{asset('image/image 1.png')}}" class="card-img-top img" alt="...">
                             </a>
                             <div class="card-body" style="height: 150px">

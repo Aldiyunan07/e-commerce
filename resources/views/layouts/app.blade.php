@@ -7,6 +7,8 @@
 
         <title>{{ config('app.name | Book Store', 'Book Store') }}</title>
 
+        <!-- Bootstrap Icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,15 +23,19 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-vh-100 bg-gray-100">
+    <body class="font-sans antialiased" style="background-color: #f6f8fd;">
+        <div class="min-vh-100">
             @include('layouts.navigation')
 
             @isset($header)
             <!-- Page Heading -->
-            <header class="bg-light border-bottom py-5">
+            <header class="py-5">
                 <div class="container">
-                    {{ $header }}
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            {{ $header }}
+                        </div>
+                    </div>
                 </div>
             </header>
             @endisset

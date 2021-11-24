@@ -48,6 +48,10 @@
 {
     font-family: Inter;
 }
+.card-header
+{
+    background-color: #fff!important;
+}
 .mx-50 
 {
     margin: 15px 40px 15px 40px;

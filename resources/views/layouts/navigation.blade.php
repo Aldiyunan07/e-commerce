@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white">
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
     <div class="container-fluid mx-50">
       <a class="navbar-brand font-logo d-flex align-items-center justify-content-start" style="margin-right: 8rem; width:8rem;" href="/"> 
       <img src="{{asset('/image/logo.png')}}" alt="" width="36" height="36" class="me-1"> 
@@ -115,8 +115,8 @@
                 <a class="nav-link font-custom" href="{{ route('dashboard') }}">Buku Saya</a>
             </li> --}}
             <li class="input-group" style="width: 60%">
-                <input type="search" name="" id="" class="form-control bg-blue-200 px-4" style="border: none; border-radius: 50px 0 0 50px" placeholder="Cari buku" aria-label="Cari buku" aria-describedby="button-addon2">
-                <button class="btn bg-blue-200 m-0 pe-3 text-secondary" style="border-radius: 0 50px 50px 0;">
+                <input type="search" name="" id="" class="form-control bg-white px-4 shadow-sm" style="border: none; border-radius: 50px 0 0 50px" placeholder="Cari buku" aria-label="Cari buku" aria-describedby="button-addon2">
+                <button class="btn bg-white shadow-sm m-0 pe-3 text-secondary" style="border-radius: 0 50px 50px 0;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                     </svg>
