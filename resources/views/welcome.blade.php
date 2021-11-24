@@ -76,7 +76,7 @@
         </section>
         <section class="mx-50 my-5 mb-3" id="content">
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <div class="fw-bold h5 text-capitalize" style="color: #38426C;">Rekomendasi dari Bookstore</div>
+                <div class="fw-bold h5 text-capitalize" style="color: #38426C;">Baru saja di terbitkan</div>
                 <a href="#" class="text-primary fw-bolder text-decoration-none s-link">
                     Selengkapnya 
                     <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -87,90 +87,23 @@
                 </a>
             </div>
             <div class="row">
+                @foreach($buku->take(6) as $b)
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                     <div class="mb-3" style="max-width: 100%; ">
                         <div class="card border-0 shadow-sm row g-0">
                             <a href="{{ route('detail.buku') }}" class="card-header d-flex align-items-center card-header-custom" style="height: 250px;">
-                                <img src="{{asset('image/image 7.png')}}" class="card-img-top img" style="border-radius: 6px; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.04); max-height: 230px;" alt="...">
+                                <img src="{{ $b->picture }}" class="card-img-top img" style="border-radius: 6px; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.04); max-height: 230px;" alt="...">
                             </a>
                             <div class="card-body" style="height: 150px">
-                                <a href="#" class="card-text line-clamp-1 text-decoration-none lh-lg"><small class="text-muted">John Doe</small></a>
-                                <a href="#" class="card-title font-custom h5 text-decoration-none line-clamp-2">Lorem Ipsum Dolor Sit Amet</a>
-                                <p class="card-text text-primary position-absolute" >Rp. 300.000</p>
+                                <a href="#" class="card-text line-clamp-1 text-decoration-none lh-lg"><small class="text-muted">{{ $b->penulis }}</small></a>
+                                <a href="#" class="card-title font-custom h5 text-decoration-none line-clamp-2">{{ $b->name }}</a>
+                                <p class="card-text text-primary position-absolute" >{{ $b->rupiah($b->harga_asli) }}</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                    <div class="mb-3" style="max-width: 100%; ">
-                        <div class="card border-0 shadow-sm row g-0">
-                            <a href="#" class="card-header d-flex align-items-center card-header-custom" style="height: 250px;">
-                                <img src="{{asset('image/image 1.png')}}" class="card-img-top img" alt="...">
-                            </a>
-                            <div class="card-body" style="height: 150px">
-                                <a href="#" class="card-text line-clamp-1 text-decoration-none lh-lg"><small class="text-muted">John Doe</small></a>
-                                <a href="#" class="card-title font-custom h5 text-decoration-none line-clamp-2">Lorem Ipsum Dolor Sit Amet</a>
-                                <p class="card-text text-primary position-absolute" >Rp. 300.000</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                    <div class="mb-3" style="max-width: 100%; ">
-                        <div class="card border-0 shadow-sm row g-0">
-                            <a href="#" class="card-header d-flex align-items-center card-header-custom" style="height: 250px;">
-                                <img src="{{asset('image/image 1.png')}}" class="card-img-top img" alt="...">
-                            </a>
-                            <div class="card-body" style="height: 150px">
-                                <a href="#" class="card-text line-clamp-1 text-decoration-none lh-lg"><small class="text-muted">John Doe</small></a>
-                                <a href="#" class="card-title font-custom h5 text-decoration-none line-clamp-2">Lorem Ipsum Dolor Sit Amet</a>
-                                <p class="card-text text-primary position-absolute" >Rp. 200.000</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                    <div class="mb-3" style="max-width: 100%; ">
-                        <div class="card border-0 shadow-sm row g-0">
-                            <a href="#" class="card-header d-flex align-items-center card-header-custom" style="height: 250px;">
-                                <img src="{{asset('image/image 1.png')}}" class="card-img-top img" alt="...">
-                            </a>
-                            <div class="card-body" style="height: 150px">
-                                <a href="#" class="card-text line-clamp-1 text-decoration-none lh-lg"><small class="text-muted">John Doe</small></a>
-                                <a href="#" class="card-title font-custom h5 text-decoration-none line-clamp-2">Lorem Ipsum Dolor Sit Amet</a>
-                                <p class="card-text text-primary position-absolute" >Rp. 200.000</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                    <div class="mb-3" style="max-width: 100%; ">
-                        <div class="card border-0 shadow-sm row g-0">
-                            <a href="#" class="card-header d-flex align-items-center card-header-custom" style="height: 250px;">
-                                <img src="{{asset('image/image 1.png')}}" class="card-img-top img" alt="...">
-                            </a>
-                            <div class="card-body" style="height: 150px">
-                                <a href="#" class="card-text line-clamp-1 text-decoration-none lh-lg"><small class="text-muted">John Doe</small></a>
-                                <a href="#" class="card-title font-custom h5 text-decoration-none line-clamp-2">Lorem Ipsum Dolor Sit Amet</a>
-                                <p class="card-text text-primary position-absolute" >Rp. 200.000</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                    <div class="mb-3" style="max-width: 100%; ">
-                        <div class="card border-0 shadow-sm row g-0">
-                            <a href="#" class="card-header d-flex align-items-center card-header-custom" style="height: 250px;">
-                                <img src="{{asset('image/image 1.png')}}" class="card-img-top img" alt="...">
-                            </a>
-                            <div class="card-body" style="height: 150px">
-                                <a href="#" class="card-text line-clamp-1 text-decoration-none lh-lg"><small class="text-muted">John Doe</small></a>
-                                <a href="#" class="card-title font-custom h5 text-decoration-none line-clamp-2">Lorem Ipsum Dolor Sit Amet</a>
-                                <p class="card-text text-primary position-absolute" >Rp. 300.000</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+                
             </div>
         </section>
         <section class="mx-50 my-5 mb-3" id="content">

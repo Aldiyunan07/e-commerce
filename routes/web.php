@@ -9,10 +9,7 @@ use App\Http\Controllers\Penjual\PenjualHomeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/',[UserController::class,'welcome'])->name('welcome');
 Route::middleware(['auth','verified'])->group(function(){
     Route::get('/dashboard',[UserController::class,'dashboard'])->name('dashboard');
     Route::get('/beli/{buku:id}',[UserController::class,'belisekarang'])->name('belisekarang');
