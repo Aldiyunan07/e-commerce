@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    public function welcome(){
+        $buku = Buku::where('status','terima')->get();
+        $kategori = Kategori::get();
+        return view('welcome',compact('buku','kategori'));
+    }
     public function dashboard()
     {
         $buku = Buku::where('status','terima')->get();
