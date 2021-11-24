@@ -49,6 +49,7 @@ Route::namespace('Penjual')->name('penjual.')->prefix('penjual')->group(function
     Route::middleware('penjual')->group(function(){
         Route::get('dashboard',[PenjualHomeController::class,'index'])->name('dashboard');
         Route::get('buku',[PenjualAppController::class,'listbuku'])->name('listbuku');
+        Route::get('buku/show/{buku:id}',[PenjualAppController::class,'listbukuShow'])->name('listbuku.show');
         Route::get('buku/tambah',[PenjualAppController::class,'tambahbuku'])->name('tambahbuku');
         Route::post('buku/insert',[PenjualAppController::class,'insertbuku'])->name('insertbuku');
         Route::get('buku/edit/{buku}',[PenjualAppController::class,'editbuku'])->name('editbuku');

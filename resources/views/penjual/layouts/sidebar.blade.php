@@ -49,7 +49,7 @@
         </div>
         <ul class="nav flex-column pt-3 pt-md-0">
             <li class="nav-item">
-                <a href="../../index.html" class="nav-link d-flex align-items-center">
+                <a href="{{ route('home') }}" class="nav-link d-flex align-items-center">
                     <span class="sidebar-icon">
                         <img src="{{ asset('admin/assets/img/brand/light.svg') }}" height="20" width="20"
                             alt="Volt Logo">
@@ -58,34 +58,26 @@
                 </a>
             </li>
             <li class="nav-item  active ">
-                <a href="../../pages/dashboard/dashboard.html" class="nav-link">
+                <a href="{{ route('penjual.dashboard') }}" class="nav-link">
                     <span class="sidebar-icon">
-                        <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
-                            <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
-                        </svg>
+                        <i class="bi bi-pie-chart me-2"></i>
                     </span>
                     <span class="sidebar-text">Dashboard</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="{{ route('penjual.listbuku') }}" class="nav-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-xs me-3" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                    </svg>
+                    <span class="sidebar-icon">
+                        <i class="bi bi-bag-plus me-2"></i>
+                    </span>
                     <span class="sidebar-text"> Toko Saya</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="{{ route('penjual.listbuy') }}" class="nav-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-xs me-3" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
+                    <span class="sidebar-icon">
+                        <i class="bi bi-cart-plus me-2"></i>
+                    </span>
                     <span class="sidebar-text"> Pesanan  </span>
                 </a>
             </li>

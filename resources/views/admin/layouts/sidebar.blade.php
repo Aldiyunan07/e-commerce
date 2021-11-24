@@ -58,7 +58,7 @@
                 </a>
             </li>
             <li class="nav-item active">
-                <a href="#" class="nav-link">
+                <a href="{{ route('admin.dashboard') }}" class="nav-link">
                     <span class="sidebar-icon">
                         <i class="bi bi-pie-chart me-2"></i>
                     </span>

@@ -10,8 +10,7 @@
                     <thead class="thead-light">
                         <tr>
                             <th class="border-0 rounded-start">#</th>
-                            <th class="border-0">Thumbnail</th>
-                            <th class="border-0">Nama</th>
+                            <th class="border-0">Judul Buku</th>
                             <th class="border-0">Penjual</th>
                             <th class="border-0">Harga</th>
                             <th class="border-0">Di Buat Pada</th>
@@ -22,8 +21,7 @@
                         @foreach($buku as $n => $b)
                         <tr>
                             <td> {{ $n + 1 }} </td>
-                            <td> <img src="{{ $b->Picture }}" width="100" class="img-alt"> </td>
-                            <td> {{ $b->name }} </td>
+                            <td> <a href="{{ route('admin.book.show', $b->id) }}" class="text-info">{{ $b->name }}</a></td>
                             <td> {{ $b->penjual->name }} </td>
                             <td> {{ $b->rupiah($b->harga_asli) }} </td>
                             <td> {{ $b->created_at->format('d F, Y') }} </td>
@@ -34,9 +32,6 @@
                                         <i class="bi bi-three-dots-vertical"></i>
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-                                        <li><a class="dropdown-item"
-                                                href="{{ route('admin.book.show',$b->id) }}">Detail</a>
-                                        </li>
                                         <li><a class="dropdown-item" href="{{ route('admin.book.edit',$b->id) }}">Edit</a>
                                         </li>
                                         <li><a class="dropdown-item text-danger" role="button" data-bs-toggle="modal"

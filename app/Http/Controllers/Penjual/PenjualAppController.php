@@ -18,6 +18,11 @@ class PenjualAppController extends Controller
         return view('penjual.buku.table',compact('buku'));
     }
 
+    public function listbukuShow(Buku $buku)
+    {
+        return view('penjual.buku.show',compact('buku'));
+    }
+
     public function tambahbuku()
     {
         $buku = new Buku();

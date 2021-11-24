@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-5">
+    <div class="col-md-6">
         <div class="mb-4">
             <label for="name">Nama Buku</label>
             <input type="text" value="{{ old('name') ?? $buku->name }}" name="name" class="form-control" id="name">
@@ -58,7 +58,7 @@
             @enderror
         </div>
     </div>
-    <div class="col-md-5">
+    <div class="col-md-6">
         <div class="mb-4">
             <label for="penulis">Penulis</label>
             <input type="text" name="penulis" class="form-control" value="{{ old('penulis') ?? $buku->penulis }}"
