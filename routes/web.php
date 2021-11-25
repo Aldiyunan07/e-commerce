@@ -16,7 +16,10 @@ Route::middleware(['auth','verified'])->group(function(){
     Route::post('/buy/{buku:id}',[UserController::class,'buynow'])->name('buynow');
     Route::get('/addwhistlist/{buku:id}',[UserController::class,'whistlist'])->name('whistlist');
     Route::get('/unwhistlist/{buku:id}',[UserController::class,'unwhistlist'])->name('unwhistlist');
-    Route::get('/whistlist',[UserController::class,'listwhistlist'])->name('listwhistlist');
+    Route::get('/wishlist',[UserController::class,'listwhistlist'])->name('listwhistlist');
+    Route::get('/update-profile', [UserController::class, 'updateProfile'])->name('update.profile');
+    Route::get('/change-password', [UserController::class, 'changePassword'])->name('change.password');
+    Route::get('/my-orders', [UserController::class, 'myOrders'])->name('my.orders');
 });
 Route::get('/buku/kategori/{kategori:id}',[UserController::class,'listkategori'])->name('listkategori');
 Route::post('/buku/search',[UserController::class,'searchbuku'])->name('searchbuku');

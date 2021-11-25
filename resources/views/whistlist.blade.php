@@ -1,12 +1,35 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2>
-            Whistlist Buku Saya
-        </h2>
+        <h1 class="header-primary mb-3" style="font-weight: 800; color: #34364a; font-size: 32px;">
+            Wishlist Buku Saya
+        </h1>
+        <p class="fw-light text-dark">
+            Disini anda dapat melihat buku <br /> yang anda inginkan
+        </p>
     </x-slot>
 
-    <div class="container">
-        <div class="row">
+    <div class="container-fluid">
+        <section class="mx-50 my-5 mb-3" id="content">
+            <div class="row">
+                {{-- Foreach --}}
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                    <div class="mb-3" style="max-width: 100%; ">
+                        <div class="card border-0 shadow-sm row g-0">
+                            <a href="#" class="card-header d-flex align-items-center card-header-custom" style="height: 250px;">
+                                <img src="{{asset('image/image 7.png')}}" class="card-img-top img" style="border-radius: 6px; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.04); max-height: 230px;" alt="...">
+                            </a>
+                            <div class="card-body" style="height: 150px">
+                                <a href="#" class="card-text line-clamp-1 text-decoration-none lh-lg"><small class="text-muted">John Doe</small></a>
+                                <a href="#" class="card-title font-custom h5 text-decoration-none line-clamp-2">Lorem Ipsum Dolor Sit Amet</a>
+                                <p class="card-text text-primary position-absolute" >Rp. 500.000</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{-- endforeach --}}
+            </div>
+        </section>
+        {{-- <div class="row">
             @foreach($buku as $b)
             @if(Auth::user()->checkwhistlist($b) == 1)
             <div class="col-6 col-sm-4 col-md-3 col-lg-2">
@@ -35,6 +58,6 @@
             </div>
             @endif
             @endforeach
-        </div>
+        </div> --}}
     </div>
 </x-app-layout>

@@ -138,15 +138,16 @@
         <ul class="navbar-nav d-flex align-items-center">
             <li class="nav-item dropdown">
                 <a class="nav-link font-custom text-capitalize" style="white-space: nowrap" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="https://lh3.googleusercontent.com/ogw/ADea4I4FuisS1E_ozqtvUYmYMgk9ijUcXTBVPiEQxrvvhw=s32-c-mo" class="rounded-circle me-2" width="30" height="30" alt="">
                     {{ Auth::user()->name }}
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end border-0 shadow-lg" style="width: 15rem; font-size: 15px;" aria-labelledby="navbarDropdown">
-                    <li><a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item" href="#">Update Profile</a></li>
-                    <li><a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item" href="#">Change Password</a></li>
+                    <li><a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item" href="{{ route('update.profile') }}">Profile Information</a></li>
+                    <li><a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item" href="{{ route('change.password') }}">Change Password</a></li>
                     <li><a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item" href="{{ route('listwhistlist') }}">Wishlist</a></li>
                     
                     @if( Auth::user()->pesanansaya(Auth::user()->id) > 0 )
-                    <li><a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item" href="#">Pesanan Saya</a></li>
+                    <li><a style="padding: 0.5rem 1rem 0.5rem 1rem" class="dropdown-item" href="{{ route('my.orders') }}">Pesanan Saya</a></li>
                     @endif
                     <li><hr class="dropdown-divider"></li>
                     <li>

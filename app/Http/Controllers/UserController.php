@@ -89,4 +89,19 @@ class UserController extends Controller
         $buku = Buku::where('status','terima')->get();
         return view('whistlist',compact('buku'));
     }
+
+    public function updateProfile()
+    {
+        return view('profile');
+    }
+
+    public function changePassword()
+    {
+        return view('change');
+    }
+
+    public function myOrders()
+    {
+        return view('orders');
+    }
 }
