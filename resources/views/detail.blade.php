@@ -3,7 +3,7 @@
         <div class="row mx-50" style="column-gap: 30px">
             <div class="col-12 col-md-8 ">
                 <div style="margin: 0; min-height: 25rem" class="mb-3 d-flex bg-white shadow-sm rounded align-items-center">
-                    <img src="{{asset('image/image 7.png')}}" class="img" style="border-radius: 0px;" alt="...">
+                    <img src="{{$buku->picture}}" height="500" class="img" style="border-radius: 0px;" alt="...">
                 </div>
             {{-- </div>
             <div class="col-12 col-md-5"> --}}
@@ -12,17 +12,35 @@
                         <div class="d-flex justify-content-between align-items-start">
                             <div>
                                 <div class="fs-5 text-secondary opacity-75 fw-light">
-                                    John Doe
+                                    {{ $buku->penulis }}
                                 </div>
                                 <div class="fs-3 fw-md text-dark mb-4">
-                                    No Coding No Money 
+                                    {{ $buku->name }} 
                                 </div>
                             </div>
                             <div class="d-flex align-items-center">
-                                <a href="#" class="d-block btn btn-primary btn-sm me-2">Beli Sekarang</a>
-                                <a href="#" class="text-secondary text-decoration-none" title="Tambah ke Wishlist">
-                                    <i class="bi bi-bookmark-plus fs-3"></i>
-                                </a>
+                                @auth
+                                    <a href="{{route('belisekarang',$buku->id)}}" class="d-block btn btn-primary btn-sm me-2">Beli Sekarang</a>
+                                @else
+
+                                @endauth
+                                @auth
+                                    @if(Auth::user()->checkwhistlist($buku) == 1)
+                                    <a href="{{ route('unwhistlist',$buku->id) }}" class="text-secondary  text-decoration-none" title="Tambah ke Wishlist">
+                                        <i class="bi bi-bookmark-plus fs-3"></i>
+                                    
+                                    @else
+                                    <a href="{{ route('whistlist',$buku->id) }}" class="text-secondary text-decoration-none" title="Tambah ke Wishlist">
+                                        <i class="bi bi-bookmark-plus fs-3"></i>
+                                    </a>
+                                    @endif
+
+                                    @else
+                                    <a href="{{ route('login') }}" class="text-secondary text-decoration-none" title="Tambah ke Wishlist">
+                                        <i class="bi bi-bookmark-plus fs-3"></i>
+                                    </a>
+                                @endauth    
+                            
                             </div>
                         </div>
                         <div class="d-flex align-items-center justify-content-between border-bottom pb-2" style="column-gap: 20px;">
@@ -35,13 +53,25 @@
                         </div>
                         <div class="text-dark my-3 fw-bold">Format Buku Yang Tersedia</div>
                         <div class="format-buku d-flex" style="column-gap: 12px">
-                            <div class="card border-primary">
-                                <a href="#" class="card-body m-0 py-1 text-decoration-none">
-                                    <div class="fw-bold text-dark">Ebook</div>
-                                    <div class="small text-secondary opacity-75">Mulai dari</div>
-                                    <div class="text-primary">Rp. 120.00</div>
-                                </a>
-                            </div>
+                            @auth
+                                    @if(Auth::user()->bukuaccess($buku) == 0)
+                                    <div class="card border-primary">
+                                        <a href="#" class="card-body m-0 py-1 text-decoration-none">
+                                            <div class="fw-bold text-dark">Ebook</div>
+                                            <div class="small text-secondary opacity-75">Mulai dari</div>
+                                            <div class="text-primary">{{ $buku->rupiah($buku->harga_asli) }}</div>
+                                        </a>
+                                    </div>
+                                    @endif
+                            @else
+                                <div class="card border-primary">
+                                    <a href="{{ route('login') }}" class="card-body m-0 py-1 text-decoration-none">
+                                        <div class="fw-bold text-dark">Ebook</div>
+                                        <div class="small text-secondary opacity-75">Mulai dari</div>
+                                        <div class="text-primary">{{ $buku->rupiah($buku->harga_asli) }}</div>
+                                    </a>
+                                </div>
+                            @endauth
                             <div class="card border-primary">
                                 <a href="#" class="card-body m-0 py-1 text-decoration-none">
                                     <div class="fw-bold text-dark">Buku</div>
@@ -52,7 +82,7 @@
                         </div>
                         <div class="text-dark my-3 fw-bold">Deskripsi</div>
                         <div class="fw-light">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, deserunt alias totam ipsum beatae soluta. Molestias dolores ex, assumenda mollitia et cupiditate, illo quisquam possimus quo nam culpa dolor dolore?
+                            {{ $buku->deskripsi }}
                         </div>
                         <div class="my-3">
                             <div class="fw-bold text-dark mb-3">Detail</div>
@@ -60,37 +90,37 @@
                                 <div class="col-6 col-md-6">
                                     <div class="mb-2">
                                         <div class="small text-secondary">Jumlah Halaman</div>
-                                        <div class="small text-dark">520.0</div>
+                                        <div class="small text-dark">{{ $buku->halaman }} Halaman </div>
                                     </div>
                                     <div class="mb-2">
                                         <div class="small text-secondary">Tanggal Terbit</div>
-                                        <div class="small text-dark">14 Januari 2021</div>
+                                        <div class="small text-dark">{{ $buku->created_at->format('d F, Y') }}</div>
                                     </div>
                                     <div class="mb-2">
                                         <div class="small text-secondary">ISBN</div>
-                                        <div class="small text-dark">9786020650352</div>
+                                        <div class="small text-dark">{{ $buku->isbn }}</div>
                                     </div>
                                     <div class="mb-2">
                                         <div class="small text-secondary">Bahasa</div>
-                                        <div class="small text-dark">Indonesia</div>
+                                        <div class="small text-dark">{{ $buku->bahasa }}</div>
                                     </div>
                                 </div>
                                 <div class="col-6 col-md-6">
                                     <div class="mb-2">
                                         <div class="small text-secondary">Penerbit</div>
-                                        <div class="small text-dark">Gramedia Pustaka Utama</div>
+                                        <div class="small text-dark">{{ $buku->penerbit }}</div>
                                     </div>
                                     <div class="mb-2">
                                         <div class="small text-secondary">Berat</div>
-                                        <div class="small text-dark">0.46 kg</div>
+                                        <div class="small text-dark">{{ $buku->berat }} kg</div>
                                     </div>
                                     <div class="mb-2">
                                         <div class="small text-secondary">Lebar</div>
-                                        <div class="small text-dark">13.5 cm</div>
+                                        <div class="small text-dark">{{ $buku->lebar }} cm</div>
                                     </div>
                                     <div class="mb-2">
                                         <div class="small text-secondary">Panjang</div>
-                                        <div class="small text-dark">20.0 cm</div>
+                                        <div class="small text-dark">{{ $buku->panjang }} cm</div>
                                     </div>
                                 </div>
                             </div>

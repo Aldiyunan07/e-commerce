@@ -50,7 +50,8 @@ class UserController extends Controller
 
     public function detail(Buku $buku)
     {
-        return view('detail',compact('buku'));
+        $kategori = Kategori::get();
+        return view('detail',compact('buku','kategori'));
     }
 
     public function listkategori(Kategori $kategori)

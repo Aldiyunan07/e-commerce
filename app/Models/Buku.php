@@ -70,4 +70,10 @@ class Buku extends Model
     {
         return $this->belongsToMany(User::class,'whistlist')->withTimestamps();
     }
+
+    public function hargadiskon()
+    {
+        $hargadiskon = $this->harga_awal - $this->harga_asli;
+        return $hargadiskon;
+    }
 }

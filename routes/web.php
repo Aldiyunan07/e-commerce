@@ -24,7 +24,7 @@ Route::middleware(['auth','verified'])->group(function(){
 Route::get('/buku/kategori/{kategori:id}',[UserController::class,'listkategori'])->name('listkategori');
 Route::post('/buku/search',[UserController::class,'searchbuku'])->name('searchbuku');
 Route::get('/all-books',[UserController::class,'allBooks'])->name('allBooks');
-Route::get('/view',[UserController::class,'detail'])->name('detail.buku');
+Route::get('/view/{buku:id}',[UserController::class,'detail'])->name('detail.buku');
 Route::get('/search',[UserController::class,'search'])->name('search');
 require __DIR__.'/auth.php';
 

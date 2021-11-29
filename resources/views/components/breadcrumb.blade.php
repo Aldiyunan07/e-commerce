@@ -2,7 +2,7 @@
     <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
         <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
             <li class="breadcrumb-item">
-                <a href="{{ $link ?? $link ?? route('home') }}">
+                <a href="{{ $link ?? $link ?? route('penjual.dashboard') }}">
                     <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

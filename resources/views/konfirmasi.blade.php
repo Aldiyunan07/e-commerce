@@ -11,7 +11,7 @@
                     melanjutkan proses konfirmasi pembayaran 
                 </p>            
                 <div class="d-grid">
-                    <button class="btn btn-primary rounded-pill btn-lg mb-3">Selesai</button>
+                    <a href="{{ route('welcome') }}" class="btn btn-primary rounded-pill btn-lg mb-3">Selesai</a>
                     <button class="btn btn-white bg-white rounded-pill btn-lg">Butuh Bantuan</button>
                 </div>
             </div>

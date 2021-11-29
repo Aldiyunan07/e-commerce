@@ -12,13 +12,13 @@
             <div class="col-lg-3">
                 <div class="mb-3" style="max-width: 100%; ">
                     <div class="card border-0 shadow-sm row g-0">
-                        <a href="{{ route('detail.buku') }}" class="card-header d-flex align-items-center card-header-custom" style="height: 250px;">
-                            <img src="{{asset('image/image 7.png')}}" class="card-img-top img" style="border-radius: 6px; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.04); max-height: 230px; max-width: 150px;" alt="...">
+                        <a href="{{ route('detail.buku',$buku->id) }}" class="card-header d-flex align-items-center card-header-custom" style="height: 250px;">
+                            <img src="{{$buku->picture}}" class="card-img-top img" style="border-radius: 6px; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.04); max-height: 230px; max-width: 150px;" alt="...">
                         </a>
                         <div class="card-body" >
-                            <a href="#" class="card-text line-clamp-1 text-decoration-none lh-lg"><small class="text-muted">John Doe</small></a>
-                            <a href="#" class="card-title h6 fw-bolder text-decoration-none line-clamp-2 text-dark">Lorem Ipsum Dolor Sit Amet</a>
-                            {{-- <p class="card-text text-primary">Rp. 300.000</p> --}}
+                            <a href="#" class="card-text line-clamp-1 text-decoration-none lh-lg"><small class="text-muted">{{$buku->penulis}}</small></a>
+                            <a href="#" class="card-title h6 fw-bolder text-decoration-none line-clamp-2 text-dark">{{ $buku->name }}</a>
+                            {{-- <p class="card-text text-primary">{{  $buku->rupiah($buku->harga_asli)}}</p> --}}
                         </div>
                     </div>
                 </div>
@@ -54,33 +54,28 @@
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
                             <p class="fw-light text-secondary">Harga Buku</p>
-                            <p class="fw-light font-custom">Rp. 123.000</p>
+                            <p class="fw-light font-custom">{{ $buku->rupiah($buku->harga_awal) }}</p>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
                             <p class="fw-light text-secondary">Diskon</p>
-                            <p class="fw-bold font-custom"> - Rp. 20.000</p>
+                            <p class="fw-bold font-custom">{{ $buku->rupiah($buku->hargadiskon()) }}</p>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
                             <p class="fw-light text-secondary">Total Transfer</p>
-                            <p class="fw-bold font-custom">Rp. 103.000</p>
+                            <p class="fw-bold font-custom">{{ $buku->rupiah($buku->harga_asli) }}</p>
                         </div>
                         <div class="fw-bold font-custom my-3">
                             Transfer pembayaran
                         </div>
                         <div class="mb-4">
                             <img src="https://buildwithangga.com/storage/assets/images/logo_bank_mandiri_buildwithangga.png" style="height: 35px" alt="">
-                            <span class="font-custom fw-normal d-block my-2">PT Bookstore (Admin John Kennedy)</span>
-                            <span class="font-custom fw-bold d-block">7923849283698</span>
-                        </div>
-                        <div class="mb-4">
-                            <img src="https://buildwithangga.com/storage/assets/images/logo_bank_bca_buildwithangga.png" style="height: 35px" alt="">
-                            <span class="font-custom fw-normal d-block my-2">PT Bookstore (Admin John Smith)</span>
+                            <span class="font-custom fw-normal d-block my-2">{{ $buku->penjual->name }}</span>
                             <span class="font-custom fw-bold d-block">7923849283698</span>
                         </div>
                         <div>
                             <div class="d-grid">
                                 <button class="btn btn-primary rounded-pill btn-lg mb-2" data-bs-toggle="modal" data-bs-target="#modal">Konfirmasi Pembayaran</button>
-                                <button class="btn btn-light rounded-pill btn-lg text-secondary mb-4">Lihat Jam Operasional</button>
+                                <!-- <button class="btn btn-light rounded-pill btn-lg text-secondary mb-4">Lihat Jam Operasional</button> -->
                             </div>
                             {{-- Modal Content --}}
                             <div class="modal fade" id="modal" tabindex="-1" role="dialog"
@@ -128,19 +123,19 @@
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
                             <p class="fw-light text-secondary">Admin</p>
-                            <p class="fw-normal font-custom">John Doe (Admin) </p>
+                            <p class="fw-normal font-custom">{{ $buku->penjual->name }} </p>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
                             <p class="fw-light text-secondary">No. WhatsApp</p>
-                            <p class="fw-bold font-custom"> +6282878274678</p>
+                            <p class="fw-bold font-custom"> {{ $buku->whatsapp }}</p>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
                             <p class="fw-light text-secondary">Total Transfer</p>
-                            <p class="fw-bold font-custom">Rp. 103.000</p>
+                            <p class="fw-bold font-custom">{{ $buku->rupiah($buku->harga_asli) }}</p>
                         </div>
                         <div>
                             <div class="d-grid">
-                                <button class="btn btn-light rounded-pill btn-lg text-secondary mb-4">Whatsapp ke Admin</button>
+                                <a href="" class="btn btn-light rounded-pill btn-lg text-secondary mb-4">Whatsapp ke Admin</a>
                             </div>
                         </div>
                     </div>
