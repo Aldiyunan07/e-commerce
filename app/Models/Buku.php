@@ -14,6 +14,9 @@ class Buku extends Model
         'thumbnail',
         'deskripsi',
         'harga_awal',
+        'bukalapak',
+        'shopee',
+        'tokopedia',
         'diskon',
         'penulis',
         'harga_asli',
@@ -24,6 +27,7 @@ class Buku extends Model
         'berat',
         'panjang',
         'lebar',
+        'sinopsis',
         'isbn',
         'penerbit',
         'status',
@@ -38,6 +42,11 @@ class Buku extends Model
     public function getEbookAttribute()
     {
         return asset('/storage/' . $this->file);
+    }
+
+    public function latest()
+    {
+        return $this->orderBy('created_at','desc');
     }
 
     public function rupiah($angka){

@@ -78,6 +78,14 @@
                     <span class="sidebar-text"> Pesanan  </span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{ route('penjual.listmetode') }}" class="nav-link">
+                    <span class="sidebar-icon">
+                        <i class="bi bi-cart-plus me-2"></i>
+                    </span>
+                    <span class="sidebar-text"> Metode Pembayaran  </span>
+                </a>
+            </li>
         </ul>
     </div>
 </nav>

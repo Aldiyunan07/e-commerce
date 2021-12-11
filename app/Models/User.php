@@ -23,7 +23,10 @@ class User extends Authenticatable implements MustVerifyEmail
         'password',
         'no_telp',
         'profesi',
-        'alamat'
+        'alamat',
+        'jk',
+        'ttl',
+        'picture'
     ];
 
     /**
@@ -44,6 +47,11 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getAvatarAttribute()
+    {
+        return asset('/storage/'.$this->picture);
+    }
 
     public function buku()
     {

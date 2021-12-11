@@ -5,15 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\Buku;
 use App\Models\Buy;
 use App\Models\Kategori;
+use App\Models\User;
+use Illuminate\Validation\Rules;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
     public function welcome(){
         $buku = Buku::where('status','terima')->get();
         $kategori = Kategori::get();
-        return view('welcome',compact('buku','kategori'));
+        $bukus = Buku::where('status','terima')->orderBy('created_at','desc')->get();
+        return view('welcome',compact('buku','kategori','bukus'));
     }
     public function dashboard()
     {
@@ -22,7 +26,7 @@ class UserController extends Controller
         return view('dashboard',compact('buku','buy'));
     }
 
-    public function allBooks()
+    public function allBooks(Request $request)
     {
         $buku = Buku::where('status','terima')->get();
         $buy = Buy::get();
@@ -50,8 +54,9 @@ class UserController extends Controller
 
     public function detail(Buku $buku)
     {
-        $kategori = Kategori::get();
-        return view('detail',compact('buku','kategori'));
+        $kategori = Kategori::where('id',$buku->kategori_id)->get();
+        $ebook = Buku::where('kategori_id',$buku->kategori_id)->where('id','!=',$buku->id)->get();
+        return view('detail',compact('buku','kategori','ebook'));
     }
 
     public function listkategori(Kategori $kategori)
@@ -60,11 +65,17 @@ class UserController extends Controller
         return view('search',compact('buku'));
     }
 
-    public function searchbuku(Request $request)
+    public function search(Request $request)
     {
         $keywoard = $request->search;
-        $buku = Kategori::where('name','like','%$request->search%')->get();
+        $buku = Buku::where("name","like","%$request->search%")->where('status','terima')->get();
         return view('search',compact('buku','keywoard'));
+    }
+
+    public function myBook()
+    {
+        $buku = Buku::where('status','terima')->get();
+        return view('mybook',compact('buku'));
     }
 
     public function listbuku()
@@ -96,13 +107,55 @@ class UserController extends Controller
         return view('profile');
     }
 
+    public function updateProfil(Request $request,User $user)
+    {
+        $data = $request->all();
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'no_telp' => 'required',
+            'jk' => 'required',     
+        ]);
+        if($request->hasFile('foto')){
+            $file = $request->file('foto');
+            $filename = $file->getClientOriginalName();
+            $name = Auth::user()->id.time().rand().'.'.$filename;
+            $file->storeAs('images/avatar/', $name, 'public');
+            $data['picture'] = 'images/avatar/'.$name;
+        }
+        $data['ttl'] = $request->tanggal_lahir;
+
+        $user->update($data);
+        return back();
+
+    }
+
     public function changePassword()
     {
+        
         return view('change');
+    }
+
+    public function ubahPassword(Request $request,User $user)
+    {
+        $data = $request->all();
+        $request->validate([
+            'password' => 'password|required',
+            'password_confirmation' => 'password|required'
+        ]);
+        $user->update([
+            'password' => Hash::make($request->password)
+        ]);
+        return back();
     }
 
     public function myOrders()
     {
         return view('orders');
+    }
+
+    public function lihatbuku(Buku $buku)
+    {
+        return view('lihatbuku',compact('buku'));
     }
 }

@@ -18,14 +18,18 @@ Route::middleware(['auth','verified'])->group(function(){
     Route::get('/unwhistlist/{buku:id}',[UserController::class,'unwhistlist'])->name('unwhistlist');
     Route::get('/wishlist',[UserController::class,'listwhistlist'])->name('listwhistlist');
     Route::get('/update-profile', [UserController::class, 'updateProfile'])->name('update.profile');
+    Route::post('/update-profil/{user:id}', [UserController::class, 'updateProfil'])->name('update.profil');
     Route::get('/change-password', [UserController::class, 'changePassword'])->name('change.password');
+    Route::post('/ubah-password/{user:id}', [UserController::class, 'ubahPassword'])->name('ubah.password');
     Route::get('/my-orders', [UserController::class, 'myOrders'])->name('my.orders');
+    Route::get('/my-book', [UserController::class, 'myBook'])->name('listmybook');
+    Route::get('/read-book/{buku:id}', [UserController::class, 'lihatbuku'])->name('lihatbuku');
 });
 Route::get('/buku/kategori/{kategori:id}',[UserController::class,'listkategori'])->name('listkategori');
 Route::post('/buku/search',[UserController::class,'searchbuku'])->name('searchbuku');
 Route::get('/all-books',[UserController::class,'allBooks'])->name('allBooks');
 Route::get('/view/{buku:id}',[UserController::class,'detail'])->name('detail.buku');
-Route::get('/search',[UserController::class,'search'])->name('search');
+Route::post('/search',[UserController::class,'search'])->name('search');
 require __DIR__.'/auth.php';
 
 // Penjual
@@ -46,6 +50,7 @@ Route::namespace('Penjual')->name('penjual.')->prefix('penjual')->group(function
         Route::patch('buku/update/{buku:id}',[PenjualAppController::class,'updatebuku'])->name('updatebuku');
         Route::delete('buku/delete/{buku:id}',[PenjualAppController::class,'deletebuku'])->name('deletebuku');
         Route::get('listbuy',[PenjualAppController::class,'listbuy'])->name('listbuy');
+        Route::get('listmetode',[PenjualAppController::class,'listmetode'])->name('listmetode');
         Route::get('listbuy/konfirmasi/{buy:id}',[PenjualAppController::class,'konfirmasi'])->name('konfirmasi.listbuy');
         Route::get('listbuy/unkonfirmasi/{buy:id}',[PenjualAppController::class,'unkonfirmasi'])->name('unkonfirmasi.listbuy');
     });
