@@ -105,8 +105,8 @@
                                         <div class="small text-dark">{{ $buku->bahasa }}</div>
                                     </div>
                                 </div>
-                                <div class="col-6 col-md-6">
-                                    <div class="mb-2">
+                                <div class="mb-2">
+                                        <div class="col-6 col-md-6">
                                         <div class="small text-secondary">Penerbit</div>
                                         <div class="small text-dark">{{ $buku->penerbit }}</div>
                                     </div>

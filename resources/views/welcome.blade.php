@@ -95,18 +95,18 @@
                                 <img src="{{ $b->picture }}" class="card-img-top img" style="border-radius: 6px; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.04); max-height: 230px;" alt="...">
                             </a>
                             <div class="card-body" style="height: 150px">
-                                <a href="#" class="card-text line-clamp-1 text-decoration-none lh-lg"><small class="text-muted">{{ $b->penulis }}</small></a>
+                                <a href="{{ route('detail.buku',$b->id) }}" class="card-text line-clamp-1 text-decoration-none lh-lg"><small class="text-muted">{{ $b->penulis }}</small></a>
                                 <a href="#" class="card-title font-custom h5 text-decoration-none line-clamp-2">{{ $b->name }}</a>
                                 <p class="card-text text-primary position-absolute" >{{ $b->rupiah($b->harga_asli) }}</p>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>  
                 @endforeach
                 
             </div>
         </section>
-        <section class="mx-50 my-5 mb-3" id="content">
+        {{-- <section class="mx-50 my-5 mb-3" id="content">
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <div class="fw-bold h5 text-capitalize" style="color: #38426C;">Buku-Buku Terpopuler</div>
                 <a href="#" class="text-primary fw-bolder text-decoration-none s-link">
@@ -402,7 +402,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
     </div>
 
 </x-app-layout>
