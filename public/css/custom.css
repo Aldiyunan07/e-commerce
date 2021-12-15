@@ -156,10 +156,6 @@
     background-color: transparent!important;
     box-shadow: none!important;
 }
-/* Mobile */
-@media only screen and ( max-width: 600px )
-{
-}
 
 /* Tablet */
 @media only screen and ( max-width: 768px )
@@ -177,6 +173,12 @@
 /* Laptop */
 @media only screen and ( max-width: 992px )
 {
+    .sidebar {
+        display: none;
+    }
+    .offcanvas-end {
+        width: 100%!important;
+    }
     .banner
     {
         background-color: rgba(248, 249, 254, 0.38);
@@ -231,6 +233,9 @@
 /* Large Screen */
 @media only screen and ( max-width: 1200px )
 {
+    .offcanvas-end {
+        width: 65%;
+    }
     .banner
     {
         max-height: 100%;

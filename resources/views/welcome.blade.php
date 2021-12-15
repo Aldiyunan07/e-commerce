@@ -30,51 +30,9 @@
 @endpush
 <x-app-layout>
     <div class="container-fluid">
-        <section class="banner mx-50 row justify-content-center" style="overflow: hidden;" id="banner">
-            <div class="col-lg-6 col-md-12" style="position:relative; overflow:hidden;">
-                    <div class="sub-judul">
-                        <div class="judul">
-                            Temukan Koleksi Terbaik
-                        </div>
-                        <p class="judul-des" style="color: #38426C;">
-                            Berkembang menjadi lebih baik dengan buku berkualitas unggul dari penulis hebat dibidangnya.
-                        </p>
-                        <form action="{{ route('search') }}" method="post">
-                            @csrf
-                            <div class="input-group my-5 shadow-sm rounded input">
-                                <input autocomplete="off" type="search" name="search" class="form-control border-0 p-3 px-4" placeholder="Masukan Judul Buku (eg. Marmut Merah Jambu)" aria-label="Masukan Judul Buku (eg. Marmut Merah Jambu)" aria-describedby="button-addon2">
-                                <button class="btn btn-primary px-4 fw-bold" type="submit" id="button-addon2">Cari</button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="d-flex align-items-end sub-brand">
-                        <div class="d-flex align-items-center justify-content-center">
-                            <span class="brand">
-                                Tersedia:
-                            </span>
-                            <div class="mx-1" style="background: #FFFFFF;
-                            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.04);
-                            border-radius: 6px; padding: 10px 9px 8px 9px;">
-                            <img src="{{asset('image/image 9.png')}}" width="35" height="35" alt="">
-                            </div>
-                            <div class="mx-1" style="background: #FFFFFF;
-                            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.04);
-                            border-radius: 6px; padding: 10px 9px 8px 9px;">
-                            <img src="{{asset('image/image 10.png')}}" width="35" height="35" alt="">
-                            </div>
-                            <div class="mx-1" style="background: #FFFFFF;
-                            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.04);
-                            border-radius: 6px; padding: 10px 9px 8px 9px;">
-                            <img src="{{asset('image/image 11.png')}}" width="35" height="35" alt="">
-                            </div>
-                            <span style="font-size: 15px; color:#38426C99; opacity: 40%; font-weight: 600; border-bottom: 1px solid rgba(56, 66, 108, 0.4);;">
-                                dan 150 penerbit lainnya.
-                            </span>
-                        </div>
-                    </div>
-            </div>
-            <div class="col-md-6 image-banner">
-                <img src="{{ asset('image/banner.png') }}" style="min-width: max-content;" alt="" >
+        <section class="banner mx-50 row justify-content-center overflow-hidden" id="banner">
+            <div>
+                <img src="{{ asset('image/1208 x 302.png') }}" class="img-fluid" style="border-radius: 0.75rem" alt="">
             </div>
         </section>
         <section class="mx-50 my-5 mb-3" id="content">
