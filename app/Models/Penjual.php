@@ -43,6 +43,10 @@ class Penjual extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function metode()
+    {
+        return $this->hasMany(Metode::class);
+    }
     public function buku()
     {
         return $this->hasMany(Buku::class);

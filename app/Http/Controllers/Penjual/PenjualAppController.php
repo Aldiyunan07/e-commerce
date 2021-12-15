@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Buku;
 use App\Models\Buy;
 use App\Models\Kategori;
+use App\Models\Metode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
@@ -42,7 +43,6 @@ class PenjualAppController extends Controller
             'diskon' => 'required',
             'kategori' => 'required',
             'halaman' => 'required',
-            'bahasa' => 'required',
             'gambar' => 'required',
             'berat' => 'required',
             'panjang' => 'required',
@@ -51,7 +51,7 @@ class PenjualAppController extends Controller
             'penerbit' => 'required',
             'ebook' => 'required'
         ]);
-
+        $data['bahasa'] = 'indonesia';
         if($request->hasFile('ebook')){
             $file = $request->file('ebook');
             $filename = $file->getClientOriginalName();
@@ -96,7 +96,6 @@ class PenjualAppController extends Controller
             'diskon' => 'required',
             'kategori' => 'required',
             'halaman' => 'required',
-            'bahasa' => 'required',
             'berat' => 'required',
             'panjang' => 'required',
             'lebar' => 'required',
@@ -157,5 +156,11 @@ class PenjualAppController extends Controller
             'status' => 'proses'
         ]);
         return redirect(route('penjual.listbuy'));
+    }
+
+    public function listmetode()
+    {
+        $metode = Metode::where('penjual_id',Auth::guard('penjual')->user()->id)->get();
+        return view('penjual.metode.listmetode',compact('metode'));
     }
 }

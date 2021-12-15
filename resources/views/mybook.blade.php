@@ -1,10 +1,10 @@
 <x-app-layout>
     <x-slot name="header">
         <h1 class="header-primary mb-3" style="font-weight: 800; color: #34364a; font-size: 32px;">
-            Wishlist Buku Saya
+            Buku Saya
         </h1>
         <p class="fw-light text-dark">
-            Disini anda dapat melihat buku <br /> yang anda inginkan
+            Disini anda dapat melihat buku <br /> yang sudah anda beli
         </p>
     </x-slot>
 
@@ -12,6 +12,7 @@
         <section class="mx-50 my-5 mb-3" id="content">
             <div class="row">
                 @foreach($buku as $b)
+                @if(Auth::user()->bukuaccess($b) == 1)
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                     <div class="mb-3" style="max-width: 100%; ">
                         <div class="card border-0 shadow-sm row g-0">
@@ -31,6 +32,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
                 @endforeach
             </div>
         </section>

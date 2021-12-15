@@ -42,11 +42,28 @@
             <div class="text-danger"> {{ $message }} </div>
             @enderror
         </div>
+
         <div class="mb-4">
-            <label for="harga">Diskon</label>
-            <input type="number" name="diskon" class="form-control" value="{{ old('buku') ?? $buku->diskon }}"
-                id="diskon">
-            @error('diskon')
+            <label for="harga">Harga</label>
+            <input type="number" name="harga" class="form-control" id="harga"
+                value="{{ old('harga_awal') ?? $buku->harga_awal }}">
+            @error('harga')
+            <div class="text-danger"> {{ $message }} </div>
+            @enderror
+        </div>
+        <div class="mb-4">
+            <label for="shopee">Link Shopee</label>
+            <input type="shopee" name="shopee" class="form-control" id="shopee"
+                value="{{ old('shopee') ?? $buku->shopee }}">
+            @error('shopee')
+            <div class="text-danger"> {{ $message }} </div>
+            @enderror
+        </div>
+        <div class="mb-4">
+            <label for="tokopedia">Link Tokopedia</label>
+            <input type="tokopedia" name="tokopedia" class="form-control" id="tokopedia"
+                value="{{ old('tokopedia') ?? $buku->tokopedia }}">
+            @error('tokopedia')
             <div class="text-danger"> {{ $message }} </div>
             @enderror
         </div>
@@ -98,13 +115,14 @@
             @enderror
         </div>
         <div class="mb-4">
-            <label for="harga">Harga</label>
-            <input type="number" name="harga" class="form-control" id="harga"
-                value="{{ old('harga_awal') ?? $buku->harga_awal }}">
-            @error('harga')
+            <label for="harga">Diskon</label>
+            <input type="number" name="diskon" class="form-control" value="{{ old('buku') ?? $buku->diskon }}"
+                id="diskon">
+            @error('diskon')
             <div class="text-danger"> {{ $message }} </div>
             @enderror
         </div>
+
         <div class="mb-4">
             <label for="jumlah">Jumlah Halaman</label>
             <input type="number" name="halaman" class="form-control" id="halaman"
@@ -114,10 +132,17 @@
             @enderror
         </div>
         <div class="mb-4">
-            <label for="bahasa">Bahasa</label>
-            <input type="text" name="bahasa" class="form-control" id="bahasa"
-                value="{{ old('bahasa') ?? $buku->bahasa }}">
-            @error('bahasa')
+            <label for="bukalapak">Link Bukalapak</label>
+            <input type="text" name="bukalapak" class="form-control" id="bukalapak"
+                value="{{ old('bukalapak') ?? $buku->bukalapak }}">
+            @error('bukalapak')
+            <div class="text-danger"> {{ $message }} </div>
+            @enderror
+        </div>
+        <div class="mb-4">
+            <label for="sinopsis">Sinopsis Buku </label>
+            <textarea name="sinopsis" class="form-control"> {{ $buku->sinopsis }} </textarea>
+            @error('sinopsis')
             <div class="text-danger"> {{ $message }} </div>
             @enderror
         </div>
