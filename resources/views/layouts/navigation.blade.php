@@ -13,7 +13,7 @@
         <div class="d-lg-none">
             <a class="navbar-toggler-icon" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
                 aria-controls="offcanvasExample"></a>
-            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+            <div class="offcanvas offcanvas-end shadow" style="border-radius: 1.5rem 0 0 1rem; border:none;" tabindex="-1" id="offcanvasExample"
                 aria-labelledby="offcanvasExampleLabel">
                 <div class="offcanvas-header">
                     <a class="navbar-brand font-logo d-flex align-items-center justify-content-start"

@@ -1,4 +1,4 @@
-<div class="col-lg-4">
+<div class="col-lg-3">
     <ul class="list-group shadow-sm py-3 bg-white mb-3">
         <li class="list-group-item border-0 py-3 px-4"><a href="{{ route('update.profile') }}" class="text-dark text-decoration-none">Profile Information</a></li>
         <li class="list-group-item border-0 py-3 px-4"><a href="{{ route('change.password') }}" class="text-dark text-decoration-none">Change Password</a></li>

@@ -2,9 +2,9 @@
     <div class="container-fluid">
         <div class="row mx-50" style="column-gap: 30px">
             <div class="col-12 col-md-8 ">
-                <div style="margin: 0; min-height: 25rem"
+                <div style="margin: 0; height: auto"
                     class="mb-3 d-flex bg-white shadow-sm rounded align-items-center">
-                    <img src="{{$buku->picture}}" height="500" class="img" style="border-radius: 0px;" alt="...">
+                    <img src="{{$buku->picture}}" height="500" class="img-fluid rounded" style="border-radius: 0px;" alt="...">
                 </div>
                 {{-- </div>
             <div class="col-12 col-md-5"> --}}
@@ -36,11 +36,15 @@
                                 <a href="{{ route('unwhistlist',$buku->id) }}"
                                     class="text-secondary  text-decoration-none" title="Tambah ke Wishlist">
                                     <i class="bi bi-bookmark-plus fs-3"></i>
-
+                                </a>
                                     @else
                                     <a href="{{ route('whistlist',$buku->id) }}"
                                         class="text-secondary text-decoration-none" title="Tambah ke Wishlist">
                                         <i class="bi bi-bookmark-plus fs-3"></i>
+                                    </a>
+                                    <a href="{{ route('login') }}" class="text-secondary text-decoration-none"
+                                        title="Hapus dari Wishlist">
+                                        <i class="bi bi-bookmark-dash fs-3"></i>
                                     </a>
                                     @endif
 
@@ -48,6 +52,10 @@
                                     <a href="{{ route('login') }}" class="text-secondary text-decoration-none"
                                         title="Tambah ke Wishlist">
                                         <i class="bi bi-bookmark-plus fs-3"></i>
+                                    </a>
+                                    <a href="{{ route('login') }}" class="text-secondary text-decoration-none"
+                                        title="Tambah ke Wishlist">
+                                        <i class="bi bi-bookmark-dash-fill fs-3"></i>
                                     </a>
                                     @endauth
 
@@ -63,21 +71,27 @@
                             </div>
                         </div>
                         <div class="text-dark my-3 fw-bold">Buku Fisik Yang Tersedia</div>
-                        <div class="format-buku d-flex" style="column-gap: 12px">
-                            <div class="card border-primary">
-                                <a href="{{ $buku->shopee }}" target="_blank" class="card-body m-0 py-1 text-decoration-none">
-                                    <img src="{{ asset('image/shopee.png') }}" height="50" alt="" srcset="">
-                                </a>
+                        <div class="format-buku row g-2">
+                            <div class="col-12 col-md-3">
+                                <div class="card border-primary">
+                                    <a href="{{ $buku->shopee }}" target="_blank" class="card-body m-0 py-1 text-decoration-none">
+                                        <img src="{{ asset('image/shopee.png') }}" height="50" alt="" srcset="">
+                                    </a>
+                                </div>
                             </div>
-                            <div class="card border-primary">
-                                <a href="{{ $buku->bukalapak }}}" target="_blank" class="card-body m-0 py-1 text-decoration-none">
-                                    <img src="{{ asset('image/bukalapak.jpg') }}" height="50" alt="" srcset="">
-                                </a>
+                            <div class="col-12 col-md-3">
+                                <div class="card border-primary">
+                                    <a href="{{ $buku->bukalapak }}}" target="_blank" class="card-body m-0 py-1 text-decoration-none">
+                                        <img src="{{ asset('image/bukalapak.jpg') }}" height="50" alt="" srcset="">
+                                    </a>
+                                </div>
                             </div>
-                            <div class="card border-primary">
-                                <a href="{{ $buku->tokopedia }}" target="_blank" class="card-body m-0 py-1 text-decoration-none">
-                                    <img src="{{ asset('image/tokopedia.png') }}" height="50" alt="" srcset="">
-                                </a>
+                            <div class="col-12 col-md-3">
+                                <div class="card border-primary">
+                                    <a href="{{ $buku->tokopedia }}" target="_blank" class="card-body m-0 py-1 text-decoration-none">
+                                        <img src="{{ asset('image/tokopedia.png') }}" height="50" alt="" srcset="">
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <!-- <div class="format-buku d-flex" style="column-gap: 12px">
@@ -137,8 +151,8 @@
                                         <div class="small text-dark">{{ $buku->bahasa }}</div>
                                     </div>
                                 </div>
-                                <div class="mb-2">
-                                        <div class="col-6 col-md-6">
+                                <div class="col-6 col-md-6">
+                                    <div class="mb-2">
                                         <div class="small text-secondary">Penerbit</div>
                                         <div class="small text-dark">{{ $buku->penerbit }}</div>
                                     </div>

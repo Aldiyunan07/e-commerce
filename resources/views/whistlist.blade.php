@@ -9,7 +9,7 @@
     </x-slot>
 
     <div class="container-fluid">
-        <section class="mx-50 my-5 mb-3" id="content">
+        <section class="mx-50 my-1 mb-3" id="content">
             <div class="row">
                 @foreach($buku as $b)
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">

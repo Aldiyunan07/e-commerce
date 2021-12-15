@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row">
             <x-side />
-            <div class="col-lg-8">
+            <div class="col-lg-9">
                 <div class="card border-0 shadow-sm">
                     <div class="card-body p-4">
                         <form class="row g-3" method="post" action="{{ route('ubah.password',Auth::user()->id) }}">
