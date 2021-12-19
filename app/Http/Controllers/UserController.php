@@ -149,9 +149,10 @@ class UserController extends Controller
         return back();
     }
 
-    public function myOrders()
+    public function myOrders(Buy $buy)
     {
-        return view('orders');
+        $buy = Buy::where('user_id',Auth::user()->id)->orderBy('status','desc')->get();
+        return view('orders',compact('buy'));
     }
 
     public function lihatbuku(Buku $buku)

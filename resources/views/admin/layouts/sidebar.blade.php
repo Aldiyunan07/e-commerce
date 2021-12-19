@@ -117,6 +117,14 @@
                     <span class="sidebar-text"> List Kategori</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.penerbit') }}" class="nav-link">
+                    <span class="sidebar-icon">
+                        <i class="bi bi-journals me-2"></i>
+                    </span>
+                    <span class="sidebar-text"> List Penerbit</span>
+                </a>
+            </li>
         </ul>
     </div>
 </nav>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Buku;
 use App\Models\Buy;
 use App\Models\Kategori;
+use App\Models\Penerbit;
 use App\Models\Penjual;
 use App\Models\User;
 use Illuminate\Support\Str;
@@ -243,5 +244,16 @@ class AdminAppController extends Controller
     public function profile()
     {
         return view('admin.profile');
+    }
+
+    public function listPenerbit()
+    {
+        $penerbit = Penerbit::orderBy('created_at','asc')->get();
+        return view('admin.penerbit.index',compact('penerbit'));
+    }
+
+    public function detailPenerbit(Penerbit $penerbit)
+    {
+        return view('admin.penerbit.detail',compact('penerbit'));
     }
 }

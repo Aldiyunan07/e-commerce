@@ -2,9 +2,9 @@
     <div class="container-fluid">
         <div class="row mx-50" style="column-gap: 30px">
             <div class="col-12 col-md-8 ">
-                <div style="margin: 0; height: auto"
-                    class="mb-3 d-flex bg-white shadow-sm rounded align-items-center">
-                    <img src="{{$buku->picture}}" height="500" class="img-fluid rounded" style="border-radius: 0px;" alt="...">
+                <div style="margin: 0; height: auto" class="mb-3 d-flex bg-white shadow-sm rounded align-items-center">
+                    <img src="{{$buku->picture}}" height="500" class="img-fluid rounded" style="border-radius: 0px;"
+                        alt="...">
                 </div>
                 {{-- </div>
             <div class="col-12 col-md-5"> --}}
@@ -31,33 +31,26 @@
                                 @else
 
                                 @endauth
+
                                 @auth
                                 @if(Auth::user()->checkwhistlist($buku) == 1)
                                 <a href="{{ route('unwhistlist',$buku->id) }}"
-                                    class="text-secondary  text-decoration-none" title="Tambah ke Wishlist">
+                                    class="text-secondary  text-decoration-none" title="Hapus dari Wishlist">
+                                    <i class="bi bi-bookmark-dash fs-3"></i>
+                                </a>
+                                @else
+                                <a href="{{ route('whistlist',$buku->id) }}"
+                                    class="text-secondary text-decoration-none" title="Tambahkan ke Wishlist">
                                     <i class="bi bi-bookmark-plus fs-3"></i>
                                 </a>
-                                    @else
-                                    <a href="{{ route('whistlist',$buku->id) }}"
-                                        class="text-secondary text-decoration-none" title="Tambah ke Wishlist">
-                                        <i class="bi bi-bookmark-plus fs-3"></i>
-                                    </a>
-                                    <a href="{{ route('login') }}" class="text-secondary text-decoration-none"
-                                        title="Hapus dari Wishlist">
-                                        <i class="bi bi-bookmark-dash fs-3"></i>
-                                    </a>
-                                    @endif
+                                @endif
 
-                                    @else
-                                    <a href="{{ route('login') }}" class="text-secondary text-decoration-none"
-                                        title="Tambah ke Wishlist">
-                                        <i class="bi bi-bookmark-plus fs-3"></i>
-                                    </a>
-                                    <a href="{{ route('login') }}" class="text-secondary text-decoration-none"
-                                        title="Tambah ke Wishlist">
-                                        <i class="bi bi-bookmark-dash-fill fs-3"></i>
-                                    </a>
-                                    @endauth
+                                @else
+                                <a href="{{ route('login') }}" class="text-secondary text-decoration-none"
+                                    title="Tambah ke Wishlist">
+                                    <i class="bi bi-bookmark-plus fs-3"></i>
+                                </a>
+                                @endauth
 
                             </div>
                         </div>
@@ -74,54 +67,29 @@
                         <div class="format-buku row g-2">
                             <div class="col-12 col-md-3">
                                 <div class="card border-primary">
-                                    <a href="{{ $buku->shopee }}" target="_blank" class="card-body m-0 py-1 text-decoration-none">
+                                    <a href="{{ $buku->shopee }}" target="_blank"
+                                        class="card-body m-0 py-1 text-decoration-none">
                                         <img src="{{ asset('image/shopee.png') }}" height="50" alt="" srcset="">
                                     </a>
                                 </div>
                             </div>
                             <div class="col-12 col-md-3">
                                 <div class="card border-primary">
-                                    <a href="{{ $buku->bukalapak }}}" target="_blank" class="card-body m-0 py-1 text-decoration-none">
+                                    <a href="{{ $buku->bukalapak }}}" target="_blank"
+                                        class="card-body m-0 py-1 text-decoration-none">
                                         <img src="{{ asset('image/bukalapak.jpg') }}" height="50" alt="" srcset="">
                                     </a>
                                 </div>
                             </div>
                             <div class="col-12 col-md-3">
                                 <div class="card border-primary">
-                                    <a href="{{ $buku->tokopedia }}" target="_blank" class="card-body m-0 py-1 text-decoration-none">
+                                    <a href="{{ $buku->tokopedia }}" target="_blank"
+                                        class="card-body m-0 py-1 text-decoration-none">
                                         <img src="{{ asset('image/tokopedia.png') }}" height="50" alt="" srcset="">
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="format-buku d-flex" style="column-gap: 12px">
-                            @auth
-                                    @if(Auth::user()->bukuaccess($buku) == 0)
-                                    <div class="card border-primary">
-                                        <a href="#" class="card-body m-0 py-1 text-decoration-none">
-                                            <div class="fw-bold text-dark">Ebook</div>
-                                            <div class="small text-secondary opacity-75">Mulai dari</div>
-                                            <div class="text-primary">{{ $buku->rupiah($buku->harga_asli) }}</div>
-                                        </a>
-                                    </div>
-                                    @endif
-                            @else
-                                <div class="card border-primary">
-                                    <a href="{{ route('login') }}" class="card-body m-0 py-1 text-decoration-none">
-                                        <div class="fw-bold text-dark">Ebook</div>
-                                        <div class="small text-secondary opacity-75">Mulai dari</div>
-                                        <div class="text-primary">{{ $buku->rupiah($buku->harga_asli) }}</div>
-                                    </a>
-                                </div>
-                            @endauth
-                            <div class="card border-primary">
-                                <a href="#" class="card-body m-0 py-1 text-decoration-none">
-                                    <div class="fw-bold text-dark">Buku</div>
-                                    <div class="small text-secondary opacity-75">Mulai dari</div>
-                                    <div class="text-primary">Rp. 200.00</div>
-                                </a>
-                            </div>
-                        </div> -->
                         <div class="text-dark my-3 fw-bold">Deskripsi</div>
                         <div class="fw-light">
                             {!! nl2br($buku->deskripsi) !!}
@@ -196,6 +164,7 @@
                 <div class="fw-bold mb-3">
                     E-Book Serupa
                 </div>
+                @if($ebook->count() > 0)
                 <div class="row">
                     @foreach($ebook as $e)
                     <div class="col-6 col-sm-4 col-md-12">
@@ -221,7 +190,11 @@
                     </div>
                     @endforeach
                 </div>
-
+                @else
+                <div class="text-center">
+                    <small class="text-center">Tidak ada Ebook yang serupa</small>
+                </div>
+                @endif
             </div>
         </div>
 

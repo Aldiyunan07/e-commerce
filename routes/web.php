@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminAppController;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\Auth\AdminAuthenticatedSessionController;
+use App\Http\Controllers\PenerbitController;
 use App\Http\Controllers\Penjual\Auth\PenjualAuthenticatedSessionController;
 use App\Http\Controllers\Penjual\PenjualAppController;
 use App\Http\Controllers\Penjual\PenjualHomeController;
@@ -26,6 +27,9 @@ Route::middleware(['auth','verified'])->group(function(){
     Route::get('/read-book/{buku:id}', [UserController::class, 'lihatbuku'])->name('lihatbuku');
 });
 Route::get('/buku/kategori/{kategori:id}',[UserController::class,'listkategori'])->name('listkategori');
+Route::get('/daftar-menerbitkan',[PenerbitController::class,'index'])->name('daftar.menerbitkan');
+Route::get('/form-penerbit',[PenerbitController::class,'formPenerbit'])->name('form.penerbit');
+Route::post('/submit-penerbit',[PenerbitController::class,'submitPenerbit'])->name('submit.penerbit');
 Route::post('/buku/search',[UserController::class,'searchbuku'])->name('searchbuku');
 Route::get('/all-books',[UserController::class,'allBooks'])->name('allBooks');
 Route::get('/view/{buku:id}',[UserController::class,'detail'])->name('detail.buku');
@@ -84,6 +88,11 @@ Route::namespace('Admin')->name('admin.')->prefix('admin')->group(function(){
         Route::get('book/terima/{buku:id}',[AdminAppController::class,'bookTerima'])->name('book.terima');
         Route::get('book/tolak/{buku:id}',[AdminAppController::class,'bookTolak'])->name('book.tolak');
         Route::delete('book/delete/{buku:id}',[AdminAppController::class,'bookDelete'])->name('book.delete');
+        
+        // Penerbit
+        Route::get('penerbit',[AdminAppController::class,'listPenerbit'])->name('penerbit');
+        Route::get('penerbit/detail/{penerbit:id}',[AdminAppController::class,'detailPenerbit'])->name('detail.penerbit');
+
         // Order
         Route::get('orders', [AdminAppController::class, 'orders'])->name('orders');
         Route::get('order/konfirmai/{buy:id}',[AdminAppController::class,'orderskonfirmasi'])->name('orders.konfirmasi');
