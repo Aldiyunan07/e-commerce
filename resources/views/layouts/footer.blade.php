@@ -1,21 +1,108 @@
-<footer class="mt-5" style="background-color: #0081FE;">
-    <div class="d-flex flex-column justify-content-center align-items-center" style="min-height: 20rem">
-        <div class="h3 fw-bold text-white lh-lg">World Window Book.</div>
-        <p class="text-white fw-light text-center opacity-75 col-10 col-lg-8">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos animi iste earum odit. Deserunt porro natus ea mollitia, corrupti, quas expedita illo rem, suscipit nemo aliquam doloremque ab. Rerum, quidem.</p>
-        <div class="d-flex justify-content-center my-2" style="column-gap: 5px ">
-            <h5>
-                <span class="badge bg-white text-dark fw-normal d-flex align-items-center lh-sm rounded-pill">
-                    👀 Insight
-                </span>
-            </h5>
-            <h5>
-                <span class="badge bg-white text-dark fw-normal d-flex align-items-center lh-sm rounded-pill">
-                    👋 Contact
-                </span>
-            </h5>
+<footer class="mt-5 pt-5" style="background-color: #0081FE;">
+    <div class="container">
+        <div class="row gy-3 jusitfy-content-center foot-sm">
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="fw-bold text-white d-flex">
+                    <img src="{{ asset('image/logo.png') }}" alt="">
+                    <div class="fs-4 ms-2">Bookstore</div>
+                </div>
+                <div class="mt-3">
+                    <p class="text-white fw-light text-start opacity-75 lh-sm">
+                        Pustaka Aksara adalah Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae laudantium tempore ad consequuntur dolore corporis error repellendus vel, quas eligendi.
+                    </p>
+                    <p class="text-white fw-light text-start opacity-75 lh-sm">
+                        Kritik/Saran Pelayanan  : 0811-  2846 – 130
+                    </p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="fw-bold text-white d-flex">
+                    Service
+                </div>
+                <div class="mt-3">
+                    <a href="#" class="mb-2 text-decoration-none text-white fw-light text-start opacity-75 d-block">
+                        Menerbitkan Buku
+                    </a>
+                    <a href="#" class="mb-2 text-decoration-none text-white fw-light text-start opacity-75 d-block">
+                        Kirim Naskah
+                    </a>
+                    <a href="#" class="mb-2 text-decoration-none text-white fw-light text-start opacity-75 d-block">
+                        Jasa Haki
+                    </a>
+                    <a href="#" class="mb-2 text-decoration-none text-white fw-light text-start opacity-75 d-block">
+                        Konsultasi Menulis
+                    </a>
+                    <a href="#" class="mb-2 text-decoration-none text-white fw-light text-start opacity-75 d-block">
+                        Kerjasama Workshop
+                    </a>
+                    <a href="#" class="mb-2 text-decoration-none text-white fw-light text-start opacity-75 d-block">
+                        Pengadaan Buku
+                    </a>
+                    <a href="#" class="mb-2 text-decoration-none text-white fw-light text-start opacity-75 d-block">
+                        Reseller Buku
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="fw-bold text-white d-flex">
+                    About
+                </div>
+                <div class="mt-3">
+                    <a href="#" class="mb-2 text-decoration-none text-white fw-light text-start opacity-75 d-block">
+                        Menerbitkan Buku
+                    </a>
+                    <a href="#" class="mb-2 text-decoration-none text-white fw-light text-start opacity-75 d-block">
+                        Kirim Naskah
+                    </a>
+                    <a href="#" class="mb-2 text-decoration-none text-white fw-light text-start opacity-75 d-block">
+                        Jasa Haki
+                    </a>
+                    <a href="#" class="mb-2 text-decoration-none text-white fw-light text-start opacity-75 d-block">
+                        Konsultasi Menulis
+                    </a>
+                    <a href="#" class="mb-2 text-decoration-none text-white fw-light text-start opacity-75 d-block">
+                        Kerjasama Workshop
+                    </a>
+                    <a href="#" class="mb-2 text-decoration-none text-white fw-light text-start opacity-75 d-block">
+                        Pengadaan Buku
+                    </a>
+                    <a href="#" class="mb-2 text-decoration-none text-white fw-light text-start opacity-75 d-block">
+                        Reseller Buku
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="fw-bold text-white d-flex">
+                    Alamat Kantor
+                </div>
+                <div class="mt-3">
+                    <a href="#" class="mb-2 text-decoration-none text-white fw-light text-start opacity-75 d-block">
+                        Menerbitkan Buku
+                    </a>
+                    <a href="#" class="mb-2 text-decoration-none text-white fw-light text-start opacity-75 d-block">
+                        Kirim Naskah
+                    </a>
+                    <a href="#" class="mb-2 text-decoration-none text-white fw-light text-start opacity-75 d-block">
+                        Jasa Haki
+                    </a>
+                    <a href="#" class="mb-2 text-decoration-none text-white fw-light text-start opacity-75 d-block">
+                        Konsultasi Menulis
+                    </a>
+                    <a href="#" class="mb-2 text-decoration-none text-white fw-light text-start opacity-75 d-block">
+                        Kerjasama Workshop
+                    </a>
+                    <a href="#" class="mb-2 text-decoration-none text-white fw-light text-start opacity-75 d-block">
+                        Pengadaan Buku
+                    </a>
+                    <a href="#" class="mb-2 text-decoration-none text-white fw-light text-start opacity-75 d-block">
+                        Reseller Buku
+                    </a>
+                </div>
+            </div>
+            
         </div>
     </div>
-    <div class="d-flex justify-content-center" style="min-height: 20px">
+    <div class="d-flex justify-content-center mt-5" style="min-height: 20px">
         <div class="col-10 border-top opacity-50"></div>
     </div>
     <div class="d-flex justify-content-center" style="min-height: 20px; padding-bottom: 3rem">

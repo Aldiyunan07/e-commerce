@@ -35,6 +35,44 @@
                 <img src="{{ asset('image/1208 x 302.png') }}" class="img-fluid" style="border-radius: 0.75rem" alt="">
             </div>
         </section>
+        <section class="mx-50 my-5 mb-3" id="menus">
+            <div class="row g-3">
+                <div class="col-6 col-sm-6 col-md-6">
+                    <div class="card card-body border-0 shadow-sm">
+                        <a href="{{ route('daftar.menerbitkan') }}" class="menus text-decoration-none text-center d-lg-flex d-block align-items-center justify-content-center">
+                            <img src="{{ asset('/image/open-book.png') }}" class="img-fluid" width="50" alt="">
+                            <div class="text-menu fw-bold" style="color: #38426C;"> DAFTAR MENERBITKAN </div>
+                        </a>
+                        <div class="d-lg-flex d-none justify-content-end">
+                            <a href="{{ route('daftar.menerbitkan') }}" class="text-decoration-none small d-flex align-items-end">
+                                <div>
+                                    Terbitkan buku
+                                </div>
+                                <i class="bi bi-arrow-right ms-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-6 col-md-6">
+                    <div class="card card-body border-0 shadow-sm">
+                        <a href="{{ '#' }}" class="menus text-decoration-none text-center d-lg-flex d-block align-items-center justify-content-center">
+                            <img src="{{ asset('/image/book-stack.png') }}" class="img-fluid" width="50" alt="">
+                            <div class="text-menu fw-bold" style="color: #38426C;"> CEK PROGRESS BUKU </div>
+                        </a>
+                        <div class="d-lg-flex d-none justify-content-end">
+                            <a href="#" class="text-decoration-none small d-flex align-items-center">
+                                <div>
+                                    Cek progress
+                                </div>
+                                <div>
+                                    <i class="bi bi-arrow-right ms-2"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section class="mx-50 my-5 mb-3" id="content">
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <div class="fw-bold h5 text-capitalize" style="color: #38426C;">Baru saja di terbitkan</div>
@@ -64,28 +102,6 @@
                     </div>
                 </div>  
                 @endforeach
-                <div class="col-md-6">
-                    <div class="container">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="p-3 text-center">
-                                    <a href="{{ route('daftar.menerbitkan') }}"> Daftar Menerbitkan </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="container">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="p-3 text-center">
-                                    <a href=""> Cek Progres Buku </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
     </div>

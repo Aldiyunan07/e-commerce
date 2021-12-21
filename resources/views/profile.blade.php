@@ -55,7 +55,7 @@
                             </div>
                             
                             <div class="col-md-6">
-                              <label for="email" class="form-label font-custom">Poto Profil</label>
+                              <label for="email" class="form-label font-custom">Foto Profil</label>
                               <input type="file" class="form-control" name="foto" >
                               @error('foto')
                                 <div class="text-danger">

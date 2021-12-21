@@ -187,7 +187,7 @@
                                 href="{{ route('my.orders') }}">
                                 <i class="bi bi-receipt d-flex-shrink-0 fs-5"></i>
                                 <span class="ms-2">
-                                    Pesanan Saya
+                                    Daftar Pesanan
                                 </span>
                             </a>
                         </li>
