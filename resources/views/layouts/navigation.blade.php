@@ -2,10 +2,10 @@
     <div class="container-fluid mx-50">
         <a class="navbar-brand font-logo d-flex align-items-center justify-content-start"
             style="margin-right: 8rem; width:8rem;" href="/">
-            <img src="{{asset('/image/logo.png')}}" alt="" width="36" height="36" class="me-1">
+            <img src="{{asset('/image/mini-logo.png')}}" alt="" width="40" height="40" class="me-1">
             <span
                 style="background: -webkit-linear-gradient(90.87deg, #365AA3 6.64%, #4370CD 100%);-webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-                {{ config('app.name') }}
+                Pustaka Aksara
             </span>
         </a>
         @guest
