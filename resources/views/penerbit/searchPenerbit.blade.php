@@ -54,6 +54,9 @@
                             </form>
                             @if(isset($progress))
                             @foreach($progress as $p)
+                            <div class="text-center">
+                                <h4 class="p-2"> "{{ $p->penerbit->judul_buku }}" </h4>
+                            </div>
                             <div class="alert {{ $p->naskah == 'on' ? 'alert-success' : 'alert-secondary' }} "
                                 role="alert">
                                 <i
