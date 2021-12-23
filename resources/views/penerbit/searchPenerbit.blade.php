@@ -84,16 +84,16 @@
                                     class="bi {{ $p->desain == 'on' ? 'bi-check-circle-fill' : 'bi-check-circle' }}  me-2"></i>
                                 Proses Desain
                             </div>
-                            <div class="alert {{ $p->harga !== '' ? 'alert-success' : 'alert-secondary' }} "
+                            <div class="alert {{ $p->harga !== null ? 'alert-success' : 'alert-secondary' }} "
                                 role="alert">
                                 <i
-                                    class="bi {{ $p->harga !== '' ? 'bi-check-circle-fill' : 'bi-check-circle' }}  me-2"></i>
+                                    class="bi {{ $p->harga !== null ? 'bi-check-circle-fill' : 'bi-check-circle' }}  me-2"></i>
                                 Informasi Harga ({{ $p->rupiah($p->harga) }})
                             </div>
-                            <div class="alert {{ $p->deal_harga == '0' ? 'alert-success' : 'alert-secondary' }} "
+                            <div class="alert {{ $p->deal_harga !== null ? 'alert-success' : 'alert-secondary' }} "
                                 role="alert">
                                 <i
-                                    class="bi {{ $p->deal_harga == '0' ? 'bi-check-circle-fill' : 'bi-check-circle' }}  me-2"></i>
+                                    class="bi {{ $p->deal_harga !== null ? 'bi-check-circle-fill' : 'bi-check-circle' }}  me-2"></i>
                                 Deal Harga ({{ $p->rupiah($p->deal_harga) }})
                             </div>
                             <div class="alert {{ $p->masuk !== null ? 'alert-success' : 'alert-secondary' }} "
