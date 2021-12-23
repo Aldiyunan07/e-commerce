@@ -35,4 +35,9 @@ class Penerbit extends Model
     {
         return "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $this->email ) ) ) . "?d=mm&s=" . $size;
     }
+
+    public function progress()
+    {
+        return $this->hasMany(Progress::class);
+    }
 }

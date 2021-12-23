@@ -39,7 +39,10 @@
                                         {{ $buku->name }} 
                                     </div>
                                     <div class="fs-5 fw-md mb-4 cc">
-                                        Rp. 120.000 <sub class="fw-light text-decoration-line-through text-secondary"> Rp. 150.000</s>
+                                        {{ $buku->rupiah($buku->harga_asli) }} 
+                                        @if($buku->diskon > 0)
+                                            <sub class="fw-light text-decoration-line-through text-secondary"> {{ $buku->rupiah($buku->harga_awal) }}</s>
+                                        @endif 
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-center">

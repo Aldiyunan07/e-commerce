@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Penerbit;
+use App\Models\Progress;
 use Illuminate\Http\Request;
 
 class PenerbitController extends Controller
@@ -54,8 +55,25 @@ class PenerbitController extends Controller
         }
 
         $penerbit = new Penerbit;
-        $penerbit->create($data);
+        $save = $penerbit->create($data)->id;
+        $progress = new Progress();
+        $progress->create([
+            'penerbit_id' => $save
+        ]);
+
         return view('penerbit.thanks');
 
+    }
+
+    public function pageProgress()
+    {
+        return view('penerbit.pageProgress');
+    }
+
+    public function searchProgress(Request $request,Penerbit $penerbit)
+    {
+        $progress = Progress::where('penerbit_id',$request->cari)->get();
+        $listpenerbit = Penerbit::get();
+        return view('penerbit.searchPenerbit',compact('listpenerbit','progress'));   
     }
 }

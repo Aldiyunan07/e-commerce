@@ -60,7 +60,7 @@
                             <div class="text-menu fw-bold" style="color: #38426C;"> CEK PROGRESS BUKU </div>
                         </a>
                         <div class="d-lg-flex d-none justify-content-end">
-                            <a href="#" class="text-decoration-none small d-flex align-items-center">
+                            <a href="{{ route('page.progress') }}" class="text-decoration-none small d-flex align-items-center">
                                 <div>
                                     Cek progress
                                 </div>

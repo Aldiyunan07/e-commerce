@@ -26,6 +26,9 @@ Route::middleware(['auth','verified'])->group(function(){
     Route::get('/my-book', [UserController::class, 'myBook'])->name('listmybook');
     Route::get('/read-book/{buku:id}', [UserController::class, 'lihatbuku'])->name('lihatbuku');
 });
+
+Route::get('progress/',[PenerbitController::class,'pageProgress'])->name('page.progress');
+Route::get('progress/search',[PenerbitController::class,'searchProgress'])->name('cari.progress');
 Route::get('/buku/kategori/{kategori:id}',[UserController::class,'listkategori'])->name('listkategori');
 Route::get('/daftar-menerbitkan',[PenerbitController::class,'index'])->name('daftar.menerbitkan');
 Route::get('/form-penerbit',[PenerbitController::class,'formPenerbit'])->name('form.penerbit');
@@ -92,6 +95,10 @@ Route::namespace('Admin')->name('admin.')->prefix('admin')->group(function(){
         // Penerbit
         Route::get('penerbit',[AdminAppController::class,'listPenerbit'])->name('penerbit');
         Route::get('penerbit/detail/{penerbit:id}',[AdminAppController::class,'detailPenerbit'])->name('detail.penerbit');
+        Route::get('progress/',[AdminAppController::class,'progressbuku'])->name('progres.buku');
+        Route::get('progress/edit/{progress:id}',[AdminAppController::class,'editProgress'])->name('edit.progress');
+        Route::post('progress/update/{progress:id}',[AdminAppController::class,'updateProgress'])->name('update.progress');
+
 
         // Order
         Route::get('orders', [AdminAppController::class, 'orders'])->name('orders');

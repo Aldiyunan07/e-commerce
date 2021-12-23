@@ -8,6 +8,7 @@ use App\Models\Buy;
 use App\Models\Kategori;
 use App\Models\Penerbit;
 use App\Models\Penjual;
+use App\Models\Progress;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -255,5 +256,24 @@ class AdminAppController extends Controller
     public function detailPenerbit(Penerbit $penerbit)
     {
         return view('admin.penerbit.detail',compact('penerbit'));
+    }
+
+    public function progressbuku()
+    {
+        $progress = Progress::orderBy('created_at','desc')->get();
+        return view('admin.penerbit.listprogress',compact('progress'));
+
+    }
+
+    public function editProgress(Progress $progress)
+    {
+        return view('admin.penerbit.edit',compact('progress'));
+    }
+
+    public function updateProgress(Progress $progress,Request $request)
+    {
+        $data = $request->all();
+        $progress->update($data);
+        return back();
     }
 }
