@@ -116,18 +116,18 @@
                             Informasi Penting
                         </div>
                         <div class="fw-normal font-custom mb-4">
-                            Proses konfirmasi pembayaran buku akan membutuhkan waktu sekitar 20 menit (dari pesan WhatsApp dikirim). Mohon menunggu dengan sabar dan terima kasih. 
+                            Proses konfirmasi pembayaran buku akan membutuhkan waktu sekitar 20 menit. Mohon menunggu dengan sabar dan terima kasih. 
                         </div>
                         <div class="fw-bold font-custom mb-3">
-                            Butuh bantuan? hubungi kami
+                            Butuh bantuan? hubungi penjual
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
-                            <p class="fw-light text-secondary">Admin</p>
+                            <p class="fw-light text-secondary">Penjual</p>
                             <p class="fw-normal font-custom">{{ $buku->penjual->name }} </p>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
                             <p class="fw-light text-secondary">No. WhatsApp</p>
-                            <p class="fw-bold font-custom"> {{ $buku->whatsapp }}</p>
+                            <p class="fw-bold font-custom"> {{ $buku->penjual->whatsapp }}</p>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
                             <p class="fw-light text-secondary">Total Transfer</p>
@@ -135,7 +135,7 @@
                         </div>
                         <div>
                             <div class="d-grid">
-                                <a href="" class="btn btn-light rounded-pill btn-lg text-secondary mb-4">Whatsapp ke Admin</a>
+                                <a href="https://wa.me/{{ $buku->penjual->whatsapp }}" class="btn btn-light rounded-pill btn-lg text-secondary mb-4">Hubungi Penjual</a>
                             </div>
                         </div>
                     </div>

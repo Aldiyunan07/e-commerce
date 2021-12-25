@@ -29,15 +29,20 @@
         </div>
         <div class="mb-4">
             <label for="berat"> Berat </label>
-            <input type="number" value="{{ old('berat') ?? $buku->berat }}" name="berat" class="form-control"
-                id="berat">
+            <div class="input-group">
+                <input type="number" value="{{ old('berat') ?? $buku->berat }}" min="0" name="berat" class="form-control">
+                <span class="input-group-text" id="basic-addon2"> g </span>
+            </div>
             @error('berat')
             <div class="text-danger"> {{ $message }} </div>
             @enderror
         </div>
         <div class="mb-4">
             <label for="harga">Lebar</label>
-            <input type="lebar" value="{{ old('lebar') ?? $buku->lebar }}" name="lebar" class="form-control" id="lebar">
+            <div class="input-group">
+                <input type="lebar" value="{{ old('lebar') ?? $buku->lebar }}" min="0" name="lebar" class="form-control" id="lebar">
+                <span class="input-group-text" id="basic-addon2">cm</span>
+            </div>
             @error('lebar')
             <div class="text-danger"> {{ $message }} </div>
             @enderror
@@ -45,8 +50,11 @@
 
         <div class="mb-4">
             <label for="harga">Harga</label>
+            <div class="input-group">
+            <span class="input-group-text" id="basic-addon2"> Rp. </span>
             <input type="number" name="harga" class="form-control" id="harga"
-                value="{{ old('harga_awal') ?? $buku->harga_awal }}">
+                    value="{{ old('harga_awal') ?? $buku->harga_awal }}">
+            </div>
             @error('harga')
             <div class="text-danger"> {{ $message }} </div>
             @enderror
@@ -108,16 +116,22 @@
         </div>
         <div class="mb-4">
             <label for="panjang">Panjang</label>
-            <input type="number" value="{{ old('panjang') ?? $buku->panjang }}" name="panjang" class="form-control"
-                id="panjang">
+            <div class="input-group">
+                <input type="number" value="{{ old('panjang') ?? $buku->panjang }}" min="0" name="panjang" class="form-control"
+                    id="panjang">
+                    <span class="input-group-text" id="basic-addon2">cm</span>
+            </div>
             @error('panjang')
             <div class="text-danger"> {{ $message }} </div>
             @enderror
         </div>
         <div class="mb-4">
             <label for="harga">Diskon</label>
-            <input type="number" name="diskon" class="form-control" value="{{ old('buku') ?? $buku->diskon }}"
-                id="diskon">
+            <div class="input-group">
+                <input type="number" name="diskon" class="form-control" value="{{ old('buku') ?? $buku->diskon }}"
+                    id="diskon">
+                    <span class="input-group-text" id="basic-addon2"> % </span>
+            </div>
             @error('diskon')
             <div class="text-danger"> {{ $message }} </div>
             @enderror

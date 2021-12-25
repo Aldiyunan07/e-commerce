@@ -12,6 +12,7 @@
         <section class="mx-50 my-1 mb-3" id="content">
             <div class="row">
                 @foreach($buku as $b)
+                @if(Auth::user()->checkwhistlist($b))
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                     <div class="mb-3" style="max-width: 100%; ">
                         <div class="card border-0 shadow-sm row g-0">
@@ -31,6 +32,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
                 @endforeach
             </div>
         </section>

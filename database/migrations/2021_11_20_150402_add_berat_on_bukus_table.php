@@ -17,7 +17,7 @@ class AddBeratOnBukusTable extends Migration
             $table->string('berat')->after('penulis')->nullable();
             $table->string('panjang')->after('deskripsi')->nullable();
             $table->string('lebar')->after('deskripsi')->nullable();
-            $table->integer('isbn')->after('deskripsi')->nullable();
+            $table->string('isbn')->after('deskripsi')->nullable();
             $table->string('penerbit')->after('deskripsi')->nullable();
             
         });

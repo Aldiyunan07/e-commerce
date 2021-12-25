@@ -139,7 +139,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link font-custom text-capitalize" style="white-space: nowrap" href="#"
                         id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="{{ Auth::user()->picture !== '' ? Auth::user()->Avatar : 'https://ecs7.tokopedia.net/img/cache/300/default_picture_user/default_toped-14.jpg' }}"
+                        <img src="{{ Auth::user()->picture !== '' ? Auth::user()->Avatar : asset('images/avatar.png') }}"
                             class="rounded-circle me-2" width="30" height="30" alt="">
                         {{ Auth::user()->name }}
                     </a>

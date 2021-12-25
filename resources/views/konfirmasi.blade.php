@@ -7,12 +7,12 @@
                     Berhasil Checkout
                 </h1>
                 <p class="fw-light text-dark">
-                    WhatsApp akan terbuka secara otomatis untuk <br>
-                    melanjutkan proses konfirmasi pembayaran 
+                    Anda bisa menghubungi penjual di bawah ini <br>
+                    Jika anda ingin mempercepat proses pesanan anda  
                 </p>            
                 <div class="d-grid">
-                    <a href="{{ route('welcome') }}" class="btn btn-primary rounded-pill btn-lg mb-3">Selesai</a>
-                    <button class="btn btn-white bg-white rounded-pill btn-lg">Butuh Bantuan</button>
+                    <a href="{{ route('welcome') }}" class="btn btn-primary rounded-pill btn-lg mb-3">Kembali ke Beranda</a>
+                    <a href="https://wa.me/{{ $buku->penjual->whatsapp }}?text=Halo!%0ASaya%20pembeli%20buku%20anda%0ASaya%20ingin%20mempercepat%20proses%20pesanan%20buku%20saya" class="btn btn-success rounded-pill btn-lg mb-3">Hubungi Penjual</a>
                 </div>
             </div>
         </div>
