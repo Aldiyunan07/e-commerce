@@ -1,9 +1,9 @@
 <x-penjual-layout>
     @section('content')
     <x-breadcrumb links="{{ route('penjual.dashboard') }}">
-        <li class="breadcrumb-item">Pesanan saya</li>
+        <li class="breadcrumb-item">Pesanan</li>
     </x-breadcrumb>
-    <x-header title="Pesanan Saya" description="Disini anda dapat melihat list pesanan." />
+    <x-header title="Pesanan" description="Disini anda dapat melihat list pesanan." />
     <div class="card border-0 shadow mb-4">
         <div class="card-body">
             <div class="table-responsive">
@@ -27,7 +27,7 @@
                             <td> <a href="{{ route('penjual.listbuku.show', $b->id) }}" class="text-info"> {{ $b->buku->name }}</a> </td>
                             <td> {{ $b->buku->rupiah($b->buku->harga_asli) }} </td>
                             <td> {{ $b->status }} </td>
-                            <td> {{ $b->created_at->format('d F, Y') }} </td>
+                            <td> {{ $b->created_at->format('d M, Y') }} </td>
                             <td>
                                 @if($b->status == "proses")
                                     <a href="{{ route('penjual.konfirmasi.listbuy',$b->id) }}" class="btn btn-info btn-sm"> Konfirmasi </a>

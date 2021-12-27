@@ -1,6 +1,6 @@
 <div class="col-md-5 position-relative login-side">
     <div class="position-absolute" style="z-index: 9999;">
-        <a href="/" class="d-block judul text-white my-2 mx-5 text-decoration-none">Bookstore</a>
+        <a href="/" class="d-block judul text-white my-2 mx-5 text-decoration-none">Pustaka Aksara</a>
         <div class="text-white mx-5 h2 fw-normal opacity-75 lh-sm" style="margin-top: 150px; text-shadow: 2px 2px gray;">
             Temukan semua jenis Buku, <br> Buku Cerita, dll di sini.
         </div>

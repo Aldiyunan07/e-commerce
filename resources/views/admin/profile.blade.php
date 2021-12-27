@@ -1,26 +1,26 @@
 <x-admin-layout>
     @section('content')
-        <x-header title="Profile Information" description="Your detail profile information." />
+        <x-header title="Informasi Profil" description="Disini anda bisa mengedit profil ." />
             <div class="row">
                 <div class="col-12 col-xl-8">
                     <div class="card card-body border-0 shadow mb-4">
-                        <h2 class="h5 mb-4">Profile Information</h2>
+                        <h2 class="h5 mb-4">Informasi Profil</h2>
                         <form>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <div>
-                                        <label for="first_name">First Name</label>
-                                        <input class="form-control" id="first_name" type="text" placeholder="Enter your first name" required="">
+                                        <label for="first_name">Nama Lengkap</label>
+                                        <input class="form-control" id="first_name" type="text" value="{{ Auth::guard('admin')->user()->name }}" required="">
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div>
-                                        <label for="last_name">Last Name</label>
-                                        <input class="form-control" id="last_name" type="text" placeholder="Also your last name" required="">
+                                        <label for="last_name">Email</label>
+                                        <input class="form-control" id="last_name" type="text" value="{{ Auth::guard('admin')->user()->email }}" required="">
                                     </div>
                                 </div>
                             </div>
-                            <div class="row align-items-center">
+                            <!-- <div class="row align-items-center">
                                 <div class="col-md-6 mb-3">
                                     <label for="birthday">Birthday</label>
                                     <div class="input-group">
@@ -38,8 +38,8 @@
                                         <option value="2">Male</option>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="row">
+                            </div> -->
+                            <!-- <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <label for="email">Email</label>
@@ -52,31 +52,31 @@
                                         <input class="form-control" id="phone" type="number" placeholder="+12-345 678 910" required="">
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="mt-3">
-                                <button class="btn btn-gray-800 mt-2 animate-up-2" type="submit">Save</button>
+                                <button class="btn btn-gray-800 mt-2 animate-up-2" type="submit">Simpan</button>
                             </div>
                         </form>
                     </div>
                     <div class="card card-body border-0 shadow mb-4" id="change-password">
-                        <h2 class="h5 mb-4">Change Password</h2>
+                        <h2 class="h5 mb-4">Ubah Password</h2>
                         <form>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <div>
-                                        <label for="first_name">Password</label>
+                                        <label for="first_name">Password Baru</label>
                                         <input class="form-control" id="first_name" type="text" placeholder="" required="">
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div>
-                                        <label for="last_name">Password Confirmation</label>
+                                        <label for="last_name">Konfirmasi Password</label>
                                         <input class="form-control" id="last_name" type="text" placeholder="" required="">
                                     </div>
                                 </div>
                             </div>
                             <div class="mt-3">
-                                <button class="btn btn-gray-800 mt-2 animate-up-2" type="submit">Save</button>
+                                <button class="btn btn-gray-800 mt-2 animate-up-2" type="submit">Simpan</button>
                             </div>
                         </form>
                     </div>
@@ -87,10 +87,9 @@
                             <div class="card shadow border-0 text-center p-0">
                                 <div class="profile-cover rounded-top"></div>
                                 <div class="card-body pb-5">
-                                    <img src="{{ asset('admin/assets/img/team/profile-picture-1.jpg') }}" class="avatar-xl rounded-circle mx-auto mt-n7 mb-4" alt="Neil Portrait">
-                                    <h4 class="h3">Neil Sims</h4>
-                                    <h5 class="fw-normal">Senior Software Engineer</h5>
-                                    <p class="text-gray mb-4">New York, USA</p>
+                                    <img src="{{ asset('image/avatar.png') }}" class="avatar-xl rounded-circle mx-auto mt-n7 mb-4" alt="Neil Portrait">
+                                    <h4 class="h3">{{ Auth::guard('admin')->user()->name }}</h4>
+                                    <h5 class="fw-normal">Pustaka Aksara</h5>
                                 </div>
                              </div>
                         </div>

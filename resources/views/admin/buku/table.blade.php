@@ -21,7 +21,8 @@
         <div class="card-header">
             <div class="d-flex justify-content-between">
                 <h1 class="h4">List Buku</h1>
-                <a href="{{ route('penjual.tambahbuku') }}" class="btn text-white btn-sm btn-success"> Tambah Buku Baru </a>
+                <a href="{{ route('penjual.tambahbuku') }}" class="btn text-white btn-sm btn-success"> Tambah Buku Baru
+                </a>
             </div>
         </div>
         <div class="card-body">
@@ -42,41 +43,48 @@
                         @foreach($buku as $n => $b)
                         <tr>
                             <td> {{ $n + 1 }} </td>
-                            <td> <img src="{{ $b->Picture }}" width="100" class="img-alt">  </td>
+                            <td> <img src="{{ $b->Picture }}" width="100" class="img-alt"> </td>
                             <td> {{ $b->name }} </td>
                             <td> {{ $b->penjual->name }} </td>
                             <td> {{ $b->rupiah($b->harga_asli) }} </td>
                             <td> {{ $b->created_at->format('d F, Y') }} </td>
                             <td>
                                 <a href="{{ route('admin.book.edit',$b->id) }}" class="btn btn-info btn-sm"> Edit </a>
-                                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal{{$b->id}}">Hapus</button>
-                                    <div class="modal fade" id="modal{{ $b->id }}" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h2 class="h6 modal-title">Hapus Buku ?</h2>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p> Apakah anda yakin ingin menghapus buku {{ $b->name }} ? </p>
-                                                </div>
-                                                <form action="{{ route('penjual.deletebuku',$b->id) }}" method="post">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-sm btn-info" data-bs-dismiss="modal">Batal</button>
-                                                        <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
-                                                    </div>
-                                                </form>
+                                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#modal{{$b->id}}">Hapus</button>
+                                <div class="modal fade" id="modal{{ $b->id }}" tabindex="-1" role="dialog"
+                                    aria-labelledby="modal-default" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h2 class="h6 modal-title">Hapus Buku ?</h2>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
                                             </div>
+                                            <div class="modal-body">
+                                                <p> Apakah anda yakin ingin menghapus buku {{ $b->name }} ? </p>
+                                            </div>
+                                            <form action="{{ route('penjual.deletebuku',$b->id) }}" method="post">
+                                                @csrf
+                                                @method('delete')
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-sm btn-info"
+                                                        data-bs-dismiss="modal">Batal</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
+                                </div>
                             </td>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
+        </div>
+        <div class="card-footer px-3 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between">
+            {{ $buku->links() }}
         </div>
     </div>
     @endsection

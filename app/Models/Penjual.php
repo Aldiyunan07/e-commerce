@@ -51,4 +51,9 @@ class Penjual extends Authenticatable
     {
         return $this->hasMany(Buku::class);
     }
+
+    public function buy()
+    {
+        return $this->hasMany(Buy::class);
+    }
 }

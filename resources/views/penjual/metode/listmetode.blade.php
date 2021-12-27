@@ -1,6 +1,6 @@
-<x-admin-layout>
+<x-penjual-layout>
     @section('content')
-    <x-header title="List Kategori" description="Disini anda dapat melihat semua kategori.">
+    <x-header title="Metode Pembayaran" description="Disini anda dapat melihat Metode Pembayaran anda.">
         <a role="button" data-bs-toggle="modal" data-bs-target="#create"
             class="btn btn-sm btn-gray-800 d-inline-flex align-items-center">
             <svg class="icon icon-xs me-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -8,30 +8,38 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6">
                 </path>
             </svg>
-            Tambah Metode Pembayaran
+            Tambah 
         </a>
         <!-- Modal Content -->
         <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="modal-default"
             aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <form method="post" action="">
+                    <form method="get" action="{{ route('penjual.tambahmetode') }}">
                         @csrf
                         <div class="modal-header">
-                            <h2 class="h6 modal-title">Tambah Metode Pembayarab</h2>
+                            <h2 class="h6 modal-title">Tambah Metode Pembayaran</h2>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <div class="mb-3">
-                                <label for="kategori" class="form-label">Kategori</label>
-                                <input type="text" class="form-control" id="kategori" name="kategori"
-                                    placeholder="Masukan Nama Kategori" required>
+                                <label for="kategori" class="form-label">E-Wallet</label>
+                                <select name="wallet" id="" class="form-control">
+                                    <option disabled selected> Pilih E-Wallet </option>
+                                    <option value="dana"> DANA </option>
+                                    <option value="gopay"> GOPAY </option>
+                                    <option value="ovo"> OVO </option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="kategori" class="form-label">Number</label>
+                                <input type="text" autocomplete="off" name="number" id="" class="form-control">
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-info">Tambah</button>
-                            <button type="button" class="btn btn-danger ms-auto"
+                            <button type="button" class="btn btn-danger "
                                 data-bs-dismiss="modal">Kembali</button>
+                            <button type="submit" class="btn ms-auto btn-info">Tambah</button>
                         </div>
                     </form>
                 </div>
@@ -44,9 +52,10 @@
                 <thead class="thead-light">
                     <tr>
                         <th class="border-0 rounded-start">#</th>
-                        <th class="border-0">Gambar</th>
-                        <th class="border-0">Nama</th>
+                        <th class="border-0">Thumbnail</th>
+                        <th class="border-0">E-Wallet</th>
                         <th class="border-0">Nomor</th>
+                        <th class="border-0">Di buat</th>
                         <th class="border-0 rounded-end text-end">Action</th>
                     </tr>
                 </thead>
@@ -54,9 +63,18 @@
                     @foreach($metode as $n => $k)
                     <tr>
                         <td>{{ $n + 1 }}</td>
-                        <td>{{ $k->thumbnail }}</td>
-                        <td>{{ $k->name }}</td>
-                        <td>{{ $k->nomor}}</td>
+                        <td>
+                            @if($k->wallet == "dana")
+                                <img src="{{ asset('image/dana.png') }}" height="25" width="80" alt="">
+                            @elseif($k->wallet == "gopay")
+                                <img src="{{ asset('image/gopay.png') }}" height="25" width="80" alt="">
+                            @else
+                                <img src="{{ asset('image/ovo.png') }}" height="25" width="80" alt="">
+                            @endif
+                        </td>
+                        <td>{{ ucfirst($k->wallet) }}</td>
+                        <td>{{ $k->number }}</td>
+                        <td> {{ $k->created_at->format('d F, Y') }} </td>
                         <td class="text-end">
                             <div class="dropdown">
                                 <button class="btn p-0" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
@@ -79,18 +97,22 @@
                         aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
-                                <form method="post" action="">
-                                    @csrf 
-                                    @method('patch')
+                                <form method="get" action="{{ route('penjual.updatemetode',$k->id) }}">
+                                    @csrf
                                     <div class="modal-header">
-                                        <h2 class="h6 modal-title">Edit Kategori</h2>
+                                        <h2 class="h6 modal-title">Edit Metode Pembayaran</h2>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <div class="mb-3">
-                                            <label for="kategori" class="form-label">Kategori</label>
-                                            <input type="text" class="form-control" id="kategori"
-                                                placeholder="Masukan Nama Kategori" name="kategori" value="{{ $k->kategori }}" required>
+                                            <label for="kategori" class="form-label">Metode Pembayaran</label>
+                                            <input type="text" class="form-control" id="wallet"
+                                                value="{{ $k->wallet }}" readonly name="wallet">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="kategori" class="form-label">Nomor E-Wallet</label>
+                                            <input type="text" class="form-control" id="number"
+                                                value="{{ $k->number }}" name="number">
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -111,15 +133,15 @@
                                         <i class="bi bi-question-circle" style="font-size: 100px"></i>
                                     </div>
                                     <div class="d-block text-center">
-                                        Apakah anda yakin ingin menghapus kategori {{ $k->kategori }} ?
+                                        Apakah anda yakin ingin menghapus {{ ucfirst($k->wallet) }} ?
                                     </div>
                                     <div class="d-flex justify-content-center align-items-center my-4"
                                         style="column-gap: 5px">
-                                        <form action="" method="post">
+                                        <form action="{{ route('penjual.deletemetode',$k->id) }}" method="post">
                                             @csrf
                                             @method('delete')
                                             <div>
-                                                <button type="submit" class="btn btn-success text-white">Iya</button>
+                                                <button type="submit" class="btn btn-success text-white">Hapus</button>
                                             </div>
                                         </form>
                                         <div>
@@ -138,4 +160,4 @@
         </div>
     </div>
     @endsection
-</x-admin-layout>
+</x-penjual-layout>

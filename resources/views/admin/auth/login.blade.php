@@ -3,7 +3,7 @@
 
 <head> 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Login Admin - E-Commerce</title>
+<title>Login Admin </title>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="title" content="Volt Premium Bootstrap Dashboard - Sign in page">
 <meta name="author" content="Themesberg">
@@ -13,8 +13,8 @@
 
 <!-- Favicon -->
 <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('admin/assets/img/favicon/apple-touch-icon.png') }}">
-<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('admin/assets/img/favicon/favicon-32x32.png') }}">
-<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('admin/assets/img/favicon/favicon-16x16.png') }}">
+<!-- <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('admin/assets/img/favicon/favicon-32x32.png') }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('admin/assets/img/favicon/favicon-16x16.png') }}"> -->
 <link rel="manifest" href="{{ asset('admin/assets/img/favicon/site.webmanifest') }}">
 <link rel="mask-icon" href="{{ asset('admin/assets/img/favicon/safari-pinned-tab.svg') }}" color="#ffffff">
 <meta name="msapplication-TileColor" content="#ffffff">
@@ -58,7 +58,7 @@
                                         <span class="input-group-text" id="basic-addon1">
                                             <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
                                         </span>
-                                        <input value="{{ old('email') }}" type="email" class="form-control" placeholder="example@gmail.com" id="email" autofocus required name="email">
+                                        <input value="{{ old('email') }}" type="email" class="form-control" id="email" autofocus required name="email">
                                     </div>
                                     @error('email')
                                     <div class="text-danger small">
@@ -86,9 +86,9 @@
                                               Ingat saya 
                                             </label>
                                         </div>
-                                            @if (Route::has('password.request'))
+                                            <!-- @if (Route::has('password.request'))
                                         <div><a href="{{ route('password.request') }}" class="small text-right">Lupa password?</a></div>
-                                            @endif
+                                            @endif -->
                                     </div>
                                 </div>
                                 <div class="d-grid">

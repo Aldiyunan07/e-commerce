@@ -86,7 +86,7 @@
                 </a>
             </div>
             <div class="row">
-                @foreach($buku->take(6) as $b)
+                @foreach($bukus->take(6) as $b)
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                     <div class="mb-3" style="max-width: 100%; ">
                         <div class="card border-0 shadow-sm row g-0">

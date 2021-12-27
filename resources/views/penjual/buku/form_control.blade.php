@@ -1,15 +1,16 @@
 <div class="row">
     <div class="col-md-6">
         <div class="mb-4">
-            <label for="name">Nama Buku</label>
-            <input type="text" value="{{ old('name') ?? $buku->name }}" name="name" class="form-control" id="name">
+            <label for="name">Nama Buku  </label>
+            <input type="text" autocomplete="off" value="{{ old('name') ?? $buku->name }}" name="name" class="form-control" id="name">
             @error('name')
             <div class="text-danger"> {{ $message }} </div>
             @enderror
         </div>
         <div class="mb-4">
-            <label for="gambar">Gambar</label>
+            <label for="gambar">Gambar </label>
             <input type="file" name="gambar" class="form-control" id="gambar">
+            <small> <i> disarankan ukuran 1050 x 1600 </i> </small>
             @error('gambar')
             <div class="text-danger"> {{ $message }} </div>
             @enderror
@@ -30,7 +31,7 @@
         <div class="mb-4">
             <label for="berat"> Berat </label>
             <div class="input-group">
-                <input type="number" value="{{ old('berat') ?? $buku->berat }}" min="0" name="berat" class="form-control">
+                <input type="text" autocomplete="off" value="{{ old('berat') ?? $buku->berat }}" min="0" name="berat" class="form-control">
                 <span class="input-group-text" id="basic-addon2"> g </span>
             </div>
             @error('berat')
@@ -40,7 +41,7 @@
         <div class="mb-4">
             <label for="harga">Lebar</label>
             <div class="input-group">
-                <input type="lebar" value="{{ old('lebar') ?? $buku->lebar }}" min="0" name="lebar" class="form-control" id="lebar">
+                <input type="text" autocomplete="off" value="{{ old('lebar') ?? $buku->lebar }}" min="0" name="lebar" class="form-control" id="lebar">
                 <span class="input-group-text" id="basic-addon2">cm</span>
             </div>
             @error('lebar')
@@ -52,7 +53,7 @@
             <label for="harga">Harga</label>
             <div class="input-group">
             <span class="input-group-text" id="basic-addon2"> Rp. </span>
-            <input type="number" name="harga" class="form-control" id="harga"
+            <input type="number" name="harga" autocomplete="off" class="form-control" id="harga"
                     value="{{ old('harga_awal') ?? $buku->harga_awal }}">
             </div>
             @error('harga')
@@ -61,7 +62,7 @@
         </div>
         <div class="mb-4">
             <label for="shopee">Link Shopee</label>
-            <input type="shopee" name="shopee" class="form-control" id="shopee"
+            <input type="shopee" name="shopee" autocomplete="off" class="form-control" id="shopee"
                 value="{{ old('shopee') ?? $buku->shopee }}">
             @error('shopee')
             <div class="text-danger"> {{ $message }} </div>
@@ -69,9 +70,17 @@
         </div>
         <div class="mb-4">
             <label for="tokopedia">Link Tokopedia</label>
-            <input type="tokopedia" name="tokopedia" class="form-control" id="tokopedia"
+            <input type="tokopedia" name="tokopedia" autocomplete="off" class="form-control" id="tokopedia"
                 value="{{ old('tokopedia') ?? $buku->tokopedia }}">
             @error('tokopedia')
+            <div class="text-danger"> {{ $message }} </div>
+            @enderror
+        </div>
+        <div class="mb-4">
+            <label for="tokopedia">Bahasa</label>
+            <input type="text" name="bahasa" class="form-control" autocomplete="off" id="bahasa"
+                value="{{ old('bahasa') ?? $buku->bahasa }}">
+            @error('bahasa')
             <div class="text-danger"> {{ $message }} </div>
             @enderror
         </div>
@@ -86,7 +95,7 @@
     <div class="col-md-6">
         <div class="mb-4">
             <label for="penulis">Penulis</label>
-            <input type="text" name="penulis" class="form-control" value="{{ old('penulis') ?? $buku->penulis }}"
+            <input type="text" autocomplete="off" name="penulis" class="form-control" value="{{ old('penulis') ?? $buku->penulis }}"
                 id="penulis">
             @error('penulis')
             <div class="text-danger"> {{ $message }} </div>
@@ -94,14 +103,14 @@
         </div>
         <div class="mb-4">
             <label for="ebook">Ebook</label>
-            <input type="file" name="ebook" class="form-control" id="ebook">
+            <input type="file" name="ebook"  class="form-control" id="ebook">
             @error('ebook')
             <div class="text-danger"> {{ $message }} </div>
             @enderror
         </div>
         <div class="mb-4">
             <label for="penerbit">Penerbit</label>
-            <input type="text" name="penerbit" value="{{ old('penerbit') ?? $buku->penerbit }}" class="form-control"
+            <input type="text" name="penerbit" autocomplete="off" value="{{ old('penerbit') ?? $buku->penerbit }}" class="form-control"
                 id="penerbit">
             @error('penerbit')
             <div class="text-danger"> {{ $message }} </div>
@@ -109,7 +118,7 @@
         </div>
         <div class="mb-4">
             <label for="isbn">No ISBN</label>
-            <input type="number" value="{{ old('isbn') ?? $buku->isbn }}" name="isbn" class="form-control" id="isbn">
+            <input type="text" value="{{ old('isbn') ?? $buku->isbn }}" autocomplete="off" name="isbn" class="form-control" id="isbn">
             @error('isbn')
             <div class="text-danger"> {{ $message }} </div>
             @enderror
@@ -117,7 +126,7 @@
         <div class="mb-4">
             <label for="panjang">Panjang</label>
             <div class="input-group">
-                <input type="number" value="{{ old('panjang') ?? $buku->panjang }}" min="0" name="panjang" class="form-control"
+                <input type="text" value="{{ old('panjang') ?? $buku->panjang }}" min="0" autocomplete="off" name="panjang" class="form-control"
                     id="panjang">
                     <span class="input-group-text" id="basic-addon2">cm</span>
             </div>
@@ -128,7 +137,7 @@
         <div class="mb-4">
             <label for="harga">Diskon</label>
             <div class="input-group">
-                <input type="number" name="diskon" class="form-control" value="{{ old('buku') ?? $buku->diskon }}"
+                <input type="number" autocomplete="off" name="diskon" class="form-control" value="{{ old('buku') ?? $buku->diskon }}"
                     id="diskon">
                     <span class="input-group-text" id="basic-addon2"> % </span>
             </div>
@@ -139,7 +148,7 @@
 
         <div class="mb-4">
             <label for="jumlah">Jumlah Halaman</label>
-            <input type="number" name="halaman" class="form-control" id="halaman"
+            <input type="number" name="halaman" autocomplete="off" class="form-control" id="halaman"
                 value="{{ old('halaman') ?? $buku->halaman }}">
             @error('halaman')
             <div class="text-danger"> {{ $message }} </div>
@@ -147,7 +156,7 @@
         </div>
         <div class="mb-4">
             <label for="bukalapak">Link Bukalapak</label>
-            <input type="text" name="bukalapak" class="form-control" id="bukalapak"
+            <input type="text" name="bukalapak" class="form-control" autocomplete="off" id="bukalapak"
                 value="{{ old('bukalapak') ?? $buku->bukalapak }}">
             @error('bukalapak')
             <div class="text-danger"> {{ $message }} </div>

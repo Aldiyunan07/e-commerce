@@ -48,16 +48,16 @@
             </div>
         </div>
         <ul class="nav flex-column pt-3 pt-md-0">
-            <li class="nav-item">
-            <span class="sidebar-text">
-                E-Commerce
-            </span>    
-            
+            <li class="nav-item mx-4">
+                <a href="#" class="nav-link d-flex align-items-center">
+                    <img src="{{ asset('image/Panjang_-_Hitam-removebg-preview.png') }}" height="60" width="120"
+                        alt="Volt Logo">
+                </a>
             </li>
             <li class="nav-item  active ">
                 <a href="{{ route('penjual.dashboard') }}" class="nav-link">
                     <span class="sidebar-icon">
-                        <i class="bi bi-pie-chart me-2"></i>
+                        <i class="bi bi-grid-1x2 me-2"></i>
                     </span>
                     <span class="sidebar-text">Dashboard</span>
                 </a>
@@ -75,15 +75,15 @@
                     <span class="sidebar-icon">
                         <i class="bi bi-cart-plus me-2"></i>
                     </span>
-                    <span class="sidebar-text"> Pesanan  </span>
+                    <span class="sidebar-text"> Pesanan </span>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="{{ route('penjual.listmetode') }}" class="nav-link">
                     <span class="sidebar-icon">
-                        <i class="bi bi-cart-plus me-2"></i>
+                        <i class="bi bi-credit-card me-2"></i>
                     </span>
-                    <span class="sidebar-text"> Metode Pembayaran  </span>
+                    <span class="sidebar-text"> Metode Pembayaran </span>
                 </a>
             </li>
         </ul>

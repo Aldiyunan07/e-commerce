@@ -9,7 +9,7 @@ class Metode extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['penjual_id','thumbnail','name','number'];
+    protected $fillable = ['penjual_id','wallet','name','number'];
     
     public function penjual()
     {

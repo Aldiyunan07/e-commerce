@@ -44,7 +44,7 @@
                                 <div class="input-group mb-3">
                                     @csrf
                                     <select name="cari" id="" class="form-control">
-                                        <option value=""> Select 2 keun ji </option>
+                                        <option value="">  Pilih Buku Yang Ingin Anda Cari </option>
                                         @foreach($listpenerbit as $p)
                                         <option value="{{ $p->id }}"> {{ $p->judul_buku }} </option>
                                         @endforeach

@@ -13,9 +13,13 @@ use Illuminate\Support\Facades\Storage;
 
 class PenjualAppController extends Controller
 {
+    public function index()
+    {
+        return view('penjual.dashboard');
+    }
     public function listbuku()
     {
-        $buku = Buku::where('penjual_id',Auth::guard('penjual')->user()->id)->get();
+        $buku = Buku::where('penjual_id',Auth::guard('penjual')->user()->id)->paginate(5);
         return view('penjual.buku.table',compact('buku'));
     }
 
@@ -45,9 +49,9 @@ class PenjualAppController extends Controller
             'halaman' => 'required',
             'gambar' => 'required',
             'berat' => 'required',
-            'panjang' => 'required',
-            'lebar' => 'required',
-            'isbn' => 'required',
+            'panjang' => 'required|numeric',
+            'lebar' => 'required|numeric',
+            'isbn' => 'required|numeric',
             'penerbit' => 'required',
             'ebook' => 'required'
         ]);
@@ -96,9 +100,9 @@ class PenjualAppController extends Controller
             'diskon' => 'required',
             'kategori' => 'required',
             'halaman' => 'required',
-            'berat' => 'required',
-            'panjang' => 'required',
-            'lebar' => 'required',
+            'berat' => 'required|numeric',
+            'panjang' => 'required|numeric',
+            'lebar' => 'required|numeric',
             'isbn' => 'required',
             'penerbit' => 'required',
         ]);
@@ -162,5 +166,30 @@ class PenjualAppController extends Controller
     {
         $metode = Metode::where('penjual_id',Auth::guard('penjual')->user()->id)->get();
         return view('penjual.metode.listmetode',compact('metode'));
+    }
+
+    public function tambahMetode(Request $request)
+    {
+        $wallet = new Metode;
+        $wallet->create([
+            'penjual_id' => Auth::guard('penjual')->user()->id,
+            'wallet' => $request->wallet,
+            'number' => $request->number
+        ]);
+        return back();
+    }
+
+    public function updateMetode(Metode $metode,Request $request)
+    {
+        $metode->update([
+            'number' => $request->number
+        ]);
+        return back();
+    }
+
+    public function deleteMetode(Metode $metode)
+    {
+        $metode->delete();
+        return back();
     }
 }
