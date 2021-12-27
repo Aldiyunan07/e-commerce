@@ -133,7 +133,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="d-flex align-items-center justify-content-between border-bottom pb-2 mb-3" style="column-gap: 20px;">
+                        {{-- <div class="d-flex align-items-center justify-content-between border-bottom pb-2 mb-3" style="column-gap: 20px;">
                         </div>
                         <div class="card shadow-sm">
                             <div class="card-body">
@@ -152,7 +152,7 @@
                                     necessitatibus odit aspernatur.
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="col-12 col-md-3 d-md-block d-none">

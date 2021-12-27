@@ -143,8 +143,7 @@
                             class="rounded-circle me-2" width="30" height="30" alt="">
                         {{ Auth::user()->name }}
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-end border-0 shadow-lg"
-                        style="width: 15rem; font-size: 15px;" aria-labelledby="navbarDropdown">
+                    <ul class="dropdown-menu dropdown-menu-end border-0 shadow-lg" style="width: 15rem; font-size: 15px;z-index: 1022" aria-labelledby="navbarDropdown">
                         <li>
                             <a style="padding: 0.5rem 1rem 0.5rem 1rem d-flex align-items-center" class="dropdown-item"
                                 href="{{ route('update.profile') }}">
