@@ -24,7 +24,6 @@
             </div>
         </div>
         <div class="card-body">
-            <div class="table-responsive">
                 <table class="table table-centered table-nowrap  mb-0 rounded">
                     <thead class="text-white bg-primary">
                         <tr>
@@ -54,6 +53,9 @@
                     </tbody>
                 </table>
             </div>
+        <div class="card-footer px-3 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between">
+            {{ $progress->links() }}
+            <!-- <div class="fw-normal small mt-4 mt-lg-0">Showing <b>5</b> out of <b>25</b> entries</div> -->
         </div>
     </div>
     @endsection

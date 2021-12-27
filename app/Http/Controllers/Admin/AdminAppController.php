@@ -19,7 +19,7 @@ class AdminAppController extends Controller
 {
     public function listpenjual()
     {
-        $penjual = Penjual::paginate(25);
+        $penjual = Penjual::paginate(5);
         return view('admin.penjual.table',compact('penjual'));
     }
 
@@ -86,7 +86,7 @@ class AdminAppController extends Controller
 
     public function books()
     {
-        $buku = Buku::get();
+        $buku = Buku::paginate(5);
         return view('admin.books.table',compact('buku'));
     }
     public function bookShow(Buku $buku)
@@ -249,7 +249,7 @@ class AdminAppController extends Controller
 
     public function listPenerbit()
     {
-        $penerbit = Penerbit::orderBy('created_at','asc')->get();
+        $penerbit = Penerbit::orderBy('created_at','asc')->paginate(5);
         return view('admin.penerbit.index',compact('penerbit'));
     }
 
@@ -260,7 +260,7 @@ class AdminAppController extends Controller
 
     public function progressbuku()
     {
-        $progress = Progress::orderBy('created_at','desc')->get();
+        $progress = Progress::orderBy('created_at','desc')->paginate(5);
         return view('admin.penerbit.listprogress',compact('progress'));
 
     }
@@ -275,5 +275,10 @@ class AdminAppController extends Controller
         $data = $request->all();
         $progress->update($data);
         return back();
+    }
+
+    public function showBukuPenerbit(Penerbit $penerbit)
+    {
+        return view('admin.penerbit.show',compact('penerbit'));
     }
 }

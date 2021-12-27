@@ -1,3 +1,3 @@
 <html>
-    <embed type="application/pdf" src="{{ $buku->Ebook }}" width="600" height="400"></embed>
+    <iframe type="application/pdf" src="{{ $buku->Ebook }}" width="100%" height="100%"></iframe>
 </html>

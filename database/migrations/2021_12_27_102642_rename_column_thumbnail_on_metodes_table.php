@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMetodesTable extends Migration
+class RenameColumnThumbnailOnMetodesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,8 @@ class CreateMetodesTable extends Migration
      */
     public function up()
     {
-        Schema::create('metodes', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('penjual_id');
-            $table->string('name');
-            $table->string('thumbnail');
-            $table->string('number');
-            $table->timestamps();
+        Schema::table('metodes', function (Blueprint $table) {
+            $table->renameColumn('thumbnail','wallet');
         });
     }
 
@@ -30,6 +25,8 @@ class CreateMetodesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('metodes');
+        Schema::table('metodes', function (Blueprint $table) {
+            $table->renameColumn('wallet','thumbnail');
+        });
     }
 }

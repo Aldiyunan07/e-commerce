@@ -90,7 +90,7 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="nama"> Nama Lengkap <span class="text-danger">*</span> </label>
-                                <input type="text" name="nama" id="" class="form-control mt-2">
+                                <input type="text" autocomplete="off" name="nama" id="" class="form-control mt-2">
                                 @error('nama')
                                     <div class="text-danger">
                                         {{ $message }}

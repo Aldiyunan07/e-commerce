@@ -48,7 +48,7 @@ Route::namespace('Penjual')->name('penjual.')->prefix('penjual')->group(function
     });
     Route::namespace('penjual')->post('logout',[PenjualAuthenticatedSessionController::class,'destroy'])->name('logout');
     Route::middleware('penjual')->group(function(){
-        Route::get('dashboard',[PenjualHomeController::class,'index'])->name('dashboard');
+        Route::get('dashboard',[PenjualAppController::class,'index'])->name('dashboard');
         Route::get('buku',[PenjualAppController::class,'listbuku'])->name('listbuku');
         Route::get('buku/show/{buku:id}',[PenjualAppController::class,'listbukuShow'])->name('listbuku.show');
         Route::get('buku/tambah',[PenjualAppController::class,'tambahbuku'])->name('tambahbuku');
@@ -58,6 +58,9 @@ Route::namespace('Penjual')->name('penjual.')->prefix('penjual')->group(function
         Route::delete('buku/delete/{buku:id}',[PenjualAppController::class,'deletebuku'])->name('deletebuku');
         Route::get('listbuy',[PenjualAppController::class,'listbuy'])->name('listbuy');
         Route::get('listmetode',[PenjualAppController::class,'listmetode'])->name('listmetode');
+        Route::get('listmetode/tambah',[PenjualAppController::class,'tambahMetode'])->name('tambahmetode');
+        Route::get('listmetode/edit/{metode:id}',[PenjualAppController::class,'updateMetode'])->name('updatemetode');
+        Route::delete('listmetode/delete/{metode:id}',[PenjualAppController::class,'deleteMetode'])->name('deletemetode');
         Route::get('listbuy/konfirmasi/{buy:id}',[PenjualAppController::class,'konfirmasi'])->name('konfirmasi.listbuy');
         Route::get('listbuy/unkonfirmasi/{buy:id}',[PenjualAppController::class,'unkonfirmasi'])->name('unkonfirmasi.listbuy');
     });
@@ -98,7 +101,7 @@ Route::namespace('Admin')->name('admin.')->prefix('admin')->group(function(){
         Route::get('progress/',[AdminAppController::class,'progressbuku'])->name('progres.buku');
         Route::get('progress/edit/{progress:id}',[AdminAppController::class,'editProgress'])->name('edit.progress');
         Route::post('progress/update/{progress:id}',[AdminAppController::class,'updateProgress'])->name('update.progress');
-
+        Route::get('penerbit/show-buku/{penerbit:id}',[AdminAppController::class,'showBukuPenerbit'])->name('showBukuPenerbit');
 
         // Order
         Route::get('orders', [AdminAppController::class, 'orders'])->name('orders');

@@ -48,19 +48,16 @@
             </div>
         </div>
         <ul class="nav flex-column pt-3 pt-md-0">
-            <li class="nav-item">
+            <li class="nav-item mx-4">
                 <a href="#" class="nav-link d-flex align-items-center">
-                    <span class="sidebar-icon">
-                        <img src="{{ asset('admin/assets/img/brand/light.svg') }}" height="20" width="20"
-                            alt="Volt Logo">
-                    </span>
-                    <span class="mt-1 ms-1 sidebar-text">E-Commerce</span>
+                    <img src="{{ asset('image/Panjang_-_Hitam-removebg-preview.png') }}" height="60" width="120"
+                        alt="Volt Logo">
                 </a>
             </li>
             <li class="nav-item active">
                 <a href="{{ route('admin.dashboard') }}" class="nav-link">
                     <span class="sidebar-icon">
-                        <i class="bi bi-pie-chart me-2"></i>
+                        <i class="bi bi-grid-1x2 me-2"></i>
                     </span>
                     <span class="sidebar-text">Dashboard</span>
                 </a>
@@ -112,7 +109,7 @@
             <li class="nav-item">
                 <a href="{{ route('admin.categories') }}" class="nav-link">
                     <span class="sidebar-icon">
-                        <i class="bi bi-journals me-2"></i>
+                        <i class="bi bi-grid-fill me-2"></i>
                     </span>
                     <span class="sidebar-text"> List Kategori</span>
                 </a>
@@ -120,7 +117,7 @@
             <li class="nav-item">
                 <a href="{{ route('admin.penerbit') }}" class="nav-link">
                     <span class="sidebar-icon">
-                        <i class="bi bi-journals me-2"></i>
+                        <i class="bi bi-person-lines-fill me-2"></i>
                     </span>
                     <span class="sidebar-text"> List Penerbit</span>
                 </a>
@@ -128,7 +125,7 @@
             <li class="nav-item">
                 <a href="{{ route('admin.progres.buku') }}" class="nav-link">
                     <span class="sidebar-icon">
-                        <i class="bi bi-journals me-2"></i>
+                        <i class="bi bi-ui-checks me-2"></i>
                     </span>
                     <span class="sidebar-text"> Progress Buku </span>
                 </a>

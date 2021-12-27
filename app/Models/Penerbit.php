@@ -26,7 +26,7 @@ class Penerbit extends Model
         'jasa'
     ];
 
-    public function getEbookAttribute()
+    public function getFileAttribute()
     {
         return asset('/storage/' . $this->ebook);
     }

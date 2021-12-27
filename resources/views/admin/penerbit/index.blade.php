@@ -53,6 +53,10 @@
                 </table>
             </div>
         </div>
+        <div class="card-footer px-3 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between">
+            {{ $penerbit->links() }}
+            <!-- <div class="fw-normal small mt-4 mt-lg-0">Showing <b>5</b> out of <b>25</b> entries</div> -->
+        </div>
     </div>
     @endsection
 </x-admin-layout>

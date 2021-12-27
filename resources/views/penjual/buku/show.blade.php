@@ -11,7 +11,9 @@
                             <div class="text-muted">{{ ucfirst($buku->status) }}</div>
                         </div>
                         <div class="fw-bold my-3">Deskripsi</div>
-                        <div class="fw-light"> {{ $buku->deskripsi }} </div>
+                        <div class="fw-light"> {!! nl2br($buku->deskripsi) !!} </div>
+                        <div class="fw-bold my-3">Sinopsis</div>
+                        <div class="fw-light"> {!! nl2br($buku->sinopsis) !!} </div>
                         <div class="my-3">
                             <div class="fw-bold text-dark mb-3">Detail</div>
                             <div class="row">
@@ -22,7 +24,7 @@
                                     </div>
                                     <div class="mb-2">
                                         <div class="small text-muted">Tanggal Terbit</div>
-                                        {{-- <div class="small text-dark">{{ $buku->created_at->format('d F, Y') }}</div> --}}
+                                        <div class="small text-dark">{{ $buku->created_at->format('d F, Y') }}</div>
                                     </div>
                                     <div class="mb-2">
                                         <div class="small text-muted">ISBN</div>
@@ -30,7 +32,7 @@
                                     </div>
                                     <div class="mb-2">
                                         <div class="small text-muted">Bahasa</div>
-                                        <div class="small text-dark">{{ $buku->bahasa }}</div>
+                                        <div class="small text-dark">{{ ucfirst($buku->bahasa) }}</div>
                                     </div>
                                 </div>
                                 <div class="col-6 col-md-6">

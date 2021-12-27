@@ -51,12 +51,12 @@
                                     @if(Auth::user()->checkwhistlist($buku) == 1)
                                     <a href="{{ route('unwhistlist',$buku->id) }}"
                                         class="text-secondary  text-decoration-none" title="Hapus dari Wishlist">
-                                        <i class="bi bi-heart-fill fs-5 text-primary"></i>
+                                        <i class="bi bi-heart-fill fs-5 text-danger"></i>
                                     </a>
                                     @else
                                     <a href="{{ route('whistlist',$buku->id) }}"
                                         class="text-secondary text-decoration-none" title="Tambahkan ke Wishlist">
-                                        <i class="bi bi-heart fs-5 text-primary"></i>
+                                        <i class="bi bi-heart fs-5 text-secondary"></i>
                                     </a>
                                     @endif
                                     @else
@@ -67,7 +67,7 @@
                                         <a href="#" class="text-secondary text-decoration-none" title="Bagikan" role="button" data-bs-toggle="modal" data-bs-target="#share" >
                                             <i class="bi bi-share-fill fs-5 text-secondary"></i>
                                         </a>
-                                        <a href="#" class="text-secondary text-decoration-none" title="Chat langsung">
+                                        <a href="https://wa.me/{{ $buku->penjual->whatsapp }}" class="text-secondary text-decoration-none" title="Chat langsung">
                                             <i class="bi bi-whatsapp fs-5 text-success"></i>
                                         </a>
                                     </div>
@@ -109,7 +109,7 @@
                                         </div>
                                         <div class="mb-2">
                                             <div class="small text-secondary">Bahasa</div>
-                                            <div class="small text-dark">{{ $buku->bahasa }}</div>
+                                            <div class="small text-dark">{{ ucfirst($buku->bahasa) }}</div>
                                         </div>
                                     </div>
                                     <div class="col-6 col-md-6">
@@ -135,7 +135,7 @@
                         </div>
                         <div class="d-flex align-items-center justify-content-between border-bottom pb-2 mb-3" style="column-gap: 20px;">
                         </div>
-                        <div class="card shadow-sm">
+                        <!-- <div class="card shadow-sm">
                             <div class="card-body">
                                 <div class="fw-bold border-bottom pb-2">
                                     Review
@@ -152,7 +152,7 @@
                                     necessitatibus odit aspernatur.
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-12 col-md-3 d-md-block d-none">
@@ -175,6 +175,7 @@
                                         <a href="{{route('lihatbuku',$buku->id)}}" class="btn btn-primary btn-sm rounded-pill">Lihat Buku</a>
                                         @endif
                                         @else
+                                        <a href="{{route('login')}}" class="btn btn-primary btn-sm rounded-pill">Lihat Buku</a>
         
                                         @endauth
                                     </div>
@@ -263,7 +264,7 @@
                                 <i class="bi bi-link fs-2 text-dark text-center"></i>
                             </div>
                             <div class="small fw-light">Salin Link</div> 
-                            <input type="input" value="Eusian duyy" id="myInput" class="p-0 px-1 mt-1" size="1" readonly>
+                            <!-- <input type="input" value="Eusian duyy" id="myInput" class="p-0 px-1 mt-1" size="1" readonly> -->
                         </div>
                         <div>
                             <a href="{{ $buku->shopee }}" class="d-flex flex-column justify-content-center text-decoration-none text-dark" target="_blank">
@@ -291,15 +292,26 @@
                 </div>
                 <div class="modal-body">
                     <div class="px-4 pt-5 d-flex justify-content-between align-items-center" style="column-gap: 2.5rem;">
-                        <a href="{{ $buku->tokopedia }}" target="_blank">
-                            <img src="{{ asset('image/Tokopedia.png') }}" width="50" class="img-fluid" alt="">
-                        </a>
-                        <a href="{{ $buku->shopee }}" target="_blank">
-                            <img src="{{ asset('image/Shopee.png') }}" width="50" class="img-fluid" alt="">
-                        </a>
-                        <a href="{{ $buku->bukalapak }}" target="_blank">
-                            <img src="{{ asset('image/Bukalapak.png') }}" width="50" class="img-fluid" alt="">
-                        </a>
+                        @if($buku->tokopedia == "" && $buku->shopee == "" && $buku->bukalapak == "")
+                            <div class=" p-4 text-center"> Ups, Maaf Untuk Saat Ini Belum Ada Buku Fisik Yang Bisa Di Beli </div>
+                        @else
+                        @if($buku->tokopedia !== null)
+                            <a href="{{ $buku->tokopedia }}" target="_blank">
+                                <img src="{{ asset('image/Tokopedia.png') }}" width="50" class="img-fluid" alt="">
+                            </a>
+                        @endif
+                        @if($buku->shopee !== null)
+                            <a href="{{ $buku->shopee }}" target="_blank">
+                                <img src="{{ asset('image/Shopee.png') }}" width="50" class="img-fluid" alt="">
+                            </a>
+                        @endif
+                        @if($buku->bukalapak !== null)
+                            <a href="{{ $buku->bukalapak }}" target="_blank">
+                                <img src="{{ asset('image/Bukalapak.png') }}" width="50" class="img-fluid" alt="">
+                            </a>
+                        @endif
+                        @endif
+
                     </div>
                 </div>
             </div>

@@ -28,7 +28,7 @@ class UserController extends Controller
 
     public function allBooks(Request $request)
     {
-        $buku = Buku::where('status','terima')->get();
+        $buku = Buku::where('status','terima')->orderBy('created_at','desc')->get();
         $buy = Buy::get();
         return view('allbooks',compact('buku','buy'));
     }
@@ -149,10 +149,15 @@ class UserController extends Controller
         return back();
     }
 
-    public function myOrders(Buy $buy)
+    public function myOrders(Buy $buy,Request $request)
     {
-        $buy = Buy::where('user_id',Auth::user()->id)->orderBy('status','desc')->get();
-        return view('orders',compact('buy'));
+        $search = $request->status;
+        if($request->status == ""){
+            $buy = Buy::where('user_id',Auth::user()->id)->orderBy('status','desc')->get();
+        }else{
+            $buy = Buy::where('user_id',Auth::user()->id)->where('status',$search)->get();
+        }
+        return view('orders',compact('buy','search'));
     }
 
     public function lihatbuku(Buku $buku)

@@ -1,4 +1,4 @@
-div<x-admin-layout>
+<x-admin-layout>
     @section('content')
     <div class="py-4">
     </div>
@@ -16,7 +16,7 @@ div<x-admin-layout>
                         <h5 class="mt-2"> {{ $penerbit->nama }} </h5>
                         <h6 class="mt-2"> {{ $penerbit->email }} </h6>
                         <a href="mailto:{{ $penerbit->email }}" class="btn btn-success mt-2 text-white"> Kirim Review Balasan</a> <br/>
-                        <a href="mailto:{{ $penerbit->email }}" class="btn btn-info btn-sm mt-2 text-white"> Lihat Buku</a>
+                        <a href="{{ route('admin.showBukuPenerbit',$penerbit->id) }}" class="btn btn-info btn-sm mt-2 text-white"> Lihat Buku</a>
                     </div>
                 </div>
                 <div class="col-4">
