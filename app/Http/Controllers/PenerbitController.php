@@ -61,19 +61,22 @@ class PenerbitController extends Controller
             'penerbit_id' => $save
         ]);
 
-        return view('penerbit.thanks');
+        return back()->with('success', 'success!');
 
     }
 
-    public function pageProgress()
+    public function pageProgress(Request $request,Penerbit $penerbit)
     {
-        return view('penerbit.pageProgress');
+        $progress = Progress::where('penerbit_id',$request->cari)->first();
+        $penerbit = Penerbit::where('id',$progress->penerbit_id)->first();
+        $listpenerbit = Penerbit::get();
+        return view('penerbit.pageProgress',compact('listpenerbit','progress','penerbit'));
     }
 
     public function searchProgress(Request $request,Penerbit $penerbit)
     {
         $progress = Progress::where('penerbit_id',$request->cari)->get();
         $listpenerbit = Penerbit::get();
-        return view('penerbit.searchPenerbit',compact('listpenerbit','progress'));   
+        return view('penerbit.pageProgress',compact('listpenerbit','progress'));
     }
 }

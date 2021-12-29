@@ -31,9 +31,34 @@
 <x-app-layout>
     <div class="container-fluid">
         <section class="banner mx-50 row justify-content-center overflow-hidden" id="banner">
-            <div>
-                <img src="{{ asset('image/1208 x 302.png') }}" class="img-fluid" style="border-radius: 0.75rem" alt="">
+            <!-- Slider main container -->
+            <div class="swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                <!-- Slides -->
+                    <div class="swiper-slide d-flex justify-content-center">
+                        <img src="{{ asset('image/1208 x 302.png') }}" class="img-fluid" style="border-radius: 0.75rem" alt="">
+                    </div>
+                    <div class="swiper-slide d-flex justify-content-center">
+                        <img src="{{ asset('image/1208 x 302.png') }}" class="img-fluid" style="border-radius: 0.75rem" alt="">
+                    </div>
+                    <div class="swiper-slide d-flex justify-content-center">
+                        <img src="{{ asset('image/1208 x 302.png') }}" class="img-fluid" style="border-radius: 0.75rem" alt="">
+                    </div>
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+            
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            
+                <!-- If we need scrollbar -->
+                {{-- <div class="swiper-scrollbar"></div> --}}
             </div>
+            {{-- <div>
+                <img src="{{ asset('image/1208 x 302.png') }}" class="img-fluid" style="border-radius: 0.75rem" alt="">
+            </div> --}}
         </section>
         <section class="mx-50 my-5 mb-3" id="menus">
             <div class="row g-3">
@@ -55,7 +80,7 @@
                 </div>
                 <div class="col-6 col-sm-6 col-md-6">
                     <div class="card card-body border-0 shadow-sm">
-                        <a href="{{ '#' }}" class="menus text-decoration-none text-center d-lg-flex d-block align-items-center justify-content-center">
+                        <a href="{{ route('page.progress') }}" class="menus text-decoration-none text-center d-lg-flex d-block align-items-center justify-content-center">
                             <img src="{{ asset('/image/book-stack.png') }}" class="img-fluid" width="50" alt="">
                             <div class="text-menu fw-bold" style="color: #38426C;"> CEK PROGRESS BUKU </div>
                         </a>

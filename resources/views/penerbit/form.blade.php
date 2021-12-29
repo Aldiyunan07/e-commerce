@@ -29,19 +29,21 @@
 </script>
 @endpush
 <x-app-layout>
-    {{-- <div class="fixed-top min-vh-100" style="backdrop-filter: blur(4px); z-index: 9999;">
+    @if ($message = Session::get('success'))
+    <div class="fixed-top min-vh-100" style="backdrop-filter: blur(4px); z-index: 9999;">
         <div class="row min-vh-100 align-items-center justify-content-center">
             <div class="col-12 col-lg-5">
-                <div class="card card-body border-0 py-4 px-5 text-center">
+                <div class="card card-body border-0 py-4 px-5 text-center shadow-lg">
                     <div class="fw-bold fs-4 mb-3">Terima Kasih Telah Mendaftar</div>
                     <p class="fw-light mb-4">
                         Terima kasih telah mendaftarmenjadi penulis di penerbit di Penerbit Buku Pustaka Aksara. Anda masuk waiting list untuk menerbitkan buku. Segera Customer Care kami akan menghubungi anda untuk konfirmasi dan Penjelasan ulang tentang Penerbit Buku Pustaka Aksara.
                     </p>
-                    <a href="{{ route('dashboard') }}" class="btn btn-primary">Kembali ke Beranda</a>
+                    <a href="{{ route('welcome') }}" class="btn btn-primary">Kembali ke Beranda</a>
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
+    @endif
     <x-slot name="header">
         <h1 class="header-primary mb-3" style="font-weight: 800; color: #34364a; font-size: 32px;">
             Daftar Menjadi Penulis
@@ -51,39 +53,9 @@
         </p>
     </x-slot>
     <div class="container">
-        <section class="">
+        <section>
             <div class="row">
-                <div class="col-lg-3 sidebar">
-                    <ul class="list-group shadow-sm py-3 bg-white sticky-top">
-                        <li class="list-group-item border-0 py-3 px-4">
-                            <a href="{{ route('update.profile') }}" class="text-dark text-decoration-none d-flex align-items-center">
-                                <i class="bi bi-book d-flex-shrink-0 fs-5"></i>
-                                <span class="ms-2">
-                                    Daftar Menerbitkan
-                                </span>
-                            </a>
-                        </li>
-                        <li class="list-group-item border-0 py-3 px-4">
-                            <a href="{{ '#' }}" class="text-dark text-decoration-none d-flex align-items-center">
-                                <i class="bi bi-search d-flex-shrink-0 fs-5"></i>
-                                <span class="ms-2">
-                                    Cek Progress
-                                </span>
-                            </a>
-                        </li>
-                        <li class="list-group-item border-0 py-3 px-4">
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-                                <a class="text-danger text-decoration-none d-flex align-items-center" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">
-                                    <i class="bi bi-box-arrow-right d-flex-shrink-0 fs-5 text-danger"></i>
-                                    <span class="ms-2">
-                                        Log Out
-                                    </span>
-                                </a>
-                            </form>
-                        </li>
-                    </ul>
-                </div>
+                <x-side-guest />
                 <div class="col-12 col-lg-9">
                     <div class="card card-body border-0 shadow-sm p-4">
                         <form action="{{ route('submit.penerbit') }}" enctype="multipart/form-data" method="post">

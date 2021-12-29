@@ -2,36 +2,21 @@
     <ul class="list-group shadow-sm py-2 bg-white sticky-top">
         <li class="list-group-item border-0 py-3 px-4">
             <a href="{{ route('update.profile') }}" class="text-dark text-decoration-none d-flex align-items-center">
-                <i class="bi bi-person d-flex-shrink-0 fs-5"></i>
+                <i class="bi bi-book d-flex-shrink-0 fs-5"></i>
                 <span class="ms-2">
-                    Profile Information
+                    Daftar Menerbitkan
                 </span>
             </a>
         </li>
         <li class="list-group-item border-0 py-3 px-4">
-            <a href="{{ route('change.password') }}" class="text-dark text-decoration-none d-flex align-items-center">
-                <i class="bi bi-key d-flex-shrink-0 fs-5"></i>
+            <a href="{{ '#' }}" class="text-dark text-decoration-none d-flex align-items-center">
+                <i class="bi bi-search d-flex-shrink-0 fs-5"></i>
                 <span class="ms-2">
-                    Change Password
+                    Cek Progress
                 </span>
             </a>
         </li>
-        <li class="list-group-item border-0 py-3 px-4">
-            <a href="{{ route('listwhistlist') }}" class="text-dark text-decoration-none d-flex align-items-center">
-                <i class="bi bi-heart d-flex-shrink-0 fs-5"></i>
-                <span class="ms-2">
-                    Wishlist
-                </span>
-            </a>
-        </li>
-        <li class="list-group-item border-0 py-3 px-4">
-            <a href="{{ route('my.orders') }}" class="text-dark text-decoration-none d-flex align-items-center">
-                <i class="bi bi-receipt d-flex-shrink-0 fs-5"></i>
-                <span class="ms-2">
-                    Daftar Pesanan
-                </span>
-            </a>
-        </li>
+        @auth
         <li class="list-group-item border-0 py-3 px-4">
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
@@ -43,5 +28,6 @@
                 </a>
             </form>
         </li>
+        @endauth
     </ul>
 </div>

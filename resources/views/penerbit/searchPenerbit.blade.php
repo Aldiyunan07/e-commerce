@@ -1,33 +1,3 @@
-@section('swiper')
-<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-@endsection
-@push('swiper')
-<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-<script>
-    const swiper = new Swiper('.swiper', {
-        // Optional parameters
-        direction: 'horizontal',
-        loop: false,
-
-        // If we need pagination
-        pagination: {
-            el: '.swiper-pagination',
-        },
-
-        // Navigation arrows
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-
-        // And if we need scrollbar
-        scrollbar: {
-            el: '.swiper-scrollbar',
-        },
-    });
-
-</script>
-@endpush
 <x-app-layout>
     <div class="container">
         <div class="d-flex justify-content-center">
@@ -42,7 +12,6 @@
                         <div class="card-body">
                             <form action="{{ route('cari.progress') }}" method="get">
                                 <div class="input-group mb-3">
-                                    @csrf
                                     <select name="cari" id="" class="form-control">
                                         <option value="">  Pilih Buku Yang Ingin Anda Cari </option>
                                         @foreach($listpenerbit as $p)
