@@ -68,7 +68,7 @@ class PenerbitController extends Controller
     public function pageProgress(Request $request,Penerbit $penerbit)
     {
         $progress = Progress::where('penerbit_id',$request->cari)->first();
-        $penerbit = Penerbit::where('id',$progress->penerbit_id)->first();
+        $penerbit = Penerbit::where('id',$request->cari )->first();
         $listpenerbit = Penerbit::get();
         return view('penerbit.pageProgress',compact('listpenerbit','progress','penerbit'));
     }
