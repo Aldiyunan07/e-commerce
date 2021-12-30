@@ -1,7 +1,7 @@
 <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-lg-none">
-    <a class="navbar-brand me-lg-5" href="../../index.html">
-        <img class="navbar-brand-dark" src="{{ asset('admin/assets/img/brand/light.svg') }}" alt="Volt logo" /> <img
-            class="navbar-brand-light" src="{{ asset('admin/assets/img/brand/dark.svg') }}" alt="Volt logo" />
+    <a class="navbar-brand me-lg-5" href="{{ route('admin.dashboard') }}">
+    <img class="navbar-brand-dark" src="{{ asset('image/Panjang - Hitam.png') }}" alt="Volt logo" /> <img
+            class="navbar-brand-light" src="{{ asset('image/mini-logo2.png') }}" alt="Volt logo" />
     </a>
     <div class="d-flex align-items-center">
         <button class="navbar-toggler d-lg-none collapsed" type="button" data-bs-toggle="collapse"
@@ -18,12 +18,12 @@
             class="user-card d-flex d-md-none align-items-center justify-content-between justify-content-md-center pb-4">
             <div class="d-flex align-items-center">
                 <div class="avatar-lg me-4">
-                    <img src="{{ asset('admin/assets/img/team/profile-picture-3.jpg') }}"
+                    <img src="{{ asset('image/avatar.png') }}"
                         class="card-img-top rounded-circle border-white" alt="Bonnie Green">
                 </div>
                 <div class="d-block">
-                    <h2 class="h5 mb-3">Hi, Jane</h2>
-                    <a href="../../pages/examples/sign-in.html"
+                    <h2 class="h5 mb-3">Hi, {{ Auth::guard('admin')->user()->name }}</h2>
+                    <a href="{{ route('penjual.logout') }}"
                         class="btn btn-secondary btn-sm d-inline-flex align-items-center">
                         <svg class="icon icon-xxs me-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">

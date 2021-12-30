@@ -6,16 +6,19 @@ use App\Models\Buku;
 use App\Models\Buy;
 use App\Models\Kategori;
 use App\Models\Metode;
+use App\Models\Penjual;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 class PenjualAppController extends Controller
 {
     public function index()
     {
-        return view('penjual.dashboard');
+        $bukuaccept = Buku::where('status','terima')->where('penjual_id',Auth::guard('penjual')->user()->id)->get();
+        return view('penjual.dashboard',compact('bukuaccept'));
     }
     public function listbuku()
     {
@@ -191,5 +194,42 @@ class PenjualAppController extends Controller
     {
         $metode->delete();
         return back();
+    }
+
+    public function profil()
+    {
+        return view('penjual.profil');
+    }
+
+    public function profilUpdate(Request $request, Penjual $penjual)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|unique:penjuals',
+            'whatsapp' => 'required'
+        ]);
+        $penjual->update($request->all());
+        return back();
+    }
+
+    public function changePassword(Request $request, Penjual $penjual)
+    {
+        $request->validate([
+            'new_password' => 'required',
+            'password_confirmation' => 'required'
+        ],[
+            'new_password.required' => 'Masukkan Password Baru!',
+            'password_confirmation.required' => 'Masukkan Konfirmasi Password !'
+        ]);
+        
+        if($request->new_password == $request->password_confirmation){
+            $penjual->update([
+                'password' => Hash::make($request->new_password)
+            ]);
+            return ;
+        }else{
+            session()->flash('error','Password tidak sesuai!');
+            return redirect(route('penjual.profil'));
+        }
     }
 }

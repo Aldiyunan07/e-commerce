@@ -1,7 +1,6 @@
 <x-admin-layout>
     @section('content')
     <x-header title="List User" description="Disini anda dapat melihat semua list penjual." />
-    <x-search-header-table placeholder="Search User" />
     <div class="card card-body border-0 shadow table-wrapper table-responsive" style="min-height: 200px">
         <table class="table table-hover">
             <thead>
@@ -32,8 +31,6 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
                                 <li><a class="dropdown-item" href="{{ route('admin.detailuser',$p->id) }}">Detail</a>
-                                </li>
-                                <li><a class="dropdown-item" href="{{ route('admin.editpenjual',$p->id) }}">Edit</a>
                                 </li>
                                 <li><a class="dropdown-item text-danger" role="button" data-bs-toggle="modal"
                                         data-bs-target="#modal{{ $p->id }}">Delete</a>

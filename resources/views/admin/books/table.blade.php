@@ -13,7 +13,7 @@
                             <th class="border-0">Judul Buku</th>
                             <th class="border-0">Penjual</th>
                             <th class="border-0">Harga</th>
-                            <th class="border-0">Di Buat Pada</th>
+                            <th class="border-0">Status</th>
                             <th class="border-0 rounded-end">Opsi</th>
                         </tr>
                     </thead>
@@ -24,7 +24,16 @@
                             <td> <a href="{{ route('admin.book.show', $b->id) }}" class="text-info">{{ $b->name }}</a></td>
                             <td> {{ $b->penjual->name }} </td>
                             <td> {{ $b->rupiah($b->harga_asli) }} </td>
-                            <td> {{ $b->created_at->format('d F, Y') }} </td>
+                            <td>
+                                @if($b->status == "terima")
+                                    <div class="badge bg-info"> Terima </div>
+                                @elseif($b->status == "proses")
+                                    <div class="badge bg-success"> Proses </div>
+                                @else
+                                    <div class="badge bg-danger"> Tolak </div>
+                                @endif
+                            
+                            </td>
                             <td class="text-end">
                                 <div class="dropdown">
                                     <button class="btn p-0" type="button" id="dropdownMenuButton1"
@@ -76,6 +85,11 @@
 
                     </tbody>
                 </table>
+                <div
+            class="card-footer px-3 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between">
+            {{ $buku->links() }}
+            <!-- <div class="fw-normal small mt-4 mt-lg-0">Showing <b>5</b> out of <b>25</b> entries</div> -->
+        </div>
             </div>
         </div>
     </div>

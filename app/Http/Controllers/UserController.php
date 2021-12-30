@@ -19,12 +19,6 @@ class UserController extends Controller
         $bukus = Buku::where('status','terima')->orderBy('created_at','desc')->get();
         return view('welcome',compact('buku','kategori','bukus'));
     }
-    public function dashboard()
-    {
-        $buku = Buku::where('status','terima')->get();
-        $buy = Buy::get();
-        return view('dashboard',compact('buku','buy'));
-    }
 
     public function allBooks(Request $request)
     {

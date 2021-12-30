@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[UserController::class,'welcome'])->name('welcome');
 Route::middleware(['auth','verified'])->group(function(){
-    Route::get('/dashboard',[UserController::class,'dashboard'])->name('dashboard');
     Route::get('/beli/{buku:id}',[UserController::class,'belisekarang'])->name('belisekarang');
     Route::post('/buy/{buku:id}',[UserController::class,'buynow'])->name('buynow');
     Route::get('/addwhistlist/{buku:id}',[UserController::class,'whistlist'])->name('whistlist');
@@ -46,6 +45,9 @@ Route::namespace('Penjual')->name('penjual.')->prefix('penjual')->group(function
         Route::get('login',[PenjualAuthenticatedSessionController::class,'create'])->name('login'); 
         Route::post('login',[PenjualAuthenticatedSessionController::class,'store'])->name('penjuallogin');
     });
+    Route::namespace('penjual')->get('profil',[PenjualAppController::class,'profil'])->name('profil');
+    Route::namespace('penjual')->post('profil/update/{penjual:id}',[PenjualAppController::class,'profilUpdate'])->name('profilUpdate');
+    Route::namespace('penjual')->post('profil/update-password/{penjual:id}',[PenjualAppController::class,'changePassword'])->name('changePassword');
     Route::namespace('penjual')->post('logout',[PenjualAuthenticatedSessionController::class,'destroy'])->name('logout');
     Route::middleware('penjual')->group(function(){
         Route::get('dashboard',[PenjualAppController::class,'index'])->name('dashboard');
@@ -73,8 +75,10 @@ Route::namespace('Admin')->name('admin.')->prefix('admin')->group(function(){
         Route::post('login',[AdminAuthenticatedSessionController::class,'store'])->name('adminlogin');
     });
     Route::namespace('admin')->post('logout',[AdminAuthenticatedSessionController::class,'destroy'])->name('logout');
+    Route::namespace('admin')->post('profil/update/{admin:id}',[AdminAppController::class,'profilUpdate'])->name('profilUpdate');
+    Route::namespace('admin')->post('profil/update-password/{admin:id}',[AdminAppController::class,'changePassword'])->name('changePassword');
     Route::middleware('admin')->group(function(){
-        Route::get('dashboard',[AdminHomeController::class,'index'])->name('dashboard');
+        Route::get('dashboard',[AdminAppController::class,'dashboard'])->name('dashboard');
         Route::get('penjual',[AdminAppController::class,'listpenjual'])->name('listpenjual');
         Route::get('penjual/tambah',[AdminAppController::class,'tambahpenjual'])->name('tambahpenjual');
         Route::post('penjual/insert',[AdminAppController::class,'insertpenjual'])->name('insertpenjual');

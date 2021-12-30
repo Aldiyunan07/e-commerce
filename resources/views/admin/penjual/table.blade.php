@@ -19,7 +19,6 @@
         </div> --}}
 
     </x-header>
-    <x-search-header-table placeholder="Search Penjual" />
     <div class="card card-body border-0 shadow table-wrapper table-responsive" style="min-height: 200px">
         <table class="table table-hover">
             <thead>

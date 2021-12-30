@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
 use App\Models\Buku;
 use App\Models\Buy;
 use App\Models\Kategori;
@@ -17,6 +18,16 @@ use Illuminate\Support\Facades\Storage;
 
 class AdminAppController extends Controller
 {
+
+    public function dashboard()
+    {
+        $user = User::get();
+        $buy = Buy::where('status','proses')->get();
+        $buku = Buku::where('status','terima')->get();
+        $penjual = Penjual::get();
+        return view('admin.dashboard',compact('user','buy','buku','penjual'));
+    }
+
     public function listpenjual()
     {
         $penjual = Penjual::paginate(5);
@@ -67,7 +78,7 @@ class AdminAppController extends Controller
 
     public function listuser()
     {
-        $user = User::paginate(25);
+        $user = User::paginate(5);
         return view('admin.user.table',compact('user'));
     }
 
@@ -183,7 +194,7 @@ class AdminAppController extends Controller
     // List Orders
     public function orders()
     {
-        $buy = Buy::get();
+        $buy = Buy::paginate(5);
         return view('admin.orders.table',compact('buy'));
     }
 
@@ -280,5 +291,36 @@ class AdminAppController extends Controller
     public function showBukuPenerbit(Penerbit $penerbit)
     {
         return view('admin.penerbit.show',compact('penerbit'));
+    }
+
+    public function profilUpdate(Request $request, Admin $admin)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+        ]);
+        $admin->update($request->all());
+        return back();
+    }
+
+    public function changePassword(Request $request, Admin $admin)
+    {
+        $request->validate([
+            'new_password' => 'required',
+            'password_confirmation' => 'required'
+        ],[
+            'new_password.required' => 'Masukkan Password Baru!',
+            'password_confirmation.required' => 'Masukkan Konfirmasi Password !'
+        ]);
+        
+        if($request->new_password == $request->password_confirmation){
+            $admin->update([
+                'password' => Hash::make($request->new_password)
+            ]);
+            return ;
+        }else{
+            session()->flash('error','Password tidak sesuai!');
+            return redirect(route('admin.profile'));
+        }
     }
 }

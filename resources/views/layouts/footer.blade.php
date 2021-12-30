@@ -3,8 +3,8 @@
         <div class="row gy-3 jusitfy-content-center foot-sm">
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="fw-bold text-white d-flex">
-                    <img src="{{ asset('image/logo.png') }}" alt="">
-                    <div class="fs-4 ms-2">Bookstore</div>
+                    <img src="{{ asset('image/mini-logo.png') }}" height="90" alt="">
+                    <div class="fs-4 ms-2">Pustaka Aksara</div>
                 </div>
                 <div class="mt-3">
                     <p class="text-white fw-light text-start opacity-75 lh-sm">
@@ -108,7 +108,7 @@
     <div class="d-flex justify-content-center" style="min-height: 20px; padding-bottom: 3rem">
         <div class="col-10 d-flex justify-content-between align-items-center">
             <div class="text-white fw-light opacity-75 fs-6">
-                &copy; 2021 Bookstore. All Right Reserved.
+                &copy; 2021 Pustaka Aksara. All Right Reserved.
             </div>
             <div class="d-flex align-items-center text-white" style="column-gap: 10px">
                 <a class="text-decoration-none text-white" href="#">

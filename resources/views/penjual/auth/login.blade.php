@@ -37,14 +37,6 @@
                     {{ __('Log in') }}
                 </x-button>
             </div>
-            <div class="flex items-center justify-end mb-3">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900 text-decoration-none" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
-
-            </div>
         </form>
     </x-content-guest>
 </x-guest-layout>

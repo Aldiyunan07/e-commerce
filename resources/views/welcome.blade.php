@@ -128,7 +128,52 @@
                 </div>  
                 @endforeach
             </div>
+            <section class="px-3 my-5">
+            <div class="fw-base text-center fs-4 mb-3" style="color: #38426C">Tentang Pustaka Aksara</div>
+            <p class="text-center">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Et distinctio obcaecati nostrum amet. A cum nemo itaque amet error qui porro explicabo eaque nulla provident cupiditate ullam quis eos ut nobis ducimus quo nesciunt quibusdam, quae dolorum iure? Cupiditate assumenda molestiae, nihil exercitationem itaque eveniet quisquam unde! Incidunt non reiciendis iusto nostrum quaerat itaque! Eveniet perferendis, excepturi dolor deserunt asperiores repudiandae debitis architecto mollitia! Fugiat praesentium, aliquid enim provident, sequi eum molestias atque suscipit beatae quae tempore, accusamus accusantium commodi voluptatum natus sit numquam officiis doloremque iste minus dolorum incidunt aspernatur. Molestiae quos delectus ipsam fugit corporis laudantium architecto nemo id cupiditate! Reprehenderit autem quos voluptas animi non saepe consectetur? Ex fugit sunt ea labore, magni, sint minus dolorum qui ab perferendis dignissimos consectetur! Consequuntur cum odit veniam! Aliquam tempore tenetur sequi? Facere repudiandae nulla quasi ullam dicta, accusantium sapiente quos deserunt, aliquam quis possimus magnam expedita placeat recusandae id.
+            </p>
         </section>
+        <section class="px-3 my-5">
+            <div class="mb-3">
+                <div class="fw-base text-center fs-4" style="color: #38426C">FAQ</div>
+                <div class="text-center fw-light small">Pertanyaan yang sering diajukan</div>
+            </div>
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                      Accordion Item #1
+                    </button>
+                  </h2>
+                  <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                      Accordion Item #2
+                    </button>
+                  </h2>
+                  <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                      Accordion Item #3
+                    </button>
+                  </h2>
+                  <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+                  </div>
+                </div>
+              </div>
+        </section>
+        </section>
+        
     </div>
 
 </x-app-layout>

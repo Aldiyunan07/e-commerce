@@ -24,7 +24,7 @@
                 <button class="btn btn-primary fw-bold border-0 p-3 px-4">Masuk</button>
             </div>
             <div>
-                <span class="form-check-label text-dark fw-light opacity-75 small">Belum mempunyai akun? <a href="{{ route('register') }}" class="text-decoration-none fw-normal">Daftar</a> atau <a href="{{ route('password.request') }}" class="text-decoration-none fw-normal">Lupa Password ?</a></span>
+                <span class="form-check-label text-dark fw-light opacity-75 small">Belum mempunyai akun? <a href="{{ route('register') }}" class="text-decoration-none fw-normal">Daftar</a></span>
             </div>
         </form>
     </x-content-guest>

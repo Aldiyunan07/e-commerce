@@ -53,8 +53,15 @@
         </div>
         <div class="mb-4">
             <label for="deskripsi">Deskripsi</label>
-            <textarea name="deskripsi" class="form-control"> {{ $buku->deskripsi }} </textarea>
+            <textarea name="deskripsi" class="form-control">{{ $buku->deskripsi }}</textarea>
             @error('deskripsi')
+            <div class="text-danger"> {{ $message }} </div>
+            @enderror
+        </div>
+        <div class="mb-4">
+            <label for="deskripsi">Sinopsis</label>
+            <textarea name="sinopsis" class="form-control">{{ $buku->sinopsis }}</textarea>
+            @error('sinopsis')
             <div class="text-danger"> {{ $message }} </div>
             @enderror
         </div>

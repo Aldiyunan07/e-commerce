@@ -8,7 +8,6 @@
                     <form action="{{ route('admin.updatepenjual',$penjual->id) }}" method="post">
                         @include('admin.penjual._form_control')
                         @method('patch')
-                        <small id="emailHelp" class="form-text text-muted">*Password otomatis akan menjadi password default</small>
                         <a href="{{ route('admin.listpenjual') }}" class="btn btn-danger btn-sm mt-3"> Kembali </a>
                         <button type="submit" class="btn btn-info btn-sm mt-3"> Simpan </button>
                     </form>

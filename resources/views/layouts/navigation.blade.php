@@ -59,7 +59,7 @@
                         <div class="border-bottom py-3">
                             <div class="row">
                                 <div class="col-2 col-sm-2 col-md-1 col-lg-1">
-                                    <img src="{{ Auth::user()->Avatar }}" class="rounded-circle" width="50" height="50"
+                                    <img src="{{ Auth::user()->picture !== null ? Auth::user()->Avatar : asset('image/avatar.png')  }}" class="rounded-circle" width="50" height="50"
                                         alt="">
                                 </div>
                                 <div class="col-8 col-sm-8 col-md-10 col-lg-10">
@@ -163,7 +163,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link font-custom text-capitalize" style="white-space: nowrap" href="#"
                         id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="{{ Auth::user()->picture !== '' ? Auth::user()->Avatar : asset('images/avatar.png') }}"
+                        <img src="{{ Auth::user()->picture !== null ? Auth::user()->Avatar : asset('image/avatar.png')  }}"
                             class="rounded-circle me-2" width="30" height="30" alt="">
                         {{ Auth::user()->name }}
                     </a>

@@ -353,7 +353,7 @@
                                                                 @endif
                                                                 <div class="timeline-text">
                                                                     <h6>Tanggal Masuk ISBN</h6>
-                                                                    <p>{{ $progress->masuk !== null ? $progress->masuk : '-' }}</p>
+                                                                    <p>{{ $progress->masuk !== null ? date('d F, Y', strtotime($progress->masuk)) : '-' }}</p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -375,7 +375,7 @@
                                                                 @endif
                                                                 <div class="timeline-text">
                                                                     <h6>Tanggal Keluar ISBN</h6>
-                                                                    <p>{{ $progress->keluar !== null ? $progress->keluar : '-' }}</p>
+                                                                    <p>{{ $progress->keluar !== null ? date('d F, Y', strtotime($progress->keluar)) : '-' }}</p>
                                                                 </div>
                                                             </div>
                                                         </div>
