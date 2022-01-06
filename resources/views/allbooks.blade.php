@@ -4,7 +4,7 @@
             Semua Buku
         </h1>
         <p class="fw-light">
-            Temukan buku yang anda suka disini.
+            Temukan buku yang anda suka disini
         </p>
     </x-slot>
     <div class="container-fluid">
