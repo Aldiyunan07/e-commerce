@@ -175,7 +175,7 @@
                                         <a href="{{route('lihatbuku',$buku->id)}}" class="btn btn-primary btn-sm rounded-pill">Lihat Buku</a>
                                         @endif
                                         @else
-                                        <a href="{{route('login')}}" class="btn btn-primary btn-sm rounded-pill">Lihat Buku</a>
+                                        <a href="{{route('login')}}" class="btn btn-primary btn-sm rounded-pill">Beli Sekarang</a>
         
                                         @endauth
                                     </div>
@@ -203,6 +203,7 @@
                                     <a href="{{route('lihatbuku',$buku->id)}}" class="btn btn-primary btn-sm rounded-pill">Lihat Buku</a>
                                     @endif
                                     @else
+                                    <a href="{{route('login')}}" class="btn btn-primary btn-sm rounded-pill">Beli Sekarang</a>
     
                                     @endauth
                                 </div>
@@ -210,42 +211,7 @@
                         </div>
                     </div>
                 </div>
-                {{-- <div class="col-12 col-md-3">
-                    <div class="fw-bold mb-3">
-                        E-Book Serupa
-                    </div>
-                    @if($ebook->count() > 0)
-                    <div class="row">
-                        @foreach($ebook as $e)
-                        <div class="col-6 col-sm-4 col-md-12">
-                            <div class="card shadow-sm border-0 mb-2" style="max-width: 540px; border-radius: 0.25rem ;">
-    
-                                <div class="row g-0">
-                                    <div class="col-md-4">
-                                        <a href="{{ route('detail.buku',$e->id) }}">
-                                            <img src="{{ $e->picture }}" class="img-fluid">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <h5 class="card-title line-clamp-1" style="font-size: 16px;">{{ $e->name }}</h5>
-                                            <p class="card-text line-clamp-2" style="font-size: 12px">{{ $e->deskripsi }}
-                                            </p>
-                                            <p class="card-text"><small
-                                                    class="small text-primary">{{ $e->rupiah($e->harga_asli) }}</small></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-                    </div>
-                    @else
-                    <div class="text-center">
-                        <small class="text-center">Tidak ada Ebook yang serupa</small>
-                    </div>
-                    @endif
-                </div> --}}
+                
             </div>
         </section>
     </div>
@@ -264,7 +230,7 @@
                                 <i class="bi bi-link fs-2 text-dark text-center"></i>
                             </div>
                             <div class="small fw-light">Salin Link</div> 
-                            <!-- <input type="input" value="Eusian duyy" id="myInput" class="p-0 px-1 mt-1" size="1" readonly> -->
+                            <input type="input" value="Eusian duyy" id="myInput" class="p-0 px-1 mt-1" size="1" readonly> -->
                         </div>
                         <div>
                             <a href="{{ $buku->shopee }}" class="d-flex flex-column justify-content-center text-decoration-none text-dark" target="_blank">
