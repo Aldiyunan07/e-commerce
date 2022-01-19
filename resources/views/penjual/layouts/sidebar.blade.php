@@ -54,7 +54,7 @@
                         alt="Volt Logo">
                 </a>
             </li>
-            <li class="nav-item  active ">
+            <li class="nav-item">
                 <a href="{{ route('penjual.dashboard') }}" class="nav-link">
                     <span class="sidebar-icon">
                         <i class="bi bi-grid-1x2 me-2"></i>

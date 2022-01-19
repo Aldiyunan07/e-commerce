@@ -14,6 +14,7 @@ class Progress extends Model
         'administrasi',
         'antrian',
         'cover',
+        'laporan',
         'layout',
         'harga',
         'deal_harga',
@@ -28,5 +29,10 @@ class Progress extends Model
     public function rupiah($angka){
         $format = "Rp. ".number_format($angka,0,".",".");
         return $format;
+    }
+
+    public function getUploadAttribute()
+    {
+        return asset('/storage/'.$this->laporan);
     }
 }

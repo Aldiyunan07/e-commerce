@@ -13,7 +13,10 @@
     <div class="bg-white min-vh-100 d-flex justify-content-center align-items-center" style="margin-right: -0.75rem; border-radius: 2rem 0 0 2rem;">
         <div class="col-10 col-lg-8">
             @isset($header)
+            <div class="d-flex justify-content-center">
                 <h1 class="judul mb-4">{{ $header }}</h1>
+            </div>
+            
             @endisset
             {{ $slot }}
         </div>

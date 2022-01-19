@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="card-body">
-            <form action="{{ route('admin.update.progress',$progress->id) }}" method="post">
+            <form action="{{ route('admin.update.progress',$progress->id) }}" enctype="multipart/form-data" method="post">
                 @csrf
                 <div class="row container d-flex justify-content-center">
                     <div class="col-md-4">
@@ -58,6 +58,9 @@
                             <input class="form-check-input" {{ $progress->antrian == "on" ? 'checked' : '' }} type="checkbox" name="antrian" id="flexSwitchCheckDefault">
                             <label class="form-check-label" for="flexSwitchCheckDefault"> Cek Antrian</label>
                         </div>
+
+                        <label for="" class="mt-2"> Upload Laporan </label>
+                        <input type="file" name="gambar" class="form-control" id="">
 
                     </div>
                     <div class="col-md-4">

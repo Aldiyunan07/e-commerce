@@ -88,7 +88,7 @@
                             <div class="col-md-6">
                             <div class="mb-3">
                                     <label for="exampleDataList" class="form-label font-custom">Profesi atau Pekerjaan</label>
-                                    <input class="form-control" name="profesi" value="{{ Auth::user()->profesi }}" list="datalistOptions" id="exampleDataList" placeholder="Masukan Pekerjaan">
+                                    <input class="form-control" name="profesi" value="{{ Auth::user()->profesi }}" placeholder="Masukan Pekerjaan">
                                     @error('profesi')
                                 <div class="text-danger">
                                     {{ $message }}

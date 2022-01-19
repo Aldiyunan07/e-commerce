@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <x-content-guest header="Masuk">
+    <x-content-guest header="Login Penjual">
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -34,8 +34,12 @@
             
             <div class="d-grid mb-3">
                 <x-button class="btn btn-primary fw-bold border-0 p-3 px-4">
-                    {{ __('Log in') }}
+                    Masuk
                 </x-button>
+            </div>
+            <div class="d-flex justify-content-between">
+                <span></span>
+                <a href="{{ route('login') }}" style="text-decoration:none;"> Login sebagai user </a>
             </div>
         </form>
     </x-content-guest>

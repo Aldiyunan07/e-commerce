@@ -165,7 +165,7 @@
                         id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="{{ Auth::user()->picture !== null ? Auth::user()->Avatar : asset('image/avatar.png')  }}"
                             class="rounded-circle me-2" width="30" height="30" alt="">
-                        {{ Auth::user()->name }}
+                        {{ Auth::user()->name}}
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end border-0 shadow-lg" style="width: 15rem; font-size: 15px;z-index: 1022" aria-labelledby="navbarDropdown">
                         <li>

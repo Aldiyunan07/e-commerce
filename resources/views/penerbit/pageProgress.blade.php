@@ -186,6 +186,14 @@
                                         <div class="col-12 col-sm-8 col-lg-6">
                                             <div class="section_heading text-center">
                                                 <h6><sup><div class="bi bi-quote"></div></sup>{{ $penerbit->judul_buku }}</h6>
+                                                @if($progress->penerbit->status == "tolak")
+                                                    <h6>
+                                                        Mohon Maaf Penerbitan anda di tolak <br/>
+                                                        " {{ $progress->penerbit->alasan->alasan }} "
+                                                    </h6>
+                                                @else
+                                                Progress anda di {{ ucfirst($progress->penerbit->status) }}
+                                                @endif
                                                 <div class="line"></div>
                                             </div>
                                         </div>
@@ -405,6 +413,14 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        @if($progress->laporan !== null)
+                                        <div class="col-12 my-3">
+                                            <div class="section_heading text-center">
+                                                <h4> Unduh Laporan </h4>
+                                                <a href="{{ route('page.progress.download',$progress->id) }}" class="btn btn-primary">Unduh</a>
+                                            </div>
+                                        </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

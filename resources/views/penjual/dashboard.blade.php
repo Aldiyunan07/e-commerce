@@ -93,7 +93,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="col-12 col-xxl-6 mb-4">
+                <div class="col-12 mb-4">
                     <div class="card border-0 shadow">
                         <div class="card-header border-bottom d-flex align-items-center justify-content-between">
                             <h2 class="fs-5 fw-bold mb-0">Pesanan User</h2>
@@ -153,7 +153,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="col-12 col-xxl-6 mb-4">
+                <div class="col-12 mb-4">
                     <div class="card border-0 shadow">
                         <div class="card-header border-bottom d-flex align-items-center justify-content-between">
                             <h2 class="fs-5 fw-bold mb-0">Buku Terjual</h2>

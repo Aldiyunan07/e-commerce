@@ -33,29 +33,76 @@
                             <th class="border-0">Judul Buku</th>
                             <th class="border-0">Whatsapp</th>
                             <th class="border-0">Pekerjaan</th>
-                            <th class="border-0">Tanggal Daftar</th>
-                            <!-- <th class="border-0 rounded-end">Opsi</th> -->
+                            <th class="border-0">Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($penerbit as $n => $p)
                         <tr>
                             <td class="border-0 rounded-start">{{ $n + 1 }} </td>
-                            <td class="border-0"> <a href="{{ route('admin.detail.penerbit',$p->id) }}"> {{ $p->nama }} </a> </td>
+                            <td class="border-0"> <a href="{{ route('admin.detail.penerbit',$p->id) }}"> {{ $p->nama }}
+                                </a> </td>
                             <td class="border-0">{{ $p->judul_buku }}</td>
                             <td class="border-0">{{ $p->no_hp }}</td>
                             <td class="border-0">{{ $p->pekerjaan }}</td>
-                            <td class="border-0">{{ $p->created_at->format('d M, Y') }}</td>
-                            <!-- <td class="border-0 rounded-end">#</td> -->
+                            <td class="border-0">
+                                @if($p->status == "terima")
+                                <button role="button" data-bs-toggle="modal" data-bs-target="#modal{{ $p->id }}"
+                                    class="btn btn-success text-white btn-sm"> Terima </button>
+                                @elseif($p->status == "tolak")
+                                <a href="{{ route('admin.penerbit.accept',$p->id) }}" class="btn btn-danger btn-sm"> Tolak </a>
+                                @else
+                                <div class="d-flex">
+                                <button role="button" data-bs-toggle="modal" data-bs-target="#modal{{ $p->id }}"
+                                    class="btn btn-danger text-white btn-sm"> Terima </button>
+                                    <a href="{{ route('admin.penerbit.accept',$p->id) }}" class="btn btn-danger btn-sm"> Tolak </a>
+                                </div>
+
+                                @endif
+                            </td>
                         </tr>
+                        <div class="modal fade" id="modal{{ $p->id }}" tabindex="-1" role="dialog"
+                            aria-labelledby="modal-default" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <form action="{{ route('admin.penerbit.declined',$p->id) }}" method="post">
+                                    @csrf
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5> Tolak Penerbit </h5>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="mb-2">
+                                                Berikan alasan mengapa anda menolak
+                                            </div>
+                                            <textarea name="alasan" class="form-control"></textarea>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <div class="d-flex justify-content-between align-items-center "
+                                                style="column-gap: 5px">
+                                                <div>
+                                                    <button type="button" class="btn btn-primary"
+                                                        data-bs-dismiss="modal">Batal</button>
+                                                </div>
+                                                <div>
+                                                    <button type="submit"
+                                                        class="btn btn-danger text-white">Tolak</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
                         @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
-        <div class="card-footer px-3 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between">
+        <div
+            class="card-footer px-3 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between">
             {{ $penerbit->links() }}
-            <!-- <div class="fw-normal small mt-4 mt-lg-0">Showing <b>5</b> out of <b>25</b> entries</div> -->
         </div>
     </div>
     @endsection

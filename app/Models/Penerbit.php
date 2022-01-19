@@ -40,4 +40,9 @@ class Penerbit extends Model
     {
         return $this->hasMany(Progress::class);
     }
+
+    public function alasan()
+    {
+        return $this->hasOne(Alasan::class);
+    }
 }

@@ -10,6 +10,7 @@ use Illuminate\Validation\Rules;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -111,11 +112,10 @@ class UserController extends Controller
             'jk' => 'required',     
         ]);
         if($request->hasFile('foto')){
-            $file = $request->file('foto');
-            $filename = $file->getClientOriginalName();
-            $name = Auth::user()->id.time().rand().'.'.$filename;
-            $file->storeAs('images/avatar/', $name, 'public');
-            $data['picture'] = 'images/avatar/'.$name;
+            if(Auth::user()->picture !== null){
+                Storage::delete(Auth::user()->picture);
+            }
+            $data['picture'] = $request->file('foto')->store('images/avatar'); 
         }
         $data['ttl'] = $request->tanggal_lahir;
 
@@ -157,5 +157,10 @@ class UserController extends Controller
     public function lihatbuku(Buku $buku)
     {
         return view('lihatbuku',compact('buku'));
+    }
+
+    public function pagePelayanan()
+    {
+        return view('pelayanan');
     }
 }

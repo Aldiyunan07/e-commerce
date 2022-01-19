@@ -72,11 +72,11 @@
                             <div class="mb-3">
                                 <label for="gelar"> Gelar </label></br>
                                 <small> <i> Silahkan masukan jika ada </i></small>
-                                <input type="text" name="gelar" id="" class="form-control mt-2">
+                                <input type="text" name="gelar" id="" autocomplete="off" class="form-control mt-2">
                             </div>
                             <div class="mb-3">
                                 <label for="no hp"> No Handphone / Whatsapp <span class="text-danger">*</span> </label>
-                                <input type="text" name="whatsapp" id="" class="form-control mt-2">
+                                <input type="text" name="whatsapp" id="" autocomplete="off" class="form-control mt-2">
                                 @error('whatsapp')
                                     <div class="text-danger">
                                         {{ $message }}
@@ -86,7 +86,7 @@
                             <div class="mb-3">
                                 <label for="nama"> Email <span class="text-danger">*</span> </label><br/>
                                 <small> <i> Email aktif </i> </small>
-                                <input type="email" name="email" id="" class="form-control mt-2">
+                                <input type="email" name="email" id="" autocomplete="off" class="form-control mt-2">
                                 @error('email')
                                     <div class="text-danger">
                                         {{ $message }}
@@ -126,7 +126,7 @@
                             <div class="mb-3">
                                 <label for="nama"> Institusi <span class="text-danger">*</span> </label><br/>
                                 <small> <i> Tempat Kerja </i> </small>
-                                <input type="text" name="institusi" id="" class="form-control mt-2">
+                                <input type="text" name="institusi" id="" autocomplete="off" class="form-control mt-2">
                                 @error('institusi')
                                     <div class="text-danger">
                                         {{ $message }}
@@ -161,7 +161,7 @@
                             <div class="mb-3">
                                 <label for="institusi"> Lainnya </label><br/>
                                 <small> <i> Jenis pekerjaan lain </i> </small>
-                                <input type="text" name="lainnya" id="" class="form-control mt-2">
+                                <input type="text" name="lainnya" id="" autocomplete="off" class="form-control mt-2">
                                 @error('lainnya')
                                     <div class="text-danger">
                                         {{ $message }}
@@ -171,7 +171,7 @@
                             <div class="mb-3">
                                 <label for="judul buku"> Judul Buku <span class="text-danger">*</span> </label><br/>
                                 
-                                <input type="text" name="judul_buku" id="" class="form-control mt-2">
+                                <input type="text" name="judul_buku" id="" autocomplete="off" class="form-control mt-2">
                                 @error('judul_buku')
                                     <div class="text-danger">
                                         {{ $message }}
@@ -191,7 +191,7 @@
                             <div class="mb-3">
                                 <label for="kode pos"> Kode Pos <span class="text-danger">*</span> </label><br/>
                                 <small> <i> Tempat tinggal anda sekarang </i> </small>
-                                <input type="number" name="kode_pos" id="" class="form-control mt-2">
+                                <input type="number" name="kode_pos" id="" class="form-control mt-2" autocomplete="off">
                                 @error('kode_pos')
                                     <div class="text-danger">
                                         {{ $message }}
@@ -228,7 +228,7 @@
                             <div class="mb-3">
                                 <label for="jumlah_halaman"> Jumlah Halaman <span class="text-danger">*</span> </label><br/>
                                 <small> <i> Jumlah halaman yang ingin dicetak  </i> </small>
-                                <input type="number" name="jumlah_halaman" id="" class="form-control mt-2">
+                                <input type="number" name="jumlah_halaman" id="" class="form-control mt-2" autocomplete="off">
                                 @error('jumlah_halaman')
                                     <div class="text-danger">
                                         {{ $message }}
@@ -238,7 +238,7 @@
                             <div class="mb-3">
                                 <label for="jumlah_halaman"> Jumlah Cetakan <span class="text-danger">*</span> </label><br/>
                                 <small> <i> Jumlah etakan yang ingin dicetakan </i> </small>
-                                <input type="number" name="jumlah_cetakan" id="" class="form-control mt-2">
+                                <input type="number" name="jumlah_cetakan" id="" class="form-control mt-2" autocomplete="off">
                                 @error('jumlah_cetakan')
                                     <div class="text-danger">
                                         {{ $message }}

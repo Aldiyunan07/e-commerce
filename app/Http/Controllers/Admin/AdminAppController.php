@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
+use App\Models\Alasan;
 use App\Models\Buku;
 use App\Models\Buy;
 use App\Models\Kategori;
@@ -271,7 +272,9 @@ class AdminAppController extends Controller
 
     public function progressbuku()
     {
-        $progress = Progress::orderBy('created_at','desc')->paginate(5);
+        $progress = Progress::whereHas('penerbit', function($qry){
+            $qry->where('status','terima');
+        })->orderBy('created_at','desc')->paginate(5);
         return view('admin.penerbit.listprogress',compact('progress'));
 
     }
@@ -284,6 +287,17 @@ class AdminAppController extends Controller
     public function updateProgress(Progress $progress,Request $request)
     {
         $data = $request->all();
+        
+        $request->validate([
+            'gambar' => 'mimes:png,jpg,jpeg'
+        ]);
+
+        if($request->hasFile('gambar')){
+            if($progress->laporan !== null){
+                Storage::delete($progress->laporan);
+            }
+            $data['laporan'] = $request->file('gambar')->store('images/laporan'); 
+        }
         $progress->update($data);
         return back();
     }
@@ -322,5 +336,26 @@ class AdminAppController extends Controller
             session()->flash('error','Password tidak sesuai!');
             return redirect(route('admin.profile'));
         }
+    }
+
+    public function acceptPenerbit(Penerbit $penerbit)
+    {
+        if($penerbit->status == "tolak"){
+            $penerbit->alasan->delete();
+        }
+        $penerbit->status = "terima";
+        $penerbit->save();
+        return back();
+    }
+
+    public function declinedPenerbit(Penerbit $penerbit, Request $request)
+    {
+        $alasan = Alasan::create([
+            'penerbit_id' => $penerbit->id,
+            'alasan' => $request->alasan
+        ]); 
+        $penerbit->status = "tolak";
+        $penerbit->save();
+        return back();
     }
 }

@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <x-content-guest header="Masuk" >
+    <x-content-guest header="Login User" >
         <x-auth-session-status class="mb-4" :status="session('status')" />
         <form method="POST" action="{{ route('login') }}">
             @csrf
@@ -23,8 +23,9 @@
             <div class="d-grid mb-3">
                 <button class="btn btn-primary fw-bold border-0 p-3 px-4">Masuk</button>
             </div>
-            <div>
+            <div class="d-flex justify-content-between">
                 <span class="form-check-label text-dark fw-light opacity-75 small">Belum mempunyai akun? <a href="{{ route('register') }}" class="text-decoration-none fw-normal">Daftar</a></span>
+                <a href="{{ route('penjual.login') }}" style="text-decoration:none;"> Login sebagai penjual </a>
             </div>
         </form>
     </x-content-guest>

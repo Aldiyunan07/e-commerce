@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Penerbit;
 use App\Models\Progress;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PenerbitController extends Controller
 {
@@ -78,5 +79,10 @@ class PenerbitController extends Controller
         $progress = Progress::where('penerbit_id',$request->cari)->get();
         $listpenerbit = Penerbit::get();
         return view('penerbit.pageProgress',compact('listpenerbit','progress'));
+    }
+
+    public function downloadProgress(Progress $progress)
+    {
+        return Storage::download($progress->laporan);
     }
 }

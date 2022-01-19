@@ -25,8 +25,9 @@ Route::middleware(['auth','verified'])->group(function(){
     Route::get('/my-book', [UserController::class, 'myBook'])->name('listmybook');
     Route::get('/read-book/{buku:id}', [UserController::class, 'lihatbuku'])->name('lihatbuku');
 });
-
+Route::get('pelayanan/',[UserController::class,'pagePelayanan'])->name('page.pelayanan');
 Route::get('progress/',[PenerbitController::class,'pageProgress'])->name('page.progress');
+Route::get('progress/download/{progress:id}',[PenerbitController::class,'downloadProgress'])->name('page.progress.download');
 Route::get('progress/search',[PenerbitController::class,'searchProgress'])->name('cari.progress');
 Route::get('/buku/kategori/{kategori:id}',[UserController::class,'listkategori'])->name('listkategori');
 Route::get('/daftar-menerbitkan',[PenerbitController::class,'index'])->name('daftar.menerbitkan');
@@ -101,6 +102,8 @@ Route::namespace('Admin')->name('admin.')->prefix('admin')->group(function(){
         
         // Penerbit
         Route::get('penerbit',[AdminAppController::class,'listPenerbit'])->name('penerbit');
+        Route::get('penerbit/accept/{penerbit:id}',[AdminAppController::class,'acceptPenerbit'])->name('penerbit.accept');
+        Route::post('penerbit/declined/{penerbit:id}',[AdminAppController::class,'declinedPenerbit'])->name('penerbit.declined');
         Route::get('penerbit/detail/{penerbit:id}',[AdminAppController::class,'detailPenerbit'])->name('detail.penerbit');
         Route::get('progress/',[AdminAppController::class,'progressbuku'])->name('progres.buku');
         Route::get('progress/edit/{progress:id}',[AdminAppController::class,'editProgress'])->name('edit.progress');

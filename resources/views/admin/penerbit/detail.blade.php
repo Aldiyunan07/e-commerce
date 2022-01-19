@@ -1,6 +1,22 @@
 <x-admin-layout>
     @section('content')
     <div class="py-4">
+        <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+            <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+                <li class="breadcrumb-item">
+                    <a href="#">
+                        <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                            </path>
+                        </svg>
+                    </a>
+                </li>
+                <li class="breadcrumb-item"><a href="{{ route('admin.penerbit') }}">List Penerbit</a></li>
+                <li class="breadcrumb-item"><a href="#">Detail Penerbit</a></li>
+            </ol>
+        </nav>
     </div>
     <div class="card border-0 shadow mb-4">
         <div class="card-header">
@@ -30,11 +46,10 @@
                         <h6> {{ ucfirst($penerbit->jk) }} </h6>
                     </div>
 
-                    <div class="mt-3">
-                        <label for=""> No Telepon / Whatsapp </label>
-                        <h6> {{ $penerbit->no_hp }} </h6>
+                    <div>
+                        <label for=""> Status </label>
+                        <h6> {{ ucfirst($penerbit->status) }} </h6>
                     </div>
-
                     <div class="mt-3">
                         <label for=""> Judul Buku </label>
                         <h6> {{ $penerbit->judul_buku }} </h6>
@@ -52,10 +67,12 @@
 
                 </div>
                 <div class="col-4">
-                    <div>
-                        <label for=""> Email </label>
-                        <h6> {{ $penerbit->email }} </h6>
+
+                <div class="mt-3">
+                        <label for=""> No Telepon / Whatsapp </label>
+                        <h6> {{ $penerbit->no_hp }} </h6>
                     </div>
+                    
 
                     <div class="mt-3">
                         <label for=""> Usia </label>
