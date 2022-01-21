@@ -13,7 +13,7 @@
             <div class="mb-3">
                 <x-label for="email" class="form-label text-dark fw-bold opacity-75" :value="__('Email')" />
 
-                <x-input id="email" class="form-control border-0 p-3 px-4" style="background-color: #F3F3F3" type="email" name="email" :value="old('email')" required autofocus />
+                <x-input id="email" autocomplete="off" class="form-control border-0 p-3 px-4" style="background-color: #F3F3F3" type="email" name="email" :value="old('email')" required autofocus />
             </div>
 
             <!-- Password -->

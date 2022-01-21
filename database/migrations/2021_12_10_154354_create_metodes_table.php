@@ -15,9 +15,8 @@ class CreateMetodesTable extends Migration
     {
         Schema::create('metodes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('penjual_id');
-            $table->string('name');
-            $table->string('thumbnail');
+            $table->foreignId('penjual_id')->constrained()->references('id')->on('penjuals')->onDelete('cascade');
+            $table->string('wallet');
             $table->string('number');
             $table->timestamps();
         });

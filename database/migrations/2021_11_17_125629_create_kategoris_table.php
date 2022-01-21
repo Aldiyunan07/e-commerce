@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class RenameColumnUserOnBukusTable extends Migration
+class CreateKategorisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class RenameColumnUserOnBukusTable extends Migration
      */
     public function up()
     {
-        Schema::table('bukus', function (Blueprint $table) {
-            $table->renameColumn('user_id','penjual_id');
+        Schema::create('kategoris', function (Blueprint $table) {
+            $table->id();
+            $table->string('kategori'); 
+            $table->timestamps();
         });
     }
 
@@ -25,8 +27,6 @@ class RenameColumnUserOnBukusTable extends Migration
      */
     public function down()
     {
-        Schema::table('bukus',function (Blueprint $table){
-            $table->renameColumn('penjual_id','user_id');
-        });
+        Schema::dropIfExists('kategoris');
     }
 }

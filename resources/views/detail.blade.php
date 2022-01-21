@@ -1,28 +1,11 @@
 <x-app-layout>
-    @push('swiper')
-    <script>
-        function myFunction() {
-          /* Get the text field */
-          var copyText = document.getElementById("myInput");
-        
-          /* Select the text field */
-          copyText.select();
-          copyText.setSelectionRange(0, 99999); /* For mobile devices */
-        
-          /* Copy the text inside the text field */
-          navigator.clipboard.writeText(copyText.value);
-          
-          /* Alert the copied text */
-        //   alert("Copied :" + copyText.value);
-        }
-    </script>
-    @endpush
     <div class="container-fluid">
         <section class="mx-50">
             <div class="row">
                 <div class="col-12 col-md-3">
                     <div class="pt-4 sticky-top">
-                        <div style="margin: 0; height: auto" class="mb-3 d-flex bg-white shadow-sm rounded align-items-center">
+                        <div style="margin: 0; height: auto"
+                            class="mb-3 d-flex bg-white shadow-sm rounded align-items-center">
                             <img src="{{$buku->picture}}" height="300" class="img-thumbnail rounded border-0" alt="...">
                         </div>
                     </div>
@@ -36,42 +19,46 @@
                                         {{ $buku->penulis }}
                                     </div>
                                     <div class="fs-4 fw-md text-dark mb-2">
-                                        {{ $buku->name }} 
+                                        {{ $buku->name }}
                                     </div>
                                     <div class="fs-5 fw-md mb-4 cc">
-                                        {{ $buku->rupiah($buku->harga_asli) }} 
+                                        {{ $buku->rupiah($buku->harga_asli) }}
                                         @if($buku->diskon > 0)
-                                            <sub class="fw-light text-decoration-line-through text-secondary"> {{ $buku->rupiah($buku->harga_awal) }}</s>
-                                        @endif 
+                                        <sub class="fw-light text-decoration-line-through text-secondary">
+                                            {{ $buku->rupiah($buku->harga_awal) }}</s>
+                                            @endif
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <div class="d-flex flex-column justify-content-center">
-                                    @auth
-                                    @if(Auth::user()->checkwhistlist($buku) == 1)
-                                    <a href="{{ route('unwhistlist',$buku->id) }}"
-                                        class="text-secondary  text-decoration-none" title="Hapus dari Wishlist">
-                                        <i class="bi bi-heart-fill fs-5 text-danger"></i>
-                                    </a>
-                                    @else
-                                    <a href="{{ route('whistlist',$buku->id) }}"
-                                        class="text-secondary text-decoration-none" title="Tambahkan ke Wishlist">
-                                        <i class="bi bi-heart fs-5 text-secondary"></i>
-                                    </a>
-                                    @endif
-                                    @else
-                                        <a href="{{ route('login') }}" class="text-secondary text-decoration-none" title="Tambah ke Wishlist">
+                                        @auth
+                                        @if(Auth::user()->checkwhistlist($buku) == 1)
+                                        <a href="{{ route('unwhistlist',$buku->id) }}"
+                                            class="text-secondary  text-decoration-none" title="Hapus dari Wishlist">
+                                            <i class="bi bi-heart-fill fs-5 text-danger"></i>
+                                        </a>
+                                        @else
+                                        <a href="{{ route('whistlist',$buku->id) }}"
+                                            class="text-secondary text-decoration-none" title="Tambahkan ke Wishlist">
+                                            <i class="bi bi-heart fs-5 text-secondary"></i>
+                                        </a>
+                                        @endif
+                                        @else
+                                        <a href="{{ route('login') }}" class="text-secondary text-decoration-none"
+                                            title="Tambah ke Wishlist">
                                             <i class="bi bi-heart fs-5 text-primary"></i>
                                         </a>
-                                    @endauth
-                                        <a href="#" class="text-secondary text-decoration-none" title="Bagikan" role="button" data-bs-toggle="modal" data-bs-target="#share" >
+                                        @endauth
+                                        <a href="#" class="text-secondary text-decoration-none" title="Bagikan"
+                                            role="button" data-bs-toggle="modal" data-bs-target="#share">
                                             <i class="bi bi-share-fill fs-5 text-secondary"></i>
                                         </a>
-                                        <a href="https://wa.me/{{ $buku->penjual->whatsapp }}" class="text-secondary text-decoration-none" title="Chat langsung">
+                                        <a href="https://wa.me/{{ $buku->penjual->whatsapp }}"
+                                            class="text-secondary text-decoration-none" title="Chat langsung">
                                             <i class="bi bi-whatsapp fs-5 text-success"></i>
                                         </a>
                                     </div>
-    
+
                                 </div>
                             </div>
                             <div class="d-flex align-items-center justify-content-between border-bottom pb-2"
@@ -82,14 +69,6 @@
                                     <div class="d-inline me-3 fw-normal small text-secondary opacity-75">Detail Buku</div>
                                     <div class="d-inline me-3 fw-normal small text-secondary opacity-75">Review</div> --}}
                                 </div>
-                            </div>
-                            <div class="text-dark my-3 fw-base text-dark">Deskripsi</div>
-                            <div class="fw-light">
-                                {!! nl2br($buku->deskripsi) !!}
-                            </div>
-                            <div class="text-dark my-3 fw-base text-dark">Sinopsis</div>
-                            <div class="fw-light">
-                                {!! $buku->sinopsis !!}
                             </div>
                             <div class="my-3">
                                 <div class="fw-base text-dark mb-3">Detail</div>
@@ -130,6 +109,14 @@
                                             <div class="small text-dark">{{ $buku->panjang }} cm</div>
                                         </div>
                                     </div>
+                                    <div class="text-dark my-3 fw-base text-dark">Deskripsi</div>
+                                    <div class="fw-light">
+                                        {!! nl2br($buku->deskripsi) !!}
+                                    </div>
+                                    <div class="text-dark my-3 fw-base text-dark">Sinopsis</div>
+                                    <div class="fw-light" style="text-align: justify;">
+                                        {!! nl2br($buku->sinopsis) !!}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -163,20 +150,24 @@
                             <div class="row gx-1">
                                 <div class="col-6">
                                     <div class="d-grid">
-                                        <a href="#" class="btn btn-outline-primary btn-sm rounded-pill" role="button" data-bs-toggle="modal" data-bs-target="#book" >Beli Buku Fisik</a>
+                                        <a href="#" class="btn btn-outline-primary btn-sm rounded-pill" role="button"
+                                            data-bs-toggle="modal" data-bs-target="#book">Beli Buku Fisik</a>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="d-grid">
                                         @auth
                                         @if(Auth::user()->bukuaccess($buku) == 0)
-                                        <a href="{{route('belisekarang',$buku->id)}}" class="btn btn-primary btn-sm rounded-pill">Beli Sekarang</a>
+                                        <a href="{{route('belisekarang',$buku->id)}}"
+                                            class="btn btn-primary btn-sm rounded-pill">Beli Sekarang</a>
                                         @else
-                                        <a href="{{route('lihatbuku',$buku->id)}}" class="btn btn-primary btn-sm rounded-pill">Lihat Buku</a>
+                                        <a href="{{route('lihatbuku',$buku->id)}}"
+                                            class="btn btn-primary btn-sm rounded-pill">Lihat Buku</a>
                                         @endif
                                         @else
-                                        <a href="{{route('login')}}" class="btn btn-primary btn-sm rounded-pill">Beli Sekarang</a>
-        
+                                        <a href="{{route('login')}}" class="btn btn-primary btn-sm rounded-pill">Beli
+                                            Sekarang</a>
+
                                         @endauth
                                     </div>
                                 </div>
@@ -191,55 +182,64 @@
                         <div class="row gx-1">
                             <div class="col-6">
                                 <div class="d-grid">
-                                    <a href="#" class="btn btn-outline-primary btn-sm rounded-pill" role="button" data-bs-toggle="modal" data-bs-target="#book" >Beli Buku Fisik</a>
+                                    <a href="#" class="btn btn-outline-primary btn-sm rounded-pill" role="button"
+                                        data-bs-toggle="modal" data-bs-target="#book">Beli Buku Fisik</a>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="d-grid">
                                     @auth
                                     @if(Auth::user()->bukuaccess($buku) == 0)
-                                    <a href="{{route('belisekarang',$buku->id)}}" class="btn btn-primary btn-sm rounded-pill">Beli Sekarang</a>
+                                    <a href="{{route('belisekarang',$buku->id)}}"
+                                        class="btn btn-primary btn-sm rounded-pill">Beli Sekarang</a>
                                     @else
-                                    <a href="{{route('lihatbuku',$buku->id)}}" class="btn btn-primary btn-sm rounded-pill">Lihat Buku</a>
+                                    <a href="{{route('lihatbuku',$buku->id)}}"
+                                        class="btn btn-primary btn-sm rounded-pill">Lihat Buku</a>
                                     @endif
                                     @else
-                                    <a href="{{route('login')}}" class="btn btn-primary btn-sm rounded-pill">Beli Sekarang</a>
-    
+                                    <a href="{{route('login')}}" class="btn btn-primary btn-sm rounded-pill">Beli
+                                        Sekarang</a>
+
                                     @endauth
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </section>
     </div>
-    {{-- Modal Content --}}
-    <div class="modal fade" id="share" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="share" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-0 p-4">
                 <div class="d-flex justify-content-start" style="column-gap: 2rem">
                     <button type="button" class="btn-close bi bi-close" data-bs-dismiss="modal"></button>
-                    <div class="modal-title" id="staticBackdropLabel">Beli Buku Fisik</div>
+                    <div class="modal-title" id="staticBackdropLabel">Bagikan Buku</div>
                 </div>
                 <div class="modal-body">
                     <div class="px-4 pt-5 d-flex justify-content-between align-items-start" style="column-gap: 2.5rem;">
-                        <div as="button" onclick="myFunction()">
-                            <div class="d-flex flex-column justify-content-center text-decoration-none d-flex flex-column text-dark" target="_blank">
-                                <i class="bi bi-link fs-2 text-dark text-center"></i>
-                            </div>
-                            <div class="small fw-light">Salin Link</div> 
-                            <input type="input" value="Eusian duyy" id="myInput" class="p-0 px-1 mt-1" size="1" readonly> -->
+                        <div>
+                            <a href="mailto:?subject=Saya Ingin Kamu Melihat Ini&amp;body=Ayo Temukan Buku anda Disini https://pustakaaksara.co.id/e-commerce/view/{{ $buku->id }}"
+                                class="d-flex flex-column justify-content-center text-decoration-none text-dark"
+                                target="_blank">
+                                <i class="bi bi-envelope fs-2 text-dark text-center"></i>
+                            </a>
+                            <div class="small fw-light">Email</div>
                         </div>
                         <div>
-                            <a href="{{ $buku->shopee }}" class="d-flex flex-column justify-content-center text-decoration-none text-dark" target="_blank">
+                            <a href="http://www.facebook.com/sharer.php?u=https://pustakaaksara.co.id"
+                                class="d-flex flex-column justify-content-center text-decoration-none text-dark"
+                                target="_blank">
                                 <i class="bi bi-facebook fs-2 text-primary text-center"></i>
                             </a>
                             <div class="small fw-light">Facebook</div>
                         </div>
                         <div>
-                            <a href="{{ $buku->bukalapak }}" class="d-flex flex-column justify-content-center text-decoration-none d-flex flex-column text-dark" target="_blank">
+                            <a href="{{ $buku->bukalapak }}"
+                                class="d-flex flex-column justify-content-center text-decoration-none d-flex flex-column text-dark"
+                                target="_blank">
                                 <i class="bi bi-twitter fs-2 text-info text-center"></i>
                             </a>
                             <div class="small fw-light">Twitter</div>
@@ -249,7 +249,8 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="book" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="book" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-0 p-4">
                 <div class="d-flex justify-content-start" style="column-gap: 2rem">
@@ -257,24 +258,26 @@
                     <div class="modal-title" id="staticBackdropLabel">Beli Buku Fisik</div>
                 </div>
                 <div class="modal-body">
-                    <div class="px-4 pt-5 d-flex justify-content-between align-items-center" style="column-gap: 2.5rem;">
+                    <div class="px-4 pt-5 d-flex justify-content-between align-items-center"
+                        style="column-gap: 2.5rem;">
                         @if($buku->tokopedia == "" && $buku->shopee == "" && $buku->bukalapak == "")
-                            <div class=" p-4 text-center"> Ups, Maaf Untuk Saat Ini Belum Ada Buku Fisik Yang Bisa Di Beli </div>
+                        <div class=" p-4 text-center"> Ups, Maaf Untuk Saat Ini Belum Ada Buku Fisik Yang Bisa Di Beli
+                        </div>
                         @else
                         @if($buku->tokopedia !== null)
-                            <a href="{{ $buku->tokopedia }}" target="_blank">
-                                <img src="{{ asset('image/Tokopedia.png') }}" width="50" class="img-fluid" alt="">
-                            </a>
+                        <a href="{{ $buku->tokopedia }}" target="_blank">
+                            <img src="{{ asset('image/Tokopedia.png') }}" width="50" class="img-fluid" alt="">
+                        </a>
                         @endif
                         @if($buku->shopee !== null)
-                            <a href="{{ $buku->shopee }}" target="_blank">
-                                <img src="{{ asset('image/Shopee.png') }}" width="50" class="img-fluid" alt="">
-                            </a>
+                        <a href="{{ $buku->shopee }}" target="_blank">
+                            <img src="{{ asset('image/Shopee.png') }}" width="50" class="img-fluid" alt="">
+                        </a>
                         @endif
                         @if($buku->bukalapak !== null)
-                            <a href="{{ $buku->bukalapak }}" target="_blank">
-                                <img src="{{ asset('image/Bukalapak.png') }}" width="50" class="img-fluid" alt="">
-                            </a>
+                        <a href="{{ $buku->bukalapak }}" target="_blank">
+                            <img src="{{ asset('image/Bukalapak.png') }}" width="50" class="img-fluid" alt="">
+                        </a>
                         @endif
                         @endif
 

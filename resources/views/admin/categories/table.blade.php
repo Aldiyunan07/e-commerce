@@ -24,14 +24,14 @@
                         <div class="modal-body">
                             <div class="mb-3">
                                 <label for="kategori" class="form-label">Kategori</label>
-                                <input type="text" class="form-control" id="kategori" name="kategori"
+                                <input type="text" autocomplete="off" class="form-control" id="kategori" name="kategori"
                                     placeholder="Masukan Nama Kategori" required>
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-info">Tambah</button>
                             <button type="button" class="btn btn-danger ms-auto"
-                                data-bs-dismiss="modal">Kembali</button>
+                            data-bs-dismiss="modal">Kembali</button>
+                            <button type="submit" class="btn btn-info">Tambah</button>
                         </div>
                     </form>
                 </div>
@@ -94,9 +94,9 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="submit" class="btn btn-info">Update</button>
                                         <button type="button" class="btn btn-danger ms-auto"
                                             data-bs-dismiss="modal">Kembali</button>
+                                        <button type="submit" class="btn btn-info">Update</button>
                                     </div>
                                 </form>
                             </div>

@@ -14,8 +14,8 @@ class CreateBukuUserTable extends Migration
     public function up()
     {
         Schema::create('buku_user', function (Blueprint $table) {
-            $table->foreignId('buku_id');
-            $table->foreignId('user_id');
+            $table->foreignId('buku_id')->constrained()->references('id')->on('bukus')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->references('id')->on('users')->onDelete('cascade');
             $table->primary(['buku_id','user_id']);
             $table->timestamps();
         });

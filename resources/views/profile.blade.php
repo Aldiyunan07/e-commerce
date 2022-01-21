@@ -17,7 +17,7 @@
                             @csrf
                             <div class="col-md-6">
                               <label for="name" class="form-label font-custom">Nama Lengkap</label>
-                              <input type="text" class="form-control" name="name" value="{{ Auth::user()->name }}" placeholder="Masukan Nama Lengkap">
+                              <input type="text" autocomplete="off" class="form-control" name="name" value="{{ Auth::user()->name }}" placeholder="Masukan Nama Lengkap">
                               @error('name')
                                 <div class="text-danger">
                                     {{ $message }}
@@ -29,7 +29,7 @@
                             </div>
                             <div class="col-md-6">
                               <label for="email" class="form-label font-custom">Email</label>
-                              <input type="email" class="form-control" name="email" placeholder="Masukan Email" value="{{ Auth::user()->email }}">
+                              <input type="email" class="form-control" autocomplete="off" name="email" placeholder="Masukan Email" value="{{ Auth::user()->email }}">
                               @error('email')
                                 <div class="text-danger">
                                     {{ $message }}
@@ -77,7 +77,7 @@
                             <div class="col-md-6">
                             <div class="mb-3">
                                   <label for="inputCity" class="form-label font-custom">No Telepon / Whatsapp</label>
-                                  <input type="text" class="form-control" name="no_telp" value="{{ Auth::user()->no_telp }}" id="inputCity" placeholder="Masukan No Telepon / Whatsapp">
+                                  <input type="text" class="form-control" name="no_telp" autocomplete="off" value="{{ Auth::user()->no_telp }}" id="inputCity" placeholder="Masukan No Telepon / Whatsapp">
                                   @error('no_telp')
                                 <div class="text-danger">
                                     {{ $message }}
@@ -88,19 +88,12 @@
                             <div class="col-md-6">
                             <div class="mb-3">
                                     <label for="exampleDataList" class="form-label font-custom">Profesi atau Pekerjaan</label>
-                                    <input class="form-control" name="profesi" value="{{ Auth::user()->profesi }}" placeholder="Masukan Pekerjaan">
+                                    <input class="form-control" name="profesi" autocomplete="off" value="{{ Auth::user()->profesi }}" placeholder="Masukan Pekerjaan">
                                     @error('profesi')
                                 <div class="text-danger">
                                     {{ $message }}
                                 </div>
                               @enderror
-                                    <datalist id="datalistOptions">
-                                      <option value="San Francisco">
-                                      <option value="New York">
-                                      <option value="Seattle">
-                                      <option value="Los Angeles">
-                                      <option value="Chicago">
-                                    </datalist>
                                 </div>
                             </div>
                             <div class="col-md-6">

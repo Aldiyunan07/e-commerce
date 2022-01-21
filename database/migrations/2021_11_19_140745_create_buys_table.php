@@ -15,8 +15,8 @@ class CreateBuysTable extends Migration
     {
         Schema::create('buys', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->foreignId('buku_id');
+            $table->foreignId('user_id')->constrained()->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('buku_id')->constrained()->references('id')->on('bukus')->onDelete('cascade');
             $table->string('status');
             $table->foreignId('penjual_id');
             $table->timestamps();

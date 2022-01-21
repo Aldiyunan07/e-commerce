@@ -15,8 +15,10 @@ class CreateProgressTable extends Migration
     {
         Schema::create('progress', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('penerbit_id');
+            $table->foreignId('penerbit_id')->constarined()->references('id')->on('penerbits')->onDelete('cascade');
+            $table->string('laporan')->nullable();
             $table->string('naskah')->nullable();
+            $table->string('produksi')->nullable();
             $table->string('administrasi')->nullable();
             $table->string('antrian')->nullable();
             $table->string('cover')->nullable();
@@ -25,7 +27,6 @@ class CreateProgressTable extends Migration
             $table->string('deal_harga')->nullable();
             $table->date('masuk')->nullable();
             $table->date('keluar')->nullable();
-            $table->string('produksi')->nullable();
             $table->timestamps();
         });
     }

@@ -52,7 +52,6 @@
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
-
 <body class="font-sans antialiased" style="background-color: #f6f8fd;">
     <div class="min-vh-100">
         @include('layouts.navigation')
@@ -109,9 +108,10 @@
         }
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
     <script>
         //no wa admin
-        $("#noAdmin").val("089696831724");
+        $("#noAdmin").val("856-4263-1606");
         $('.whatsapp-btn').click(function () {
          $('#whatsapp').toggleClass('toggle');
         });

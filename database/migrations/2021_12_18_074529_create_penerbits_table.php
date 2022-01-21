@@ -26,6 +26,7 @@ class CreatePenerbitsTable extends Migration
             $table->string('institusi');
             $table->string('pekerjaan');
             $table->integer('kode_pos');
+            $table->enum('status',['proses','terima','tolak']);
             $table->string('ukuran');
             $table->string('jasa');
             $table->integer('jumlah_halaman');

@@ -99,7 +99,8 @@
                                         <h2 class="fs-5 fw-bold mb-0">Buku Terjual</h2>
                                     </div>
                                     <div class="col text-end">
-                                        <a href="{{ route('admin.books') }}" class="btn btn-sm btn-primary">Lihat Semuanya</a>
+                                        <a href="{{ route('admin.books') }}" class="btn btn-sm btn-primary">Lihat
+                                            Semuanya</a>
                                     </div>
                                 </div>
                             </div>
@@ -107,6 +108,7 @@
                                 <table class="table align-items-center table-flush">
                                     <thead class="thead-light">
                                         <tr>
+                                            <th class="border-bottom" scope="col">No</th>
                                             <th class="border-bottom" scope="col">Buku</th>
                                             <th class="border-bottom" scope="col">Penerbit</th>
                                             <th class="border-bottom" scope="col">Penjual</th>
@@ -114,8 +116,11 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($buku->take(5) as $b)
+                                        @foreach($buku->take(5) as $n => $b)
                                         <tr>
+                                            <th class="text-gray-900" scope="row">
+                                                {{ $n + 1 }}
+                                            </th>
                                             <th class="text-gray-900" scope="row">
                                                 {{ $b->name }}
                                             </th>
@@ -126,7 +131,7 @@
                                                 {{ $b->penjual->name }}
                                             </td>
                                             <td class="fw-bolder text-gray-500">
-                                                {{ $b->buy->count() }} x  Terjual
+                                                {{ $b->buy->count() }} x Terjual
                                             </td>
                                         </tr>
                                         @endforeach

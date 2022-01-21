@@ -5,7 +5,7 @@
             @csrf
             <div class="mb-3">
                 <label for="email" class="form-label text-dark fw-bold opacity-75">Email</label>
-                <input type="email" name="email" value="{{old('email')}}" id="email" class="form-control border-0 p-3 px-4" style="background-color: #F3F3F3" placeholder="Masukan Email" required autofocus>
+                <input type="email" autocomplete="off" name="email" value="{{old('email')}}" id="email" class="form-control border-0 p-3 px-4" style="background-color: #F3F3F3" placeholder="Masukan Email" required autofocus>
                 @error('email')
                 <span class="small text-danger my-1">
                     {{ $message}}

@@ -75,6 +75,7 @@ Route::namespace('Admin')->name('admin.')->prefix('admin')->group(function(){
         Route::get('login',[AdminAuthenticatedSessionController::class,'create'])->name('login'); 
         Route::post('login',[AdminAuthenticatedSessionController::class,'store'])->name('adminlogin');
     });
+    Route::get('/read-book/{buku:id}', [UserController::class, 'lihatbuku'])->name('lihatbuku');
     Route::namespace('admin')->post('logout',[AdminAuthenticatedSessionController::class,'destroy'])->name('logout');
     Route::namespace('admin')->post('profil/update/{admin:id}',[AdminAppController::class,'profilUpdate'])->name('profilUpdate');
     Route::namespace('admin')->post('profil/update-password/{admin:id}',[AdminAppController::class,'changePassword'])->name('changePassword');
