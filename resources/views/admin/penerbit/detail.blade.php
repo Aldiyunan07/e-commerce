@@ -32,7 +32,6 @@
                         <h5 class="mt-2"> {{ $penerbit->nama }} </h5>
                         <h6 class="mt-2"> {{ $penerbit->email }} </h6>
                         <a href="mailto:{{ $penerbit->email }}" class="btn btn-success mt-2 text-white"> Kirim Review Balasan</a> <br/>
-                        <a href="{{ route('admin.showBukuPenerbit',$penerbit->id) }}" class="btn btn-info btn-sm mt-2 text-white"> Lihat Buku</a>
                     </div>
                 </div>
                 <div class="col-4">
@@ -74,10 +73,6 @@
                     </div>
                     
 
-                    <div class="mt-3">
-                        <label for=""> Usia </label>
-                        <h6> {{ $penerbit->usia }} Tahun </h6>
-                    </div>
 
                     <div class="mt-3">
                         <label for=""> Pekerjaan </label>
@@ -88,10 +83,9 @@
                         <label for=""> Kode Pos </label>
                         <h6> {{ $penerbit->kode_pos }} </h6>
                     </div>
-
                     <div class="mt-3">
-                        <label for=""> Jumlah Cetakan </label>
-                        <h6> {{ $penerbit->jumlah_cetakan }} Cetak </h6>
+                        <label for=""> Ukuran </label>
+                        <h6> {{ $penerbit->ukuran }} CM </h6>
                     </div>
 
                     <div class="mt-3">

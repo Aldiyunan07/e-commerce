@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <x-content-guest header="Login Penjual">
+    <x-content-guest header="Login Karyawan">
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
 

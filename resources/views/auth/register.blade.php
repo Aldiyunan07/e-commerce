@@ -21,6 +21,15 @@
                 @enderror
             </div>
             <div class="mb-3">
+                {{-- <label for="whatsapp" class="form-label text-dark fw-bold opacity-75">Whatsapp</label> --}}
+                <input type="text" autocomplete="off" name="no_telp" value="{{old('no_telp')}}" id="whatsapp" class="form-control border-0 p-3 px-4" style="background-color: #F3F3F3" placeholder="Whatsapp" required >
+                @error('no_telp')
+                <span class="small text-danger my-1">
+                    {{ $message}}
+                </span>
+                @enderror
+            </div>
+            <div class="mb-3">
                 {{-- <label for="password" class="form-label text-dark fw-bold opacity-75">Password</label> --}}
                 <input type="password" name="password" id="password" class="form-control border-0 p-3 px-4" style="background-color: #F3F3F3" placeholder="Password" required>
                 @error('password')

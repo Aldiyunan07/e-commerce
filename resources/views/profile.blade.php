@@ -13,104 +13,115 @@
             <div class="col-lg-9">
                 <div class="card border-0 shadow-sm">
                     <div class="card-body p-4">
-                        <form class="row g-3" method="post" enctype="multipart/form-data" action="{{ route('update.profil',Auth::user()->id) }}">
+                        <form class="row g-3" method="post" enctype="multipart/form-data"
+                            action="{{ route('update.profil',Auth::user()->id) }}">
                             @csrf
                             <div class="col-md-6">
-                              <label for="name" class="form-label font-custom">Nama Lengkap</label>
-                              <input type="text" autocomplete="off" class="form-control" name="name" value="{{ Auth::user()->name }}" placeholder="Masukan Nama Lengkap">
-                              @error('name')
+                                <label for="name" class="form-label font-custom">Nama Lengkap</label>
+                                <input type="text" autocomplete="off" class="form-control" name="name"
+                                    value="{{ Auth::user()->name }}" placeholder="Masukan Nama Lengkap">
+                                @error('name')
                                 <div class="text-danger">
                                     {{ $message }}
                                 </div>
-                              @enderror
-                              <!-- <div class="text-danger">
+                                @enderror
+                                <!-- <div class="text-danger">
                                   Contoh lamun error
                               </div> -->
                             </div>
                             <div class="col-md-6">
-                              <label for="email" class="form-label font-custom">Email</label>
-                              <input type="email" class="form-control" autocomplete="off" name="email" placeholder="Masukan Email" value="{{ Auth::user()->email }}">
-                              @error('email')
+                                <label for="email" class="form-label font-custom">Email</label>
+                                <input type="email" class="form-control" autocomplete="off" name="email"
+                                    placeholder="Masukan Email" value="{{ Auth::user()->email }}">
+                                @error('email')
                                 <div class="text-danger">
                                     {{ $message }}
                                 </div>
-                              @enderror
+                                @enderror
                             </div>
                             <div class="col-md-6">
                                 <span class="form-label font-custom">
                                     Jenis Kelamin
                                 </span>
                                 <div class="form-check">
-                                    <input class="form-check-input" name="jk" value="laki-laki" type="radio" {{ Auth::user()->jk == 'laki-laki' ? 'checked' : '' }}  id="flexRadioDefault1">
+                                    <input class="form-check-input" name="jk" value="laki-laki" type="radio"
+                                        {{ Auth::user()->jk == 'laki-laki' ? 'checked' : '' }} id="flexRadioDefault1">
                                     <label class="form-check-label" for="flexRadioDefault1">
-                                      Laki Laki
+                                        Laki Laki
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" value="perempuan" name="jk" id="flexRadioDefault2" {{ Auth::user()->jk == 'perempuan' ? 'checked' : '' }}>
+                                    <input class="form-check-input" type="radio" value="perempuan" name="jk"
+                                        id="flexRadioDefault2" {{ Auth::user()->jk == 'perempuan' ? 'checked' : '' }}>
                                     <label class="form-check-label" for="flexRadioDefault2">
-                                      Perempuan
+                                        Perempuan
                                     </label>
                                 </div>
                             </div>
-                            
+
                             <div class="col-md-6">
-                              <label for="email" class="form-label font-custom">Foto Profil</label>
-                              <input type="file" class="form-control" name="foto" >
-                              @error('foto')
+                                <label for="email" class="form-label font-custom">Foto Profil</label>
+                                <input type="file" class="form-control" name="foto">
+                                @error('foto')
                                 <div class="text-danger">
                                     {{ $message }}
                                 </div>
-                              @enderror
+                                @enderror
                             </div>
                             <div class="col-md-6">
-                            <div class="mb-3">
-                                  <label for="inputCity" class="form-label font-custom">Tanggal Lahir</label>
-                                  <input type="date" value="{{ Auth::user()->ttl }}" name="tanggal_lahir" class="form-control" id="inputCity">
-                                  @error('tanggal_lahir')
+                                <div class="mb-3">
+                                    <label for="inputCity" class="form-label font-custom">Tanggal Lahir</label>
+                                    <input type="date" value="{{ Auth::user()->ttl }}" name="tanggal_lahir"
+                                        class="form-control" id="inputCity">
+                                    @error('tanggal_lahir')
                                     <div class="text-danger">
-                                    {{ $message }}
+                                        {{ $message }}
                                     </div>
-                                  @enderror
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-6">
-                            <div class="mb-3">
-                                  <label for="inputCity" class="form-label font-custom">No Telepon / Whatsapp</label>
-                                  <input type="text" class="form-control" name="no_telp" autocomplete="off" value="{{ Auth::user()->no_telp }}" id="inputCity" placeholder="Masukan No Telepon / Whatsapp">
-                                  @error('no_telp')
-                                <div class="text-danger">
-                                    {{ $message }}
-                                </div>
-                              @enderror
+                                <div class="mb-3">
+                                    <label for="inputCity" class="form-label font-custom">No Telepon / Whatsapp</label>
+                                    <input type="text" class="form-control" name="no_telp" autocomplete="off"
+                                        value="{{ Auth::user()->no_telp }}" id="inputCity"
+                                        placeholder="Masukan No Telepon / Whatsapp">
+                                    @error('no_telp')
+                                    <div class="text-danger">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-6">
-                            <div class="mb-3">
-                                    <label for="exampleDataList" class="form-label font-custom">Profesi atau Pekerjaan</label>
-                                    <input class="form-control" name="profesi" autocomplete="off" value="{{ Auth::user()->profesi }}" placeholder="Masukan Pekerjaan">
+                                <div class="mb-3">
+                                    <label for="exampleDataList" class="form-label font-custom">Profesi atau
+                                        Pekerjaan</label>
+                                    <input class="form-control" name="profesi" autocomplete="off"
+                                        value="{{ Auth::user()->profesi }}" placeholder="Masukan Pekerjaan">
                                     @error('profesi')
-                                <div class="text-danger">
-                                    {{ $message }}
-                                </div>
-                              @enderror
+                                    <div class="text-danger">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-6">
-                            <div class="mb-3">
-                                  <label for="inputCity" class="form-label font-custom">Alamat</label>
-                                    <textarea name="alamat" class="form-control">{{ nl2br(Auth::user()->alamat) }}</textarea>
+                                <div class="mb-3">
+                                    <label for="inputCity" class="form-label font-custom">Alamat</label>
+                                    <textarea name="alamat"
+                                        class="form-control">{!! nl2br(Auth::user()->alamat) !!}</textarea>
                                     @error('alamat')
-                                <div class="text-danger">
-                                    {{ $message }}
-                                </div>
-                              @enderror
+                                    <div class="text-danger">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-12">
-                              <button type="submit" class="btn btn-primary">Simpan</button>
+                                <button type="submit" class="btn btn-primary">Simpan</button>
                             </div>
-                          </form>
+                        </form>
                     </div>
                 </div>
             </div>

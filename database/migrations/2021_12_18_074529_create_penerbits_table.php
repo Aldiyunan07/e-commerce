@@ -19,9 +19,7 @@ class CreatePenerbitsTable extends Migration
             $table->string('gelar')->nullable();
             $table->string('no_hp');
             $table->string('judul_buku');
-            $table->string('ebook');
             $table->string('email');
-            $table->string('usia');
             $table->string('jk');
             $table->string('institusi');
             $table->string('pekerjaan');
@@ -30,7 +28,6 @@ class CreatePenerbitsTable extends Migration
             $table->string('ukuran');
             $table->string('jasa');
             $table->integer('jumlah_halaman');
-            $table->integer('jumlah_cetakan');
             $table->timestamps();
         });
     }

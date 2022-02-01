@@ -38,8 +38,8 @@
                             Ubah Password
                         </a>
                         <div role="separator" class="dropdown-divider my-1"></div>
-                        <form action="{{ route('penjual.logout') }}" method="post">
-                            @csrf
+                        <form action="{{ route('penjual.logout') }}" method="get">
+                            
                             <a class="dropdown-item d-flex align-items-center" href="#" onclick="event.preventDefault(); this.closest('form').submit();">
                                 <svg class="dropdown-icon text-danger me-2" fill="none" stroke="currentColor"
                                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

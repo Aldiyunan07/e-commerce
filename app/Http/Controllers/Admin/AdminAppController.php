@@ -11,6 +11,7 @@ use App\Models\Kategori;
 use App\Models\Penerbit;
 use App\Models\Penjual;
 use App\Models\Progress;
+use App\Models\Testimonial;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -287,17 +288,6 @@ class AdminAppController extends Controller
     public function updateProgress(Progress $progress,Request $request)
     {
         $data = $request->all();
-        
-        $request->validate([
-            'gambar' => 'mimes:png,jpg,jpeg'
-        ]);
-
-        if($request->hasFile('gambar')){
-            if($progress->laporan !== null){
-                Storage::delete($progress->laporan);
-            }
-            $data['laporan'] = $request->file('gambar')->store('images/laporan'); 
-        }
         $progress->update($data);
         return back();
     }
@@ -356,6 +346,28 @@ class AdminAppController extends Controller
         ]); 
         $penerbit->status = "tolak";
         $penerbit->save();
+        return back();
+    }
+
+    public function testimonial()
+    {
+        $testimonial = Testimonial::get();
+        return view('admin.testimonial.index',compact('testimonial'));
+    }
+
+    public function acceptTestimonial(Testimonial $testimonial)
+    {
+        $testimonial->update([
+            'status' => 'terima'
+        ]);
+        return back();
+    }
+
+    public function denyTestimonial(Testimonial $testimonial)
+    {
+        $testimonial->update([
+            'status' => 'tolak'
+        ]);
         return back();
     }
 }

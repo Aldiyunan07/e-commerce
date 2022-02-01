@@ -13,23 +13,16 @@ class Penerbit extends Model
         'gelar',
         'no_hp',
         'judul_buku',
-        'ebook',
         'email',
-        'usia',
         'kode_pos',
         'ukuran',
         'jk',
         'institusi',
         'pekerjaan',
         'jumlah_halaman',
-        'jumlah_cetakan',
         'jasa'
     ];
 
-    public function getFileAttribute()
-    {
-        return asset('/storage/' . $this->ebook);
-    }
 
     public function gravatar($size = 150)
     {

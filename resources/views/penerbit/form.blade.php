@@ -94,23 +94,6 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="usia"> Usia <span class="text-danger">*</span> </label>
-                                <select name="usia" id="" class="form-control mt-2">
-                                    <option disabled selected>Pilih Salah Satu</option>
-                                    <option value="18 - 24"> 18 - 24 </option>
-                                    <option value="25 - 34"> 25 - 34 </option>
-                                    <option value="35 - 44"> 35 - 44 </option>
-                                    <option value="45 - 54"> 45 - 54 </option>
-                                    <option value="55 - 64"> 55 - 64 </option>
-                                    <option value="65+"> 65+ </option>
-                                </select>
-                                @error('usia')
-                                    <div class="text-danger">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
                                 <label for="jk"> Jenis Kelamin <span class="text-danger">*</span> </label>
                                 <select name="jk" id="" class="form-control mt-2">
                                     <option disabled selected>Pilih Salah Satu</option>
@@ -179,16 +162,6 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="judul buku"> Upload File Buku <span class="text-danger">*</span> </label><br/>
-                                
-                                <input type="file" name="file" id="" class="form-control mt-2">
-                                @error('file')
-                                    <div class="text-danger">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
                                 <label for="kode pos"> Kode Pos <span class="text-danger">*</span> </label><br/>
                                 <small> <i> Tempat tinggal anda sekarang </i> </small>
                                 <input type="number" name="kode_pos" id="" class="form-control mt-2" autocomplete="off">
@@ -213,18 +186,28 @@
                             </div>
                             <div class="mb-3">
                                 <label for="ukuran"> Ukuran Buku <span class="text-danger">*</span> </label>
-                                <select name="ukuran" id="" class="form-control mt-2">
+                                <select name="size" id="" class="form-control mt-2">
                                     <option disabled selected> Pilih Salah Satu </option>
-                                    <option value="A5"> A5 (14 x 20) </option>
-                                    <option value="Unesco"> Unesco (15.5 x 23) </option>
-                                    <option value="B5"> B5 (18 x 25) </option>
+                                    <option value="14 x 20"> A5 (14 x 20) </option>
+                                    <option value="15.5 x 23"> Unesco (15.5 x 23) </option>
+                                    <option value="18 x 25"> B5 (18 x 25) </option>
                                 </select>
-                                @error('ukuran')
+                                @error('size')
                                     <div class="text-danger">
                                         {{ $message }}
                                     </div>
                                 @enderror
                             </div>
+                            <div class="mb-3">
+                                <label for="ukuran"> Custom Ukuran Buku <span class="text-danger">*</span> </label>
+                                <input type="text" autocomplete="off" name="custom" id="" class="form-control">
+                                @error('custom')
+                                    <div class="text-danger">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+
                             <div class="mb-3">
                                 <label for="jumlah_halaman"> Jumlah Halaman <span class="text-danger">*</span> </label><br/>
                                 <small> <i> Jumlah halaman yang ingin dicetak  </i> </small>
@@ -236,18 +219,8 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="jumlah_halaman"> Jumlah Cetakan <span class="text-danger">*</span> </label><br/>
-                                <small> <i> Jumlah etakan yang ingin dicetakan </i> </small>
-                                <input type="number" name="jumlah_cetakan" id="" class="form-control mt-2" autocomplete="off">
-                                @error('jumlah_cetakan')
-                                    <div class="text-danger">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
                                 Silahkan <b> Cek Kembali </b> data diri anda <br/>
-                                Apabila data diri yang Anda masukkan sudah benar, silahkan Anda <b> KLIK TOMBOL DAFTAR </b> di bawah ini.
+                                <span class="text-danger"> * </span>Apabila data diri yang Anda masukkan sudah benar, silahkan kirimkan ebook yang ingin anda terbitkan ke email <b> penerbitpustakaaksara@gmail.com </b>
                             </div>
                             <button type="submit" class="btn btn-primary btn-lg fs-6 mb-3"> Daftar </button>
                         </form>

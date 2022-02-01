@@ -40,9 +40,9 @@
                         @foreach($penerbit as $n => $p)
                         <tr>
                             <td class="border-0 rounded-start">{{ $n + 1 }} </td>
-                            <td class="border-0"> <a href="{{ route('admin.detail.penerbit',$p->id) }}"> {{ $p->nama }}
+                            <td class="border-0"> <a href="{{ route('admin.detail.penerbit',$p->id) }}" class="text-info"> {{ $p->nama }}
                                 </a> </td>
-                            <td class="border-0">{{ $p->judul_buku }}</td>
+                            <td class="border-0">{{ substr($p->judul_buku,0,20) }}</td>
                             <td class="border-0">{{ $p->no_hp }}</td>
                             <td class="border-0">{{ $p->pekerjaan }}</td>
                             <td class="border-0">
@@ -53,9 +53,9 @@
                                 <a href="{{ route('admin.penerbit.accept',$p->id) }}" class="btn btn-danger btn-sm"> Tolak </a>
                                 @else
                                 <div class="d-flex">
+                                    <a href="{{ route('admin.penerbit.accept',$p->id) }}" class="btn text-white btn-success btn-sm me-2"> Terima </a>
                                 <button role="button" data-bs-toggle="modal" data-bs-target="#modal{{ $p->id }}"
-                                    class="btn btn-danger text-white btn-sm"> Terima </button>
-                                    <a href="{{ route('admin.penerbit.accept',$p->id) }}" class="btn btn-danger btn-sm"> Tolak </a>
+                                    class="btn btn-danger text-white btn-sm"> Tolak </button>
                                 </div>
 
                                 @endif

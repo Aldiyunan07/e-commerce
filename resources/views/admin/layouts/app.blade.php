@@ -101,7 +101,11 @@
 
     <!-- Volt JS -->
     <script src="{{ asset('admin/assets/js/volt.js') }}"></script>
-
+    <script>
+        function goBack() {
+        window.history.back();
+        }
+    </script>
 
 </body>
 

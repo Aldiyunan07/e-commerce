@@ -24,6 +24,7 @@
             </div>
         </div>
         <div class="card-body">
+            <div class="table-responsive">
                 <table class="table table-centered table-nowrap  mb-0 rounded">
                     <thead class="text-white bg-primary">
                         <tr>
@@ -32,7 +33,6 @@
                             <th class="border-0">Judul Buku</th>
                             <th class="border-0">Jasa </th>
                             <th class="border-0">Jumlah Halaman</th>
-                            <th class="border-0">Jumlah Percetakan</th>
                             <th class="border-0">Opsi</th>
                             <!-- <th class="border-0 rounded-end">Opsi</th> -->
                         </tr>
@@ -42,16 +42,16 @@
                         <tr>
                             <td class="border-0 rounded-start">{{ $n + 1 }} </td>
                             <td class="border-0"> <a href="{{ route('admin.detail.penerbit',$p->id) }}"> {{ $p->penerbit->nama }} </a> </td>
-                            <td class="border-0">{{ $p->penerbit->judul_buku }}</td>
+                            <td class="border-0">{{ substr($p->penerbit->judul_buku,0,20) }}</td>
                             <td class="border-0">{{ $p->penerbit->jasa }}</td>
                             <td class="border-0">{{ $p->penerbit->jumlah_halaman }} Halaman</td>
-                            <td class="border-0">{{ $p->penerbit->jumlah_cetakan }} Cetakan</td>
                             <td class="border-0"> <a href="{{ route('admin.edit.progress',$p->id) }}" class="btn btn-info btn-sm"> Edit </a> </td>
                             <!-- <td class="border-0 rounded-end">#</td> -->
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
+            </div>
             </div>
         <div class="card-footer px-3 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between">
             {{ $progress->links() }}

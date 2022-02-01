@@ -16,17 +16,15 @@ class CreateProgressTable extends Migration
         Schema::create('progress', function (Blueprint $table) {
             $table->id();
             $table->foreignId('penerbit_id')->constarined()->references('id')->on('penerbits')->onDelete('cascade');
-            $table->string('laporan')->nullable();
             $table->string('naskah')->nullable();
-            $table->string('produksi')->nullable();
+            $table->string('cetak')->nullable();
             $table->string('administrasi')->nullable();
-            $table->string('antrian')->nullable();
+            $table->string('antrianlayout')->nullable();
+            $table->string('antriandesain')->nullable();
             $table->string('cover')->nullable();
             $table->string('layout')->nullable();
             $table->string('harga')->nullable();
-            $table->string('deal_harga')->nullable();
-            $table->date('masuk')->nullable();
-            $table->date('keluar')->nullable();
+            $table->string('isbn')->nullable();
             $table->timestamps();
         });
     }

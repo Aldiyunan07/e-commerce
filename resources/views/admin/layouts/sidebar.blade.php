@@ -130,6 +130,14 @@
                     <span class="sidebar-text"> Progress Buku </span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.testimonial') }}" class="nav-link">
+                    <span class="sidebar-icon">
+                        <i class="bi bi-chat-dots me-2"></i>
+                    </span>
+                    <span class="sidebar-text"> Testimonial </span>
+                </a>
+            </li>
         </ul>
     </div>
 </nav>

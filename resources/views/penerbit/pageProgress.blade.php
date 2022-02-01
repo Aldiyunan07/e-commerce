@@ -332,28 +332,6 @@
                                                     <div class="row">
                                                         <div class="col-12">
                                                             <div class="single-timeline-content d-flex wow fadeInLeft" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInLeft;">
-                                                                @if ($progress->deal_harga !== null)
-                                                                <div class="timeline-icon bg-success"><i class="bi bi-check-lg" aria-hidden="true"></i></div>
-                                                                @else
-                                                                <div class="timeline-icon bg-danger"><i class="bi bi-x-lg" aria-hidden="true"></i></div>
-                                                                @endif
-                                                                <div class="timeline-text">
-                                                                    <h6>Deal Harga</h6>
-                                                                    <p>{{ $progress->rupiah($progress->deal_harga) }}</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="apland-timeline-area">
-                                                <div class="single-timeline-area">
-                                                    <div class="timeline-date wow fadeInLeft" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInLeft;"></div>
-                                                    <div class="row">
-                                                        <div class="col-12">
-                                                            <div class="single-timeline-content d-flex wow fadeInLeft" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInLeft;">
                                                                 @if ($progress->masuk !== null)
                                                                 <div class="timeline-icon bg-success"><i class="bi bi-check-lg" aria-hidden="true"></i></div>
                                                                 @else
@@ -413,14 +391,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        @if($progress->laporan !== null)
-                                        <div class="col-12 my-3">
-                                            <div class="section_heading text-center">
-                                                <h4> Unduh Laporan </h4>
-                                                <a href="{{ route('page.progress.download',$progress->id) }}" class="btn btn-primary">Unduh</a>
-                                            </div>
-                                        </div>
-                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -430,28 +400,5 @@
                 </div>
             </section>
         </div>
-        {{-- <div class="row">
-            <div class="col-md-8">
-                <div class="text-justify">
-                    Bagi Anda yang saat ini sedang dalam proses menerbitkan buku di Penerbit Pustaka Aksara dapat
-                    mengecek secara langsung progress atau kemajuan dari buku Anda.
-
-                    Terdapat beberapa proses dari mulai Anda mengirim naskah kepada kami hingga proses produksi dan siap
-                    dikirim ke tempat Anda.
-                    <br />
-                    Untuk mengetahui progress buku Anda sampai di tahap apa dapat memerika melalui tools dibawah ini
-                    dengan cara :
-                    <br />
-                    <ol>
-                        <li>Ketikkan “Judul Naskah” Anda di kolom “Masukkan judul buku Anda disini!”.</li>
-                        <li>Tekan “Cari” dan akan muncul hasilnya.</li>
-                        <li>Kini Anda sudah tahu buku Anda sampai di tahap apa.</li>
-                    </ol>
-                    <a href="{{ route('cari.progress') }}" class="btn btn-primary btn-sm"> Cek Buku Anda Disini </a>
-                    <br />
-                    <b>Ada pertanyaan atau butuh bantuan? Hubungi Konsultan Penerbitan Kami dibawah in</b>
-                </div>
-            </div>
-        </div> --}}
     </div>
 </x-app-layout>

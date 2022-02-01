@@ -18,7 +18,8 @@
                                 </div>
                                 <div class="d-sm-none">
                                     <h2 class="h5">Pesanan</h2>
-                                    <h3 class="fw-extrabold mb-1">345,678</h3>
+                                    <h3 class="fw-extrabold mb-1">{{ Auth::guard('penjual')->user()->buy->count() }}
+                                    </h3>
                                 </div>
                             </div>
                             <div class="col-12 col-xl-7 px-xl-0">
@@ -49,14 +50,14 @@
                                 </div>
                                 <div class="d-sm-none">
                                     <h2 class="fw-extrabold h5">Buku</h2>
-                                    <h3 class="mb-1">$43,594</h3>
+                                    <h3 class="mb-1">{{ Auth::guard('penjual')->user()->buku->count() }}</h3>
                                 </div>
                             </div>
                             <div class="col-12 col-xl-7 px-xl-0">
                                 <div class="d-none d-sm-block">
                                     <h2 class="h6 text-gray-400 mb-0">Buku</h2>
                                     <h3 class="fw-extrabold mb-2">{{ Auth::guard('penjual')->user()->buku->count() }}
-                                        </h3>
+                                    </h3>
                                 </div>
                             </div>
                         </div>
@@ -78,8 +79,8 @@
                                     </svg>
                                 </div>
                                 <div class="d-sm-none">
-                                    <h2 class="fw-extrabold h5"> Bounce Rate</h2>
-                                    <h3 class="mb-1">50.88%</h3>
+                                    <h2 class="fw-extrabold h5"> Toko</h2>
+                                    <h3 class="mb-1">{{ $bukuaccept->count() }}</h3>
                                 </div>
                             </div>
                             <div class="col-12 col-xl-7 px-xl-0">
@@ -108,7 +109,7 @@
                                             <!-- Avatar -->
                                             <a href="#" class="avatar">
                                                 <img class="rounded" alt="Image placeholder"
-                                                    src="{{ $a->user->Avatar }}">
+                                                    src="{{ $a->user->picture !== null ? $a->user->Avatar : asset('image/avatar.png') }}">
                                             </a>
                                         </div>
                                         <div class="col-auto ms--2">
@@ -177,7 +178,7 @@
                                             </h4>
                                             <div class="d-flex align-items-center">
                                                 {{ $a->buy->count() }} x Terjual
-                                                
+
                                             </div>
                                         </div>
                                         <div class="col text-end">

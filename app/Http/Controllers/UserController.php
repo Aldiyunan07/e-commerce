@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Buku;
 use App\Models\Buy;
 use App\Models\Kategori;
+use App\Models\Testimonial;
 use App\Models\User;
 use Illuminate\Validation\Rules;
 use Illuminate\Http\Request;
@@ -15,10 +16,18 @@ use Illuminate\Support\Facades\Storage;
 class UserController extends Controller
 {
     public function welcome(){
+        $testimonial = Testimonial::where('status','terima')->get();
+        if ($testimonial->count() > 0) {
+            $testimonial1 = Testimonial::where('status','terima')->first();
+            $testimonial2 = Testimonial::where('status','terima')->where('id','!=',$testimonial1->id)->take(4)->get();
+        }else{
+            $testimonial1 = null;
+            $testimonial2 = null;
+        }
         $buku = Buku::where('status','terima')->get();
         $kategori = Kategori::get();
         $bukus = Buku::where('status','terima')->orderBy('created_at','desc')->get();
-        return view('welcome',compact('buku','kategori','bukus'));
+        return view('welcome',compact('buku','kategori','bukus','testimonial','testimonial1','testimonial2'));
     }
 
     public function allBooks(Request $request)
@@ -108,8 +117,7 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
-            'no_telp' => 'required',
-            'jk' => 'required',     
+            'no_telp' => 'required',    
         ]);
         if($request->hasFile('foto')){
             if(Auth::user()->picture !== null){
@@ -162,5 +170,15 @@ class UserController extends Controller
     public function pagePelayanan()
     {
         return view('pelayanan');
+    }
+
+    public function testimonial(Request $request)
+    {
+        $data = $request->all();
+        $data['user_id'] = Auth::user()->id;
+        $data['status'] = 'proses';
+        $testimonial = new Testimonial;
+        $testimonial->create($data);
+        return back();
     }
 }

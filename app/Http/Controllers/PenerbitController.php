@@ -26,24 +26,22 @@ class PenerbitController extends Controller
             'nama' => 'required',
             'whatsapp' => 'required|numeric',
             'email' => 'required|email',
-            'usia' => 'required',
             'jk' => 'required',
             'institusi' => 'required',
             'job' => 'required',
             'kode_pos' => 'required|numeric',
             'jasa' => 'required',
-            'ukuran' => 'required',
             'judul_buku' => 'required',
-            'file' => 'required|mimes:pdf',
             'jumlah_halaman' => 'required',
-            'jumlah_cetakan' => 'required'
         ]);
-        if($request->hasFile('file')){
-            $file = $request->file('file');
-            $filename = $file->getClientOriginalName();
-            $name = time().rand().'.'.$filename;
-            $file->storeAs('filePenerbit/buku/', $name, 'public');
-            $data['ebook'] = 'filePenerbit/buku/'.$name;
+        if($request->custom !== null){
+            $data['ukuran'] = $request->custom;
+        }elseif($request->custom == null && $request->size !== null){
+            $data['ukuran'] = $request->size;
+        }elseif($request->custom == null && $request->size == null){
+            $request->validate([
+                'size' => 'required'
+            ]);
         }
         $data['no_hp'] = $request->whatsapp;
         if($request->job == "lainnya"){

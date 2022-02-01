@@ -12,15 +12,13 @@ class Progress extends Model
         'penerbit_id',
         'naskah',
         'administrasi',
-        'antrian',
         'cover',
-        'laporan',
         'layout',
         'harga',
-        'deal_harga',
-        'masuk',
-        'keluar',
-        'produksi'
+        'isbn',
+        'cetak',
+        'antrianlayout',
+        'antriandesain'
     ];
     public function penerbit()
     {
@@ -31,8 +29,4 @@ class Progress extends Model
         return $format;
     }
 
-    public function getUploadAttribute()
-    {
-        return asset('/storage/'.$this->laporan);
-    }
 }

@@ -20,7 +20,9 @@
     <div class="card border-0 shadow mb-4">
         <div class="card-header">
             <div class="d-flex justify-content-between">
-                <h1 class="h4">Progress Buku " {{ $progress->penerbit->judul_buku }} "</h1>
+                <h1 class="h4">
+                <a class="btn btn-transparent-dark btn-icon" onclick="goBack()"><i class="bi bi-arrow-left"></i></a>    
+                {{ $progress->penerbit->judul_buku }}</h1>
             </div>
         </div>
         <div class="card-body">
@@ -47,20 +49,17 @@
                             <input type="number" value="{{ old('masuk') ?? $progress->harga }}" class="form-control" name="harga" id="autoSizingInputGroup"
                                 placeholder="">
                         </div>
-                        <label for="" class="mt-2"> Tanggal Masuk ISBN </label>
-                        <div class="input-group">
-                            <input type="date" value="{{ old('masuk') ?? $progress->masuk }}" class="form-control" name="masuk" id="autoSizingInputGroup"
-                                placeholder="">
+                        <label for="" class="mt-2"> Cek ISBN </label>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" {{ $progress->isbn == "on" ? 'checked' : '' }} type="checkbox" name="antrianlayout" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="flexSwitchCheckDefault"> Cek ISBN </label>
                         </div>
 
-                        <label for="" class="mt-2"> Antrian Layout & Desain </label>
+                        <label for="" class="mt-2"> Antrian Layout </label>
                         <div class="form-check form-switch">
-                            <input class="form-check-input" {{ $progress->antrian == "on" ? 'checked' : '' }} type="checkbox" name="antrian" id="flexSwitchCheckDefault">
+                            <input class="form-check-input" {{ $progress->antrianlayout == "on" ? 'checked' : '' }} type="checkbox" name="antrianlayout" id="flexSwitchCheckDefault">
                             <label class="form-check-label" for="flexSwitchCheckDefault"> Cek Antrian</label>
                         </div>
-
-                        <label for="" class="mt-2"> Upload Laporan </label>
-                        <input type="file" name="gambar" class="form-control" id="">
 
                     </div>
                     <div class="col-md-4">
@@ -74,21 +73,15 @@
                             <input class="form-check-input" {{ $progress->cover == "on" ? 'checked' : '' }} name="cover" type="checkbox" id="flexSwitchCheckDefault">
                             <label class="form-check-label" for="flexSwitchCheckDefault">Cover</label>
                         </div>
-                        <label for="" class="mt-2"> Deal Harga </label>
-                        <div class="input-group">
-                            <div class="input-group-text">Rp</div>
-                            <input type="number" value="{{ old('deal_harga') ?? $progress->deal_harga }}" name="deal_harga" class="form-control" id="autoSizingInputGroup"
-                                placeholder="">
-                        </div>
-                        <label for="" class="mt-2"> Tanggal Keluar ISBN </label>
-                        <div class="input-group">
-                            <input type="date" value="{{ old('keluar') ?? $progress->keluar }}" name="keluar" class="form-control" id="autoSizingInputGroup"
-                                placeholder="">
-                        </div>
                         <label for="" class="mt-2"> Proses Produksi </label>
                         <div class="form-check form-switch">
                             <input class="form-check-input" {{ $progress->produksi == "on" ? 'checked' : '' }} name="produksi" type="checkbox" id="flexSwitchCheckDefault">
                             <label class="form-check-label" for="flexSwitchCheckDefault"> Mulai Proses Produksi</label>
+                        </div>
+                        <label for="" class="mt-2"> Antrian Desain </label>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" {{ $progress->antriandesain == "on" ? 'checked' : '' }} type="checkbox" name="antriandesain" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="flexSwitchCheckDefault"> Cek Antrian</label>
                         </div>
 
                     </div>

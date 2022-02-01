@@ -1,17 +1,16 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminAppController;
-use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\Auth\AdminAuthenticatedSessionController;
 use App\Http\Controllers\PenerbitController;
 use App\Http\Controllers\Penjual\Auth\PenjualAuthenticatedSessionController;
 use App\Http\Controllers\Penjual\PenjualAppController;
-use App\Http\Controllers\Penjual\PenjualHomeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[UserController::class,'welcome'])->name('welcome');
-Route::middleware(['auth','verified'])->group(function(){
+Route::middleware('auth')->group(function(){
+    Route::post('/testimonial',[UserController::class,'testimonial'])->name('testimonial');
     Route::get('/beli/{buku:id}',[UserController::class,'belisekarang'])->name('belisekarang');
     Route::post('/buy/{buku:id}',[UserController::class,'buynow'])->name('buynow');
     Route::get('/addwhistlist/{buku:id}',[UserController::class,'whistlist'])->name('whistlist');
@@ -111,6 +110,11 @@ Route::namespace('Admin')->name('admin.')->prefix('admin')->group(function(){
         Route::post('progress/update/{progress:id}',[AdminAppController::class,'updateProgress'])->name('update.progress');
         Route::get('penerbit/show-buku/{penerbit:id}',[AdminAppController::class,'showBukuPenerbit'])->name('showBukuPenerbit');
 
+        // Testimonial
+        Route::get('testimonial', [AdminAppController::class, 'testimonial'])->name('testimonial');
+        Route::get('testimonialAccept/{testimonial:id}', [AdminAppController::class, 'acceptTestimonial'])->name('testimonial.accept');
+        Route::get('testimonialDeny/{testimonial:id}', [AdminAppController::class, 'denyTestimonial'])->name('testimonial.deny');
+        
         // Order
         Route::get('orders', [AdminAppController::class, 'orders'])->name('orders');
         Route::get('order/konfirmai/{buy:id}',[AdminAppController::class,'orderskonfirmasi'])->name('orders.konfirmasi');
