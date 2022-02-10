@@ -258,14 +258,40 @@
                                                     <div class="row">
                                                         <div class="col-12">
                                                             <div class="single-timeline-content d-flex wow fadeInLeft" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInLeft;">
-                                                                @if ($progress->antrian == "on")
+                                                                @if ($progress->antrianlayout == "on")
                                                                 <div class="timeline-icon bg-success"><i class="bi bi-check-lg" aria-hidden="true"></i></div>
                                                                 @else
                                                                 <div class="timeline-icon bg-danger"><i class="bi bi-x-lg" aria-hidden="true"></i></div>
                                                                 @endif
                                                                 <div class="timeline-text">
-                                                                    <h6>Antrian Layout & Desain</h6>
-                                                                    @if ($progress->antrian == "on")
+                                                                    <h6>Antrian Layout</h6>
+                                                                    @if ($progress->antrianlayout == "on")
+                                                                    <p>Selesai</p>
+                                                                    @else
+                                                                    <p>Belum</p>
+                                                                    @endif
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                                                                <div class="col-12">
+                                            <div class="apland-timeline-area">
+                                                <div class="single-timeline-area">
+                                                    <div class="timeline-date wow fadeInLeft" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInLeft;"></div>
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="single-timeline-content d-flex wow fadeInLeft" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInLeft;">
+                                                                @if ($progress->antriandesain == "on")
+                                                                <div class="timeline-icon bg-success"><i class="bi bi-check-lg" aria-hidden="true"></i></div>
+                                                                @else
+                                                                <div class="timeline-icon bg-danger"><i class="bi bi-x-lg" aria-hidden="true"></i></div>
+                                                                @endif
+                                                                <div class="timeline-text">
+                                                                    <h6>Antrian Desain</h6>
+                                                                    @if ($progress->antriandesain == "on")
                                                                     <p>Selesai</p>
                                                                     @else
                                                                     <p>Belum</p>
@@ -332,36 +358,18 @@
                                                     <div class="row">
                                                         <div class="col-12">
                                                             <div class="single-timeline-content d-flex wow fadeInLeft" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInLeft;">
-                                                                @if ($progress->masuk !== null)
+                                                                @if ($progress->isbn == "on")
                                                                 <div class="timeline-icon bg-success"><i class="bi bi-check-lg" aria-hidden="true"></i></div>
                                                                 @else
                                                                 <div class="timeline-icon bg-danger"><i class="bi bi-x-lg" aria-hidden="true"></i></div>
                                                                 @endif
                                                                 <div class="timeline-text">
-                                                                    <h6>Tanggal Masuk ISBN</h6>
-                                                                    <p>{{ $progress->masuk !== null ? date('d F, Y', strtotime($progress->masuk)) : '-' }}</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="apland-timeline-area">
-                                                <div class="single-timeline-area">
-                                                    <div class="timeline-date wow fadeInLeft" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInLeft;"></div>
-                                                    <div class="row">
-                                                        <div class="col-12">
-                                                            <div class="single-timeline-content d-flex wow fadeInLeft" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInLeft;">
-                                                                @if ($progress->keluar !== null)
-                                                                <div class="timeline-icon bg-success"><i class="bi bi-check-lg" aria-hidden="true"></i></div>
-                                                                @else
-                                                                <div class="timeline-icon bg-danger"><i class="bi bi-x-lg" aria-hidden="true"></i></div>
-                                                                @endif
-                                                                <div class="timeline-text">
-                                                                    <h6>Tanggal Keluar ISBN</h6>
-                                                                    <p>{{ $progress->keluar !== null ? date('d F, Y', strtotime($progress->keluar)) : '-' }}</p>
+                                                                    <h6>Cek ISBN</h6>
+                                                                    @if ($progress->isbn == "on")
+                                                                    <p>Selesai</p>
+                                                                    @else
+                                                                    <p>Belum</p>
+                                                                    @endif
                                                                 </div>
                                                             </div>
                                                         </div>
